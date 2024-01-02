@@ -1,0 +1,62 @@
+/* Category Styling */
+.Categories {
+  display: grid;
+  width: 65%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin: 0 auto;
+}
+
+.singleCat {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background-image: url("https://images.ctfassets.net/hrltx12pl8hq/5GaLeZJlLyOiQC4gOA0qUM/a0398c237e9744ade8b072f99349e07a/shutterstock_152461202_thumb.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* H3 style for categories */
+.singleCat h3 {
+  margin: 0;
+  padding: 5rem 0;
+  font-size: 24px;
+  color: white;
+}
+
+.cats {
+  text-align: center;
+  margin: 8rem 0 5rem 0;
+  font-size: 3rem;
+}
+/* Spotlight Styling */
+.Spotlight {
+  background-image: url("https://images.unsplash.com/photo-1599998372764-ac8cbb604f21?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 -50px 40px rgba(0, 0, 0, 0.716);
+}
+
+.leftSpot h1 {
+  width: 45%;
+  color: white;
+  font-size: 5rem;
+  padding: 7rem 4rem 0rem 4rem;
+}
+
+.leftSpot .mainP {
+  color: white;
+  margin: 0 0 1rem 4rem;
+  width: 50%;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.409);
+}
+
+.leftSpot .finalP {
+  padding-bottom: 7rem;
+  color: white;
+  text-decoration: underline;
+  margin: 0 0 1rem 4rem;
+  width: 50%;
+  font-size: 1.5rem;
+}
