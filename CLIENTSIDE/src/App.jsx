@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Container from "./context/Container";
 import Footer from "./components/Footer";
 import AppNavigator from "./navigation/AppNavigator";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
       <Container>
-        <Navbar/>
-        <AppNavigator/>
-        <Footer/>
+        <Header />
+        <AppNavigator />
+        <Footer />
       </Container>
     </BrowserRouter>
   );

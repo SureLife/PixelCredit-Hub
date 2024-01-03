@@ -7,7 +7,7 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <div className="nav-bar">
-      <ul>
+      <ul className="nav-links">
         <li>
           <Link to="/">
             <img src={logoImage} alt="Logo" className="logo" />
@@ -22,21 +22,25 @@ function Navbar() {
         <li>
           <Link to="/contactus">Contact us</Link>
         </li>
-        <li>
+      </ul>
+
+      <ul className="user-actions">
+       <li>
           <Link to="/signin">Sign-in</Link>
         </li>
        {/*  <li>
           <Link to="/register">Register</Link>
         </li> */}
-        <li>
-          <Link to="/shoppingcart" className="shopping-cart">
-            <img
-              src={shoppingCart}
-              alt="shopping-cart"
-              className="shopping-cart"
-            />
-          </Link>
-        </li>
+      <li>
+        <Link to="/shoppingcart" className="shopping-cart">
+          <img
+            src={shoppingCart}
+            alt="shopping-cart"
+            className="shopping-cart"
+          />
+        </Link>
+      </li> 
+      
       </ul>
     </div>
   );
