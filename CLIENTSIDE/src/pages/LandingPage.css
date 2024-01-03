@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Home-Container {
+  padding: 2rem;
+  width: 100%;
+}
+
+.Home-cardContainer {
+  display: flex;
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 90%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+
+.withBG {
+  background-color: #f4f5f6;
+}
+
+.cardDiv {
+  padding: 2rem 1rem;
+  width: 50%;
+  max-width: 60%;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.imageDiv {
+  width: 50%;
+  height: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background-image: url("https://images.ctfassets.net/hrltx12pl8hq/5GaLeZJlLyOiQC4gOA0qUM/a0398c237e9744ade8b072f99349e07a/shutterstock_152461202_thumb.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.smallImageDiv {
+  width: 30%;
+  height: 200px;
+}
+
+.cat-Link {
+  color: black;
+}
+.imageContainer {
+  width: 100%;
+  display: flex;
+}
+.colum {
+  flex-direction: column;
+   text-align: center;
+}
+.PopularPara {
+  margin: 0;
+  font-size: 3rem;
+}
+h4 {
+  margin: 0;
+  font-size: 2rem;
+}
+.imageOuterDiv {
+    background-color: #f4f5f6;
+margin: 1rem;
+  width: 100%;
+  padding: 2rem;
+}
+.withBTN {
+  width: 100%;
+}
+.btnDiv{
+    display: flex;
+    justify-content: end;
+}
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .Home-cardContainer {
+    padding: 1rem; /* Adjust padding */
+  }
+
+  .cardDiv,
+  .imageDiv {
+    max-width: 100%; /* Take full width on smaller screens */
+    margin-bottom: 0.5rem; /* Adjust space between elements */
+  }
+}
