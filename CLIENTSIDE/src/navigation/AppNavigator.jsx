@@ -18,6 +18,7 @@ function AppNavigator() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
+        
       </Routes>
     </>
   );
