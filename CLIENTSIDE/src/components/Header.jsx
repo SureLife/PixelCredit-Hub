@@ -1,8 +1,13 @@
 import React from 'react'
+import Navbar from './Navbar.jsx'
+import Search from './Search.jsx'
 
 function Header() {
   return (
-    <div>Header</div>
+    <div>
+      <Navbar/>
+      <Search/>
+    </div>
   )
 }
 

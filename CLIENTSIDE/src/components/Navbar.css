@@ -1,32 +1,40 @@
-/* Navbar styles */
+/* Navbar.css */
+
 .nav-bar {
   background-color: #3333333b;
-  padding: 10px 20px;
+  padding: 10px 20px; 
+  display: flex;  
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .nav-bar ul {
-  list-style-type: none;
+    list-style: none;  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+}
+.nav-links{
+  width:50% ;
 }
 
-.nav-bar ul li {
-  display: inline;
-  margin-right: 20px;
+.user-actions{
+  width: 10%;
+}
+.nav-bar li {
+  margin: 0 10px;  
 }
 
-.nav-bar ul li a {
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-bar ul li a:hover {
-  text-decoration: underline;
+.nav-bar a {
+  color: black; 
+  font-size: 1.5rem;
+  text-decoration: none;  
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
+  height:  5rem
 }
-li .shopping-cart {
-  width: 50px;
-  height: 50px;
+
+.shopping-cart {
+  height: 2rem;  
 }
