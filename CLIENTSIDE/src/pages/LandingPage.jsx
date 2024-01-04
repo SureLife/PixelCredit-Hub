@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import "./LandingPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle, faHeart, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 function LandingPage() {
   return (
@@ -56,22 +59,22 @@ function LandingPage() {
           <div className="imageOuterDiv">
             <div className="imageDiv withBTN">
               <Link className="imageLink">
-                <img src="" alt="" />
+                <img src="" alt=""/>
               </Link>
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<span>&#x2665;</span>}
+                buttonText={<FontAwesomeIcon icon={faHeart} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
               <Button
-                buttonText={<span>&#x1F517;</span>}
-                className="shareButton"
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<span>&#x1F6D2;</span>}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -86,17 +89,17 @@ function LandingPage() {
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<span>&#x2665;</span>}
+                buttonText={<FontAwesomeIcon icon={faHeart} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
               <Button
-                buttonText={<span>&#x1F517;</span>}
-                className="shareButton"
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<span>&#x1F6D2;</span>}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -111,17 +114,17 @@ function LandingPage() {
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<span>&#x2665;</span>}
+               buttonText={<FontAwesomeIcon icon={faHeart} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
               <Button
-                buttonText={<span>&#x1F517;</span>}
-                className="shareButton"
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<span>&#x1F6D2;</span>}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -131,23 +134,38 @@ function LandingPage() {
       </div>
 
       <div className="Home-cardContainer">
-        <div>
+        <div className="videoContainer">
           <p>The reasons</p>
           <h4>Why choose Us?</h4>
-          <Link> video</Link>
+          <div className="videoDiv">
+            <Link className="video">
+                <Button
+                className="videoBTN"
+                buttonText={<FontAwesomeIcon icon={faPlayCircle} />}
+                /* onClick={handleSearch} */
+              />
+            </Link>
+          </div>
         </div>
       </div>
+
       <div className="Home-cardContainer">
-        <div>
+        <div className="imageDiv bottomImageDiv">
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
+        </div>
+        <div className="imageDiv bottomImageDiv">
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
+        </div>
+        <div className="imageDiv bottomImageDiv">
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
+        </div>
+        <div className="imageDiv bottomImageDiv">
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
