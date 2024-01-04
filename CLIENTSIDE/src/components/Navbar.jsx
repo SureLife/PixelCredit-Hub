@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../assets/images/Logo.png";
-import shoppingCart from "../assets/images/shopping-cart.png";
+import Button from "../components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import "./Navbar.css";
 
 function Navbar() {
@@ -33,11 +35,11 @@ function Navbar() {
         </li> */}
       <li>
         <Link to="/shoppingcart" className="shopping-cart">
-          <img
-            src={shoppingCart}
-            alt="shopping-cart"
-            className="shopping-cart"
-          />
+        <Button
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
+                className="BTN"
+                /* onClick={handleSearch} */
+              />
         </Link>
       </li> 
       
