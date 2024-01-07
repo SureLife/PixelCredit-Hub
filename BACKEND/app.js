@@ -8,6 +8,7 @@ import morgan from "morgan";
 import fileUpload from "express-fileupload";
 import usersRouter from "./routers/usersRouter.js";
 import adminRouter from "./routers/adminRouter.js";
+import contactUsRouter from "./routers/contactUsRouter.js"
 
 // creating express server
 const app = express();
@@ -32,6 +33,7 @@ app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
 // localhost:8000/api/users
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
+app.use("/submitContactForm", contactUsRouter)
 //create more routes as required
 
 // middleware to handle errors
