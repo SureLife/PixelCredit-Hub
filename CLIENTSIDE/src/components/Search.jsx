@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { MyContext } from "../context/MyContext";
 import Button from "./Button";
 import "./Search.css";
@@ -7,15 +7,29 @@ import "./Search.css";
 
 function Search() {
   const { state, dispatch } = useContext(MyContext);
-
-  //const [searchImage, setSearchImage] = useState([]);
-  //const [searchQuery, setSearchQuery] = useState("");
   const { searchImage, searchQuery } = state;
 
   const navigate = useNavigate();
 
+  const searchInput = useRef(null); // This stores the search input value.
+
+  // If Enter key is pressed, trigger the search action
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleInputChange();
+      handleSearch();    
+    }
+  };
+
+  const handleInputChange = () => {
+    searchInput.current.focus();
+    dispatch({ type: "SET_SEARCH_QUERY", payload: searchInput.current.value }) //sets the type to the current ref @ input
+    // Navigate to the desired route
+    navigate('/results');
+  };
+  
   const handleSearch = async () => {
-    if (!searchQuery) {
+    if (searchQuery === "") {
       console.log("Search query is empty.");
       return;
     }
@@ -38,9 +52,7 @@ function Search() {
       console.error("Error fetching data:", error);
     }
   };
-  const handleInputChange = (e) => {
-    dispatch({ type: "SET_SEARCH_QUERY", payload: e.target.value });
-  };
+  
   return (
     <div className="searchContainer">
       <div className="search">
@@ -48,17 +60,20 @@ function Search() {
           className="input-field"
           type="text"
           placeholder="Find an image..."
-          value={searchQuery}
-          /*  onChange={(e) => {
-            dispatch({ type: "SET_SEARCH_QUERY", payload: e.target.value });
-          }} */
-          onChange={handleInputChange}
+          ref={searchInput}
+          onKeyDown={handleKeyPress}
         />
-        <Button
-          buttonText={<span>&#128269;</span>}
-          className="searchBTN"
-          onClick={handleSearch}
-        />
+        {/* the below link, links the submit button to search results */}
+        {/* <Link to="/results">  */}
+          <Button
+            buttonText={<span>&#128269;</span>}
+            className="searchBTN"
+            onClick={() => {
+              handleInputChange();
+              handleSearch();
+            }}
+          />
+        {/* </Link> */}
       </div>
       
     </div>
