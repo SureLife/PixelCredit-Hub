@@ -12,17 +12,16 @@
   align-items: center;
 }
 
-.nav-links, .user-actions {
+.nav-links,
+.user-actions {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
-.nav-links{
+.nav-links {
   width: 60%;
 }
-
 
 .nav-links li {
   margin: 0 5px;
@@ -31,19 +30,31 @@
 .nav-links a,
 .user-actions a {
   color: black;
+  font-family: PPNeueMontreal-Medium;
   text-decoration: none;
-  font-size: 1.5rem;
-  
+  font-size: 1rem;
+  transition: 0.3s;
 }
-.user-actions a{
+
+.nav-links .nav-hover:hover {
+  color: white;
+  background-color: black;
+  padding: 1rem;
+  outline: 2px solid rgb(255, 255, 255);
+  outline-offset: 15px;
+  box-shadow: 2px -2px 0 #ffffff inset; /* Inner white on hover */
+}
+
+.nav-links .nav-hover:focus {
+  color: white;
+}
+.user-actions a {
   margin: 2rem;
 }
 .logo {
   height: 5rem;
   width: auto;
 }
-
-
 
 .user-actions li {
   margin-left: 10px;

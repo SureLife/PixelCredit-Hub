@@ -1,5 +1,5 @@
 .searchContainer {
-  background-color: #3333333b;
+  background-color: #ffffff3b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,8 +9,9 @@
 .search {
   display: flex;
   align-items: center;
+  width: 30%;
 }
 
 .input-field {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }

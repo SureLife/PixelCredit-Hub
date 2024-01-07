@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { MyContext } from "../context/MyContext";
-import SearchResult from "./SearchResult";
-import LandingPage from "./LandingPage";
+
 
 function Home() {
   //const [searchImage, setSearchImage] = useState("");
