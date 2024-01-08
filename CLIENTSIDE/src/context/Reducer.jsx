@@ -4,6 +4,12 @@ export const reducer = (state, action) => {
       return { ...state, searchImage: action.payload };
     case "SET_SEARCH_QUERY":
       return { ...state, searchQuery: action.payload };
+      case 'SET_USER':
+        return { ...state, user: action.payload };
+      case 'SET_UPLOAD_HISTORY':
+        return { ...state, uploadHistory: action.payload };
+      case 'SET_DOWNLOAD_HISTORY':
+        return { ...state, downloadHistory: action.payload };
     default:
       return state;
   }
@@ -12,4 +18,7 @@ export const reducer = (state, action) => {
 export const initialState = {
   searchImage: [],
   searchQuery: "",
+  user: null,
+  uploadHistory: [],
+  downloadHistory: [],
 };

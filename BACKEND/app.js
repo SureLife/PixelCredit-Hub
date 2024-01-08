@@ -32,6 +32,7 @@ app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
 // localhost:8000/api/users
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
+
 //create more routes as required
 
 // middleware to handle errors

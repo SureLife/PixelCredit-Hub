@@ -5,6 +5,7 @@ import {
   login,
   register,
   updateUser,
+  getUserByUsername,
 } from "../controllers/userControllers.js";
 import { userRegisterValidation } from "../middleware/validation.js";
 import { auth } from "../middleware/authorization.js";
@@ -23,5 +24,5 @@ router.get("/allUsers", auth, isAdmin, getAllUsers);
 router.get("/verifytoken", auth, (req, res) => {
   res.send({ success: true, data: req.user });
 });
-
+router.get("/:username", getUserByUsername);
 export default router;

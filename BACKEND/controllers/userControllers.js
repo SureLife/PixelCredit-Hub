@@ -87,3 +87,27 @@ export const getAllUsers = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getUserByUsername = async (req, res, next) => {
+  try {
+    const username = req.params.username;
+
+    // Fetch user by username from the database
+    const foundUser = await User.findOne({ username });
+
+    if (!foundUser) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+    const userId = foundUser._id;
+    const userById = await User.findOne({ _id: userId });
+
+    if (!userById) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    
+    res.status(200).json({ success: true, data: foundUser });
+  } catch (error) {
+    next(error);
+  }
+};

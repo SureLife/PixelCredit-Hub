@@ -11,44 +11,36 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.nav-links, .user-actions {
+.nav-links,
+.user-actions {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
-.nav-links{
+.nav-links {
   width: 60%;
 }
-
-
 .nav-links li {
   margin: 0 5px;
 }
-
 .nav-links a,
 .user-actions a {
   color: black;
   text-decoration: none;
   font-size: 1.5rem;
-  
 }
-.user-actions a{
+.user-actions a {
   margin: 2rem;
 }
-.logo {
+.logo,
+.profile-avatar {
   height: 5rem;
   width: auto;
 }
-
-
-
 .user-actions li {
   margin-left: 10px;
 }
-
 .shopping-cart {
   height: 20px;
   width: auto;
@@ -60,22 +52,18 @@
     flex-direction: column;
     padding: 10px;
   }
-
   .nav-links {
     width: 100%;
     justify-content: space-around;
     margin-bottom: 10px;
   }
-
   .nav-links li {
     margin: 5px 0;
   }
-
   .nav-links a,
   .user-actions a {
     font-size: 1.2rem;
   }
-
   .user-actions {
     width: 100%;
     justify-content: center;

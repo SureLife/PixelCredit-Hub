@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import Button from "./Button";
 import "./Search.css";
-
+const backendURL = `http://localhost:5500`;
 
 function Search() {
   const { state, dispatch } = useContext(MyContext);
@@ -21,8 +21,8 @@ function Search() {
     }
     try {
       const response = await fetch(
-        `https://your-own-api.com/search/images?query=${searchQuery}`
-        //Replace https://your-own-api.com/search/images?query=${searchQuery} with the actual URL of your backend API endpoint that handles image searches.
+        `${backendURL}/search/images?query=${searchQuery}`
+        
       );
 
       if (!response.ok) {
