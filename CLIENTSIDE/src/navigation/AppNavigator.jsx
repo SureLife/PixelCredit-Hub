@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import SignIn from "../pages/SignIn";
 import ShoppingCart from "../pages/ShoppingCart";
 import SearchResult from "../pages/SearchResult";
+import UserProfile from "../pages/UserProfile";
 
 function AppNavigator() {
   return (
@@ -20,6 +21,7 @@ function AppNavigator() {
         <Route path="/register" element={<Register />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/results" element={<SearchResult />} />
+        <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
     </>
   );
