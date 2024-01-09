@@ -34,6 +34,7 @@ app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)
+
 //create more routes as required
 
 // middleware to handle errors
