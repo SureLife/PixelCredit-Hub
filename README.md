@@ -1,4 +1,4 @@
-# PixelCreadit-Hub
+# PixelCredit-Hub
 Final MERN stack project.
 
 Stock Photo website.
