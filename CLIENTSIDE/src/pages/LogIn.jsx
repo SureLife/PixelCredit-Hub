@@ -1,15 +1,19 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import "./SignIn.css"; 
-import { MyContext } from '../context/MyContext.jsx'
+import "./LogIn.css"; 
+import { MyContext } from '../context/MyContext'
 import { useNavigate } from 'react-router-dom'
-function SignIn() {
-  const {setUser} =useContext(MyContext)
+function LogIn() {
+   console.log(MyContext);
+   const {setUser} =useContext(MyContext)
+
+  
+
   const navigate = useNavigate()
   const loginUser=(e)=>{
       e.preventDefault()
       //POST reuqest
-      fetch("http://localhost:8000/api/users/signIn", {
+      fetch("http://localhost:5500/users/logIn", {
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify({email: e.target.email.value, password :e.target.password.value })
@@ -25,7 +29,7 @@ function SignIn() {
       .then(result=>{
          if(result.success){
           setUser(result.data) // 2s
-          navigate("/profile") // 1s
+          navigate("/users/profile") // 1s
           }else{
           console.log(result.message)
          }
@@ -74,7 +78,7 @@ function SignIn() {
         <div className="additional-options">
           
           <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
+            Don't have an account? <Link to="/uers/register">Register</Link>
           </p>
         </div> 
 
@@ -87,4 +91,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default LogIn;

@@ -1,9 +1,9 @@
 
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import "./Register.css"; 
-import { MyContext } from '../context/MyContext.jsx'
+// import toast,{ Toaster } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 function Register() {
@@ -12,13 +12,13 @@ function Register() {
   const registerUser=(e)=>{
       e.preventDefault()
       const user = {
-          firstName:e.target.firstname.value ,
-          lastName:e.target.lastname.value ,
+          name: e.target.name.value ,
           email: e.target.email.value,
           password:e.target.password.value 
       }
+      console.log(user);
       //making POST request 
-      fetch("http://localhost:8000/api/users/register",{
+      fetch("http://localhost:5500/users/register",{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body: JSON.stringify(user)
@@ -27,13 +27,13 @@ function Register() {
       .then(result=>{
           if(result.errors){
               console.log(result.errors)
-              toast.error(JSON.stringify(result.errors))
+              // toast.error(JSON.stringify(result.errors))
           }else{
               e.target.reset()
-              console.log(hi);
+              console.log("hi");
               // toast.success("you successfully registered!")
               setTimeout(()=>{
-                   navigate("/login")
+                   navigate("/users/login")
               },1500)
              
           }
@@ -59,18 +59,17 @@ function Register() {
         <p>It's free and easy</p>
         {/* <Toaster position="top-center"/> */}
         <br /><br /><br /><br />
-        <form onSubmit={registerUser}
-        action="login-action" method="POST">
+        <form onSubmit={registerUser}>
           <label htmlFor="text">Full name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name*" required />
+          <input type="text" id="name" name="name" placeholder="Enter your full name*" required  autoComplete="username"/>
 
           <label htmlFor="email">Email or Phone Number:</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required />
+          <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required autoComplete="username"/>
 
           <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder='Type your Password*' required />
+          <input type="password" id="password" name="password" placeholder='Type your Password*'  required autoComplete="current-password"/>
          <p className="additional-options" >Must be 8 characters at least</p>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Register</button>
         </form>
         <div className="additional-options">
           <p> By creating an account means you agree to the 
@@ -89,7 +88,7 @@ function Register() {
         <div className="additional-options">
           
           <p>
-          Already have an account? <Link to="/sign In">Sign In</Link>
+          Already have an account? <Link to="/users/login">Log In</Link>
           </p>
         </div> 
 

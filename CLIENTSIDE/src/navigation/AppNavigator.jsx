@@ -4,7 +4,7 @@ import Categories from "../pages/Categories";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 import Register from "../pages/Register";
-import SignIn from "../pages/SignIn";
+import LogIn from "../pages/LogIn";
 import ShoppingCart from "../pages/ShoppingCart";
 import SearchResult from "../pages/SearchResult";
 import UserProfile from "../pages/UserProfile";
@@ -17,7 +17,7 @@ function AppNavigator() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/Login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/results" element={<SearchResult />} />
