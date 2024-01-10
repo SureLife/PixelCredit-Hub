@@ -103,6 +103,14 @@ function Navbar() {
             />
           </Link>
         </li>
+
+
+         <li>
+          <Link to="/register">Register</Link>
+        </li> 
+     
+      
+
       </ul>
     </div>
   );
