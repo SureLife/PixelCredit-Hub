@@ -21,7 +21,7 @@ function ContactUs() {
     const data = { ...formData };
     setSenderName(data.firstName);
 
-    fetch("http://localhost:8000/submitContactForm/contactUs", {
+    fetch("http://localhost:5500/submitContactForm/contactUs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

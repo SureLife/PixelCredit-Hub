@@ -42,6 +42,7 @@ export const login = async (req, res, next) => {
 };
 
 export const register = async (req, res, next) => {
+  console.log(req.body);
   try {
    
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -51,6 +52,7 @@ export const register = async (req, res, next) => {
 
     res.status(200).send(newUser);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };

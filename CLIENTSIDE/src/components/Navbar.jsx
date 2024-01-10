@@ -30,12 +30,12 @@ function Navbar() {
   return (
     <div className="nav-bar">
       <ul className="nav-links">
-      <li>
+        <li>
           <Link to="/">
             <img src={logoImage} alt="Logo" className="logo" />
           </Link>
         </li>
-
+  
         <li>
           <Link className="nav-hover category" to="/categories">
             CATEGORIES
@@ -52,10 +52,10 @@ function Navbar() {
           </Link>
         </li>
       </ul>
-
+  
       <ul className="user-actions">
         <li>
-          {/* {user ? (uncomment later */}
+          {user ? (
             <div>
               <div className="menu-icon" onClick={toggleMenu}>
                 <img
@@ -64,36 +64,33 @@ function Navbar() {
                   className="profile-avatar"
                 />
               </div>
-             {/*  {user && (uncomment later */}
-                <SlidingPane
-                  className="menuClass"
-                  overlayClassName="menuOverlay"
-                  isOpen={slideMenuOpen.isPaneOpen}
-                  width="250px"
-                  title="Welcome, User"
-                  onRequestClose={() =>
-                    setSlideMenuOpen({ isPaneOpen: false })
-                  }
-                >
-                  {/* Options in the sliding pane */}
-                  <Link to="/userprofile">Profile</Link>
-                  <p>Uploads</p>
-                  <p>Downloads</p>
-                  <p>Credits</p>
-                  <br />
-                  <br />
-                  <br />
-                  <p>Cart</p>
-                </SlidingPane>
-             {/*  )} uncomment later*/}
+              {/*  {user && (uncomment later) */}
+              <SlidingPane
+                className="menuClass"
+                overlayClassName="menuOverlay"
+                isOpen={slideMenuOpen.isPaneOpen}
+                width="250px"
+                title="Welcome, User"
+                onRequestClose={() => setSlideMenuOpen({ isPaneOpen: false })}
+              >
+                {/* Options in the sliding pane */}
+                <Link to="/userprofile">Profile</Link>
+                <p>Uploads</p>
+                <p>Downloads</p>
+                <p>Credits</p>
+                <br />
+                <br />
+                <br />
+                <p>Cart</p>
+              </SlidingPane>
             </div>
-          {/* ) : (
-            <Link to="/signin" className="nav-link">
-              Sign-in
+          ) : (
+            <Link to="/login" className="nav-link">
+              Log-in
             </Link>
-          )}  uncomment later*/}
+          )}
         </li>
-
+  
         <li>
           <Link to="/shoppingcart" className="shopping-cart">
             <Button
@@ -103,9 +100,14 @@ function Navbar() {
             />
           </Link>
         </li>
+  
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
       </ul>
     </div>
   );
+  
 }
 
 export default Navbar;
