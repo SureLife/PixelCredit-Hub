@@ -64,9 +64,8 @@ function Navbar() {
                   className="profile-avatar"
                 />
               </div>
-
-             {/*  {user && (uncomment later */}
-                <SlidingPane
+                {user &&  
+              <SlidingPane
                   className="menuClass"
                   overlayClassName="menuOverlay"
                   isOpen={slideMenuOpen.isPaneOpen}
@@ -102,9 +101,7 @@ function Navbar() {
                         <a href="https://github.com/Julz1997" target="_blank">Julian</a></p>
                     </div>
                   </div>
-                </SlidingPane>
-             {/*  )} uncomment later*/}
-
+                </SlidingPane>}
             </div>
           ) : (
             <Link to="/login" className="nav-link">
