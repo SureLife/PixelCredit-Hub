@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import logoImage from "../assets/images/Logo.png";
 import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown , faUser , faCloudArrowUp , faBookmark , faCaretUp , faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown  } from "@fortawesome/free-solid-svg-icons";
 //import UserProfile from "../pages/UserProfile";
 import "./Navbar.css";
 
@@ -64,47 +64,25 @@ function Navbar() {
                   className="profile-avatar"
                 />
               </div>
-
-             {/*  {user && (uncomment later */}
-                <SlidingPane
-                  className="menuClass"
-                  overlayClassName="menuOverlay"
-                  isOpen={slideMenuOpen.isPaneOpen}
-                  width="300px"
-                  title="Welcome, User"
-                  onRequestClose={() =>
-                    setSlideMenuOpen({ isPaneOpen: false })
-                  }
-                >
-                  {/* Options in the sliding pane */}
-                  <ul>
-                    <li><Link to="/userprofile"><FontAwesomeIcon className="slideIcon" icon={faUser} style={{color: "#000000",}} />   <p>PROFILE</p></Link></li> <br/>
-                    <li><Link to="/userprofile"><FontAwesomeIcon className="slideIcon" icon={faCloudArrowUp} style={{color: "#000000",}} /> <p>UPLOAD IMAGES</p></Link></li><br/>
-                    <li><Link to="/userprofile"><FontAwesomeIcon className="slideIcon" icon={faBookmark} style={{color: "#000000",}} /> <p>LIBRARY</p></Link></li><br/>
-                    <li><Link to="/userprofile"><FontAwesomeIcon className="slideIcon" icon={faCaretUp} style={{color: "#000000",}} /> <p>TOP-UP CREDITS</p></Link></li>
-                  </ul>
-                  <div className="centerLogout">
-                    <button id="logout"><FontAwesomeIcon icon={faRightFromBracket} style={{color: "#000000",}} /> LOGOUT</button>
-                  </div>
-                  <div className="slideFooter">
-                    <div className="redirects">
-                    <Link to="/"><p>HOME</p></Link>
-                    <Link to="/categories"><p>CATEGORIES</p></Link>
-                    <Link to="/aboutus"><p>ABOUT</p></Link>
-                    <Link to="/contactus"><p>CONTACT</p></Link>
-                    </div>
-                    <div className="us4">
-                      <p>@2024</p>
-                      <p>
-                        <a href="https://github.com/Masouma-Rasouli" target="_blank">Masouma, </a>
-                        <a href="https://github.com/NehaMehta2005" target="_blank">Neha, </a>
-                        <a href="https://github.com/SureLife" target="_blank">Daniel, </a>
-                        <a href="https://github.com/Julz1997" target="_blank">Julian</a></p>
-                    </div>
-                  </div>
-                </SlidingPane>
-             {/*  )} uncomment later*/}
-
+                {user &&  
+              <SlidingPane
+                className="menuClass"
+                overlayClassName="menuOverlay"
+                isOpen={slideMenuOpen.isPaneOpen}
+                width="250px"
+                title="Welcome, User"
+                onRequestClose={() => setSlideMenuOpen({ isPaneOpen: false })}
+              >
+                {/* Options in the sliding pane */}
+                <Link to="/userprofile">Profile</Link>
+                <p>Uploads</p>
+                <p>Downloads</p>
+                <p>Credits</p>
+                <br />
+                <br />
+                <br />
+                <p>Cart</p>
+              </SlidingPane>}
             </div>
           ) : (
             <Link to="/login" className="nav-link">

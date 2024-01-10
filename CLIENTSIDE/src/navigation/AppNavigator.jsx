@@ -8,6 +8,7 @@ import LogIn from "../pages/LogIn";
 import ShoppingCart from "../pages/ShoppingCart";
 import SearchResult from "../pages/SearchResult";
 import UserProfile from "../pages/UserProfile";
+import Member from "../pages/Member";
 
 function AppNavigator() {
   return (
@@ -22,6 +23,7 @@ function AppNavigator() {
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/results" element={<SearchResult />} />
         <Route path="/userprofile" element={<UserProfile />} />
+        <Route path="/about/:memberName" element={<Member />} />
       </Routes>
     </>
   );
