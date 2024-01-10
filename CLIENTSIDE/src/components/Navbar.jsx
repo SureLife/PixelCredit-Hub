@@ -30,12 +30,12 @@ function Navbar() {
   return (
     <div className="nav-bar">
       <ul className="nav-links">
-      <li>
+        <li>
           <Link to="/">
             <img src={logoImage} alt="Logo" className="logo" />
           </Link>
         </li>
-
+  
         <li>
           <Link className="nav-hover category" to="/categories">
             CATEGORIES
@@ -52,10 +52,10 @@ function Navbar() {
           </Link>
         </li>
       </ul>
-
+  
       <ul className="user-actions">
         <li>
-          {/* {user ? (uncomment later */}
+          {user ? (
             <div>
               <div className="menu-icon" onClick={toggleMenu}>
                 <img
@@ -64,6 +64,7 @@ function Navbar() {
                   className="profile-avatar"
                 />
               </div>
+
              {/*  {user && (uncomment later */}
                 <SlidingPane
                   className="menuClass"
@@ -103,14 +104,15 @@ function Navbar() {
                   </div>
                 </SlidingPane>
              {/*  )} uncomment later*/}
-            </div>
-          {/* ) : (
-            <Link to="/signin" className="nav-link">
-              Sign-in
-            </Link>
-          )}  uncomment later*/}
-        </li>
 
+            </div>
+          ) : (
+            <Link to="/login" className="nav-link">
+              Log-in
+            </Link>
+          )}
+        </li>
+  
         <li>
           <Link to="/shoppingcart" className="shopping-cart">
             <Button
@@ -120,9 +122,14 @@ function Navbar() {
             />
           </Link>
         </li>
+  
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
       </ul>
     </div>
   );
+  
 }
 
 export default Navbar;
