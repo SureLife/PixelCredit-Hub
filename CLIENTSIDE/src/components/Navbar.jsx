@@ -114,7 +114,9 @@ function Navbar() {
                     </div>
                   </div>
                 </SlidingPane>}
+
                 <Link to="/shoppingcart" className="shopping-cart">
+
             <Button
               buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
               className="BTN"

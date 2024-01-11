@@ -9,6 +9,8 @@ import fileUpload from "express-fileupload";
 import usersRouter from "./routers/usersRouter.js";
 import adminRouter from "./routers/adminRouter.js";
 import contactUsRouter from "./routers/contactUsRouter.js"
+import memberRouter from "./routers/memberRouter.js";
+
 
 // creating express server
 const app = express();
@@ -33,9 +35,11 @@ app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
 // app.use(cors({ origin: "http://127.0.0.1:5173", exposedHeaders: ["token"] }));
 
 // localhost:5500/users
+
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)
+app.use("/member", memberRouter);
 
 //create more routes as required
 
