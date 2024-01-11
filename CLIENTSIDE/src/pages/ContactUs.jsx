@@ -38,9 +38,9 @@ function ContactUs() {
           message: '',
         });
         // Display success message
-        window.alert("Your message is successfully sent to admin");
-        // Show confirmation options
-        setShowConfirmation(true);
+        // window.alert("Your message is successfully sent to admin");
+        // // Show confirmation options
+         setShowConfirmation(true);
       })
       .catch((error) => console.error("Error:", error));
   }
@@ -65,15 +65,15 @@ function ContactUs() {
   }
 
   return (
-    <div>
+    <div className="body">
       <h1>Reach Out and Connect</h1>
-
+<br /><br />
       <div className="contactbackground">
         <div className="contact-form">
           <div>
             <form onSubmit={handleSubmit} method="POST">
               <div className="name">
-                <input
+                <input className="inputsize"
                   type="text"
                   placeholder="Your Name"
                   name="firstName"
@@ -82,7 +82,7 @@ function ContactUs() {
                 />
               </div>
               <div className="email">
-                <input
+                <input className="inputsize"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -91,7 +91,7 @@ function ContactUs() {
                 />
               </div>
               <div className="message">
-                <textarea
+                <textarea className="inputsize"
                   placeholder="Your message"
                   name="message"
                   value={formData.message}
@@ -105,7 +105,7 @@ function ContactUs() {
           </div>
           <div className="image">
             <img
-              src="https://images.unsplash.com/photo-1564648351416-3eec9f3e85de?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://www.svgrepo.com/download/39559/message.svg"
               alt="no picture"
             />
           </div>
