@@ -1,0 +1,52 @@
+/* Default styles */
+.aboutUsMainContainer {
+  display: flex;
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 90%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+
+.aboutUsContainer {
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.aboutUsSubContainer {
+  margin: 1rem;
+}
+.aboutUsTitel {
+  font-size: 3rem;
+}
+.aboutUsSubTitel {
+  font-size: 2rem;
+}
+.aboutUsPara {
+  margin-top: 1rem;
+}
+.aboutUsUl li {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+.memberLink {
+  color: black;
+}
+
+/* Media query for tablet screens */
+/*  @media screen and (max-width: 1024px) {
+    .aboutUsContainer {
+       
+      
+    }
+  }*/
+
+/*  Media query for mobile screens  */
+
+/* @media screen and (max-width: 600px) {
+    .aboutUsContainer {
+      
+    }
+  } */

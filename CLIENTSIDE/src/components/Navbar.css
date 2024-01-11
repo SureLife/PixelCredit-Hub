@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
 }
- 
+
 .nav-links,
 .user-actions {
   list-style: none;
@@ -22,7 +22,7 @@
 .nav-links {
   width: 60%;
 }
- 
+
 .nav-links li {
   margin: 0 5px;
 }
@@ -32,14 +32,15 @@
   color: black;
   font-family: PPNeueMontreal-Medium;
   text-decoration: none;
-   font-size: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
   transition: 0.3s;
 }
 
 .nav-links .nav-hover:hover {
   color: white;
   background-color: black;
-  padding: 1rem;
+
   outline: 2px solid rgb(255, 255, 255);
   outline-offset: 15px;
   box-shadow: 2px -2px 0 #ffffff inset; /* Inner white on hover */
@@ -47,7 +48,6 @@
 
 .nav-links .nav-hover:focus {
   color: white;
- 
 }
 .user-actions a {
   margin: 2rem;
@@ -57,7 +57,7 @@
   height: 5rem;
   width: auto;
 }
- 
+
 .user-actions li {
   margin-left: 10px;
 }
@@ -65,7 +65,76 @@
   height: 20px;
   width: auto;
 }
+/* Side Menu CSS */
+.slide-pane__content {
+  padding: 24px 0;
+  font-family: PPNeueMontreal-Medium;
+  border-bottom: 3rem solid rgb(88, 88, 88);
+}
+.menuClass ul {
+  list-style-type: none;
+}
 
+.menuClass ul li {
+  margin: 0 20px;
+  padding: 0.5rem 1rem;
+}
+.menuClass ul li:hover {
+  background-color: #d0d0d0;
+}
+.menuClass a {
+  text-decoration: none;
+  color: black;
+}
+.slideIcon {
+  width: 16px;
+}
+.menuClass ul li p {
+  display: inline;
+  margin-left: 1rem;
+}
+.centerLogout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logout {
+  width: 50%;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  background-color: #fc3441;
+}
+
+#logout:hover {
+  background-color: #fc7780;
+}
+
+.slideFooter {
+  background-color: #3333333b;
+  height: 50%;
+  overflow: hidden;
+}
+.redirects {
+  padding: 2rem 24px;
+}
+.redirects p {
+  margin: 1rem 0;
+  color: #1e1e1e3b;
+}
+.redirects p:hover {
+  color: black;
+}
+.us4 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-top: 5rem;
+}
+
+.us4 p,
+.us4 a {
+  color: black;
+}
 /* Media query for responsiveness */
 @media (max-width: 768px) {
   .nav-bar {

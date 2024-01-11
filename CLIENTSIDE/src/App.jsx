@@ -4,8 +4,8 @@ import Container from "./context/Container";
 import Footer from "./components/Footer";
 import AppNavigator from "./navigation/AppNavigator";
 import Header from "./components/Header";
-import "./index.css";
-
+import "./App.css";
+import "./index.css"
 function App() {
   return (
     <BrowserRouter>
