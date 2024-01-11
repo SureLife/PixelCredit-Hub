@@ -3,7 +3,7 @@ import { MyContext } from "../context/MyContext";
 import SlidingPane from "react-sliding-pane";
 import defaultAvatar from "../assets/images/defaultAvatar.png";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImage from "../assets/images/Logo.png";
 import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,15 +16,27 @@ function Navbar() {
     isPaneOpen: false,
   });
 
-  const { state } = useContext(MyContext);
-  const { user } = state;
+  const navigate = useNavigate();
+  const { state , user } = useContext(MyContext);
+  
   const profileImage = user ? user.profileImage : null;
+  console.log(user);
 
+  // Handle the removal of the token on logout
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/");
+    window.location.reload();
+  };
+
+      
   const toggleMenu = () => {
     setSlideMenuOpen(prevState => ({
       ...prevState,
       isPaneOpen: !prevState.isPaneOpen,
     }));
+
+
   };
 
   return (
@@ -56,7 +68,7 @@ function Navbar() {
       <ul className="user-actions">
         <li>
           {user ? (
-            <div>
+            <div className="loggedIn">
               <div className="menu-icon" onClick={toggleMenu}>
                 <img
                   src={profileImage || defaultAvatar}
@@ -83,7 +95,7 @@ function Navbar() {
                     <li><Link to="/userprofile"><FontAwesomeIcon className="slideIcon" icon={faCaretUp} style={{color: "#000000",}} /> <p>TOP-UP CREDITS</p></Link></li>
                   </ul>
                   <div className="centerLogout">
-                    <button id="logout"><FontAwesomeIcon icon={faRightFromBracket} style={{color: "#000000",}} /> LOGOUT</button>
+                    <button id="logout" onClick={handleLogout}><FontAwesomeIcon icon={faRightFromBracket} style={{color: "#000000",}} /> LOGOUT</button>
                   </div>
                   <div className="slideFooter">
                     <div className="redirects">
@@ -102,27 +114,26 @@ function Navbar() {
                     </div>
                   </div>
                 </SlidingPane>}
-            </div>
-          ) : (
-            <Link to="/login" className="nav-link">
-              Log-in
-            </Link>
-          )}
-        </li>
-  
-        <li>
-          <Link to="/shoppingcart" className="shopping-cart">
+
+                <Link to="/shoppingcart" className="shopping-cart">
+
             <Button
               buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
               className="BTN"
               /* onClick={handleSearch} */
             />
           </Link>
+            </div>
+          ) : (
+            <div>
+            <Link to="/login" className="nav-link">
+              Log-in
+            </Link>
+          <Link to="/register">Register</Link>
+            </div>
+          )}
         </li>
   
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
       </ul>
     </div>
   );

@@ -61,10 +61,6 @@
 .user-actions li {
   margin-left: 10px;
 }
-.shopping-cart {
-  height: 20px;
-  width: auto;
-}
 /* Side Menu CSS */
 .slide-pane__content {
   padding: 24px 0;
@@ -96,12 +92,12 @@
 .centerLogout {
   display: flex;
   justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   align-items: center;
 }
 #logout {
   width: 50%;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
   background-color: #fc3441;
 }
 
@@ -134,6 +130,11 @@
 .us4 p,
 .us4 a {
   color: black;
+}
+
+.loggedIn {
+  display: flex;
+  align-items: center;
 }
 /* Media query for responsiveness */
 @media (max-width: 768px) {
