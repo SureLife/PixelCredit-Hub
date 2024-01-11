@@ -20,7 +20,8 @@ app.use(fileUpload());
 
 // connect to MongoDB through mongoose
 mongoose
-  .connect("mongodb://127.0.0.1:27017/PixelCreditHub")
+  //.connect("mongodb://127.0.0.1:27017/PixelCreditHub")
+  .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 
@@ -28,9 +29,10 @@ mongoose
 app.use(morgan("tiny"));
 
 // cors middleware
-app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
+//app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
+app.use(cors({ origin: "http://127.0.0.1:5173", exposedHeaders: ["token"] }));
 
-// localhost:8000/api/users
+// localhost:5500/users
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)

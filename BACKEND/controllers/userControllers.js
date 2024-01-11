@@ -19,12 +19,12 @@ export const login = async (req, res, next) => {
         const token = jwt.sign(
           {_id: foundUser._id, email: foundUser.email},
           process.env.SECRET_KEY,
-          {expiresIn: "1y"}
+          {issuer: "PixelCreditHub", expiresIn: "1y"}
         );
-        console.log(token);
+        console.log("User token:", token);
 
         
-        res.header("token", token).send({success:true, data: foundUser});
+        res.header("token", token).send({success:true, data:foundUser}); // Not sure if we need "data:"  here
         
       } else {
         res.status(401).send({success:false, message:"password doesn't match!"});
@@ -33,7 +33,7 @@ export const login = async (req, res, next) => {
 
     } else {
     
-      res.send({success:false, message:"Make sure your email is correct!"});
+      res.send({success:false, message:"Make sure your email/password is correct!"});
      
     }
   } catch (error) {
