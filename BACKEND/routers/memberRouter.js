@@ -1,11 +1,13 @@
 import { Router } from "express";
- import {member } from "../controllers/memberControllers.js";
+ import {members, singleMember } from "../controllers/memberControllers.js";
 
 
 const router = Router();
 
-router.get("/", member);
+router.get("/", members);
 
+
+router.get("/:singlemember", singleMember);
 
 
 export default router;

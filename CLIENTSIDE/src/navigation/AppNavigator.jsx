@@ -23,7 +23,10 @@ function AppNavigator() {
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/results" element={<SearchResult />} />
         <Route path="/userprofile" element={<UserProfile />} />
-        <Route path="/about/:memberName" element={<Member />} />
+        <Route path="/members/:memberName" element={<Member />} />
+
+
+
       </Routes>
     </>
   );

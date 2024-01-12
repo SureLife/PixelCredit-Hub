@@ -12,6 +12,8 @@ export const reducer = (state, action) => {
       return { ...state, downloadHistory: action.payload };
     case "setMembers":
       return { ...state, members: action.payload };
+      case "setsingleMember":
+      return { ...state, singleMember: action.payload };
     default:
       return state;
   }
@@ -24,4 +26,5 @@ export const initialState = {
   uploadHistory: [],
   downloadHistory: [],
   members: [],
+  singleMember: [],
 };

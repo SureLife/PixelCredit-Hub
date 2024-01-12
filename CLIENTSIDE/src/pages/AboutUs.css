@@ -27,10 +27,20 @@
 .aboutUsPara {
   margin-top: 1rem;
 }
-.aboutUsUl li {
-  list-style: none;
-  margin-top: 0.5rem;
+.aboutUsUl {
+  display: flex;
+  padding: 1rem;
 }
+
+.aboutUsUl li {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+}
+
 .memberLink {
   color: black;
 }
