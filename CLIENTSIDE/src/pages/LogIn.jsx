@@ -77,7 +77,7 @@ function LogIn() {
           </form>
           <div className="additional-options">
             <p>
-              <Link to="#">Forgot password?</Link>
+              <Link to="/forgotPassword">Forgot password?</Link>
             </p>
           </div>
           <p className="paragraph">or do it via other accounts</p>
@@ -101,7 +101,7 @@ function LogIn() {
 
           <div className="additional-options">
             <p>
-              Don't have an account? <Link to="/users/register">Register</Link>
+              Don't have an account? <Link to="/register">Register</Link>
             </p>
           </div>
         </div>
