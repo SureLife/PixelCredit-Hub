@@ -49,8 +49,8 @@ function Member() {
             <span className="text-black">{singleMember.lastname}</span>
           </h1>
           <div className="subheading mb-5">
-            The next big idea is waiting for its next big changer with{" "}
-            <a href="#">PixelCreditHub</a>
+            The next big idea is waiting for its next big changer with <Link to="/">PixelCreditHub</Link>
+           
           </div>
           <p className="mb-5 text-justify" style={{ maxWidth: "500px", margin: "auto" }}>
             Role: {singleMember.role}
