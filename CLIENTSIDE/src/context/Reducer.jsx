@@ -12,13 +12,12 @@ export const reducer = (state, action) => {
       return { ...state, downloadHistory: action.payload };
     case "setMembers":
       return { ...state, members: action.payload };
-      case "setsingleMember":
+    case "setsingleMember":
       return { ...state, singleMember: action.payload };
-      case "setSlideMenuOpen":
-        const newState = { ...state, slideMenuOpen: action.payload };
-        console.log("New state:", newState);
-        return newState;
-
+    case "setSlideMenuOpen":
+      return { ...state, slideMenuOpen: action.payload };
+    case "SET_TOKEN":
+      return { ...state, token: action.payload };
     default:
       return state;
   }
@@ -32,5 +31,6 @@ export const initialState = {
   downloadHistory: [],
   members: [],
   singleMember: [],
-  slideMenuOpen:false,
+  slideMenuOpen: false,
+  token: null,
 };
