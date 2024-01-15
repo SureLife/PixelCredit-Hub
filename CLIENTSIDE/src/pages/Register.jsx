@@ -88,7 +88,7 @@ function Register() {
         <div className="additional-options">
           
           <p>
-          Already have an account? <Link to="/users/login">Log In</Link>
+          Already have an account? <Link to="/login">Log In</Link>
           </p>
         </div> 
 
