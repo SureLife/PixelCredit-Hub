@@ -33,7 +33,7 @@ function LogIn() {
       .then((result) => {
         if (result.success) {
           dispatch({ type: "SET_USER", payload: result.data }); // Dispatch action to set user in global state
-          navigate("/userprofile"); // 1s
+          navigate("/"); // 1s
         } else {
           console.log(result.message);
         }

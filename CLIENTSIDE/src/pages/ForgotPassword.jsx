@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 
 const ForgotPassword = ({ onResetPassword }) => {
   const [password, setPassword] = useState('');
@@ -69,3 +69,6 @@ const ForgotPassword = ({ onResetPassword }) => {
 };
 
 export default ForgotPassword;
+
+
+

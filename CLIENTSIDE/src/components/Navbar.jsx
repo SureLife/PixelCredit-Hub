@@ -20,11 +20,11 @@ import "./Navbar.css";
 
 function Navbar() {
   const { state, dispatch } = useContext(MyContext);
-  const { user, slideMenuOpen } = state;
+  const { user, slideMenuOpen, selectedFile } = state;
   const navigate = useNavigate();
 
-  const profileImage = user ? user.profileImage : null;
-  console.log(user);
+  const profileImage = user ? user.profileImage : [];
+  //console.log(user);
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -38,8 +38,18 @@ function Navbar() {
       type: "setSlideMenuOpen",
       payload: { isPaneOpen: !slideMenuOpen.isPaneOpen },
     });
-  
-    console.log("User:", user); // Log user after dispatching the action
+
+    //console.log("User:", user); // Log user after dispatching the action
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    dispatch({
+      type: "SetSelectedFile",
+      payload: file,
+    });
+
+    // Do something with the file, like uploading or processing
   };
   return (
     <div className="nav-bar">
@@ -72,10 +82,17 @@ function Navbar() {
           {user ? (
             <div className="loggedIn">
               <div className="menu-icon" onClick={toggleMenu}>
+               
                 <img
                   src={profileImage || defaultAvatar}
                   alt="Profile"
                   className="profile-avatar"
+                  
+                />
+                 <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
                 />
               </div>
               {user && (
@@ -95,7 +112,7 @@ function Navbar() {
                   {/* Options in the sliding pane */}
                   <ul>
                     <li>
-                      <Link to="/userprofile">
+                      <Link to={`/users/${user.name}`}>
                         <FontAwesomeIcon
                           className="slideIcon"
                           icon={faUser}
@@ -104,7 +121,7 @@ function Navbar() {
                         <p>PROFILE</p>
                       </Link>
                     </li>
-                    <br />
+
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon

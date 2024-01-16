@@ -10,6 +10,7 @@ import usersRouter from "./routers/usersRouter.js";
 import adminRouter from "./routers/adminRouter.js";
 import contactUsRouter from "./routers/contactUsRouter.js"
 import memberRouter from "./routers/memberRouter.js";
+import profileRouter from './routers/profileRouter.js';
 
 
 // creating express server
@@ -40,6 +41,7 @@ app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)
 app.use("/members", memberRouter);
+app.use('/profile', profileRouter);
 
 
 //create more routes as required
