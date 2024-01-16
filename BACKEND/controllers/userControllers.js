@@ -1,6 +1,7 @@
-import User from "../models/userSchema.js";
+import User  from "../models/userSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import {capitalize} from "../helpers/index.js";
 
 export const login = async (req, res, next) => {
  
@@ -95,7 +96,7 @@ export const getUserByUsername = async (req, res, next) => {
     const username = req.params.username;
 
     // Fetch user by username from the database
-    const foundUser = await User.findOne({ username });
+    const foundUser = await User.findOne({   name: capitalize(username) });
 
     if (!foundUser) {
       return res.status(404).json({ success: false, message: "User not found" });
@@ -113,3 +114,6 @@ export const getUserByUsername = async (req, res, next) => {
     next(error);
   }
 };
+
+
+

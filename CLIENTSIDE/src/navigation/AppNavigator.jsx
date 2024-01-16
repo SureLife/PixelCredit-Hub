@@ -25,6 +25,7 @@ function AppNavigator() {
         <Route path="/results" element={<SearchResult />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/members/:memberName" element={<Member />} />
+        <Route path="/users/:userName" element={<UserProfile/>} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
 
 
