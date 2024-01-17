@@ -22,9 +22,9 @@ function Navbar() {
   const { state, dispatch } = useContext(MyContext);
   const { user, slideMenuOpen, selectedFile } = state;
   const navigate = useNavigate();
-
+  const isAdmin = user && user.role === 'admin';
   const profileImage = user ? user.profileImage : [];
-  //console.log(user);
+
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -48,7 +48,6 @@ function Navbar() {
       type: "SetSelectedFile",
       payload: file,
     });
-
     // Do something with the file, like uploading or processing
   };
   return (
@@ -205,7 +204,11 @@ function Navbar() {
                   </div>
                 </SlidingPane>
               )}
-
+              {isAdmin && (
+                <Link to="/adminpanel" className="admin-panel-button">
+                  <button>Admin Panel</button>
+                </Link>
+              )}
               <Link to="/shoppingcart" className="shopping-cart">
                 <Button
                   buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
