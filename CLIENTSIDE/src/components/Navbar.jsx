@@ -50,7 +50,9 @@ function Navbar() {
     });
     // Do something with the file, like uploading or processing
   };
-
+  const adminWarning = () => {
+    alert("CAUTION\nYou can change the DB irreversibly");
+  }
   return (
     <div className="nav-bar">
       <ul className="nav-links">
@@ -125,7 +127,6 @@ function Navbar() {
                         <p>UPLOAD IMAGES</p>
                       </Link>
                     </li>
-                    <br />
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon
@@ -136,7 +137,6 @@ function Navbar() {
                         <p>LIBRARY</p>
                       </Link>
                     </li>
-                    <br />
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon
@@ -179,20 +179,18 @@ function Navbar() {
                           href="https://github.com/Masouma-Rasouli"
                           target="_blank"
                         >
-                          Masouma,
+                          M
+                        </a>
+                        <a href="https://github.com/SureLife" target="_blank">
+                          D
                         </a>
                         <a
                           href="https://github.com/NehaMehta2005"
                           target="_blank"
                         >
-                          Neha,
+                          N (
                         </a>
-                        <a href="https://github.com/SureLife" target="_blank">
-                          Daniel,
-                        </a>
-                        <a href="https://github.com/Julz1997" target="_blank">
-                          Julian
-                        </a>
+                         Masouma, Daniel, Neha)
                       </p>
                     </div>
                   </div>
@@ -200,7 +198,7 @@ function Navbar() {
               )}
               {isAdmin && (
                 <Link to="/adminpanel" className="admin-panel-button">
-                  <button>Admin Panel</button>
+                  <button onClick={adminWarning}>Admin Panel</button>
                 </Link>
               )}
               <Link to="/shoppingcart" className="shopping-cart">
@@ -213,10 +211,10 @@ function Navbar() {
             </div>
           ) : (
             <div>
-              <Link to="/login" className="nav-link">
-                Log-in
+              <Link to="/login" >
+                LOGIN
               </Link>
-              <Link to="/register">Register</Link>
+              <Link to="/register" >REGISTER</Link>
             </div>
           )}
         </li>

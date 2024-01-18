@@ -28,7 +28,7 @@ app.use(fileUpload());
 // connect to MongoDB through mongoose
 mongoose
   .connect("mongodb://127.0.0.1:27017/PixelCreditHub")
-  //.connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
+  // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 

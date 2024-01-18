@@ -21,7 +21,7 @@ function App() {
           outerScale={2}
           outerAlpha={0}
           hasBlendMode={true}
-          trailingSpeed={8}
+          trailingSpeed={1}
           innerStyle={{ backgroundColor: 'black'}}
           outerStyle={{ border: '3px solid gray'}}
         />
