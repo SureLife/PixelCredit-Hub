@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext , useState} from "react";
 import { Link } from "react-router-dom";
 import "./LogIn.css";
 import { MyContext } from "../context/MyContext";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 function LogIn() {
   const { state, dispatch } = useContext(MyContext);
+
+  const [profileImage, setprofileImage] = useState(null);
   
 
   const navigate = useNavigate();
@@ -33,7 +35,10 @@ function LogIn() {
       .then((result) => {
         if (result.success) {
           dispatch({ type: "SET_USER", payload: result.data }); // Dispatch action to set user in global state
+          
           navigate("/"); // 1s
+        
+
         } else {
           console.log(result.message);
         }

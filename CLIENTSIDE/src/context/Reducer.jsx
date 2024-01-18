@@ -18,11 +18,11 @@ export const reducer = (state, action) => {
       return { ...state, slideMenuOpen: action.payload };
     case "SET_TOKEN":
       return { ...state, token: action.payload };
-      case SetSelectedFile:
-        return {
-          ...state,
-          selectedFile: action.payload,
-        };
+    case "SetSelectedFile":
+      return {
+        ...state,
+        selectedFile: action.payload,
+      };
 
     default:
       return state;

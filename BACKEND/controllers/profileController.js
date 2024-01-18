@@ -1,62 +1,68 @@
-import  User,{  ProfileImage } from '../models/userSchema.js';
+import User  from "../models/userSchema.js";
+import { Readable } from "stream";
 
-export const getUserProfileImage = async (req, res) => {
+
+
+//`http://localhost:5500/profile/profile-image/${foundUser.profileImage.filename}
+
+ export const getUserProfileImage = async (req, res, next) => {
   try {
-    const userId = req.params.userId;
-    const user = await User.findById(userId).populate('profileImage');
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+    const { filename } = req.params;
+    const user = await User.findOne({ 'profileImage.filename': filename });
+    if (!user || !user.profileImage) {
+      return res.status(404).json({ message: 'Profile image not found.' });
     }
 
-    if (!user.profileImage) {
-      return res.status(404).json({ message: 'Profile image not found' });
-    }
+    const readStream = Readable.from([user.profileImage.data]);
+ // Set the appropriate headers for the response
+ res.setHeader('Content-Type', 'image/*'); // Set the appropriate content type
 
-    const profileImage = user.profileImage;
-    res.status(200).json({ imageUrl: profileImage.image_url });
+ // Pipe the stream to the response
+ readStream.pipe(res);
   } catch (error) {
-    console.error('Error fetching user profile image:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    
   }
 };
 
-export const updateProfileImage = async (req, res) => {
+ 
+
+   
+
+
+
+
+
+
+
+
+  export const updateProfileImage = async (req, res, next) => {
+ // console.log(req.files);
+
   try {
-    const userId = req.params.userId;
+    const userId = req.params.userid;
     const user = await User.findById(userId);
-
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).send("User not found");
     }
 
-    if (user.profileImage) {
-      // If a profile image already exists, update its properties
-      const existingProfileImage = await ProfileImage.findById(user.profileImage);
-      existingProfileImage.image_url = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
-      existingProfileImage.uploaded_at = new Date();
+    const {  name, data } = req.files.profileImage;
+    const timestamp = Date.now(); 
+    const profileImageUrl = `http://localhost:5500/profile/profile-image/${name}?t=${timestamp}`;
+  
 
-      // Save the updated profile image
-      await existingProfileImage.save();
-    } else {
-      // If the user doesn't have a profile image, create a new one
-      const newProfileImage = new ProfileImage({
-        user_id: user._id,
-        image_url: `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`,
-        uploaded_at: new Date(),
-      });
+    const result = await User.findByIdAndUpdate(userId, {
+     
+      $set: {
+        "profileImage.filename": name,
+        "profileImage.data": data,
+        "profileImageUrl": profileImageUrl,
+      },
+    });
 
-      // Save the new profile image
-      await newProfileImage.save();
 
-      // Associate the profile image with the user
-      user.profileImage = newProfileImage._id;
-      await user.save();
-    }
-
-    res.status(200).json({ message: 'Profile image updated successfully' });
+    
+    if (result) res.send("all good");
   } catch (error) {
-    console.error('Error updating profile image:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    next(error);
   }
 };
