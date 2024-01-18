@@ -20,11 +20,15 @@ import "./Navbar.css";
 
 function Navbar() {
   const { state, dispatch } = useContext(MyContext);
-  const { user, slideMenuOpen, selectedFile } = state;
+  const { user, slideMenuOpen } = state;
   const navigate = useNavigate();
 
-  const profileImage = user ? user.profileImage : [];
-  //console.log(user);
+  const profileImage = user ? user.profileImageUrl: null;
+
+
+
+
+   //console.log(user);
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -42,15 +46,6 @@ function Navbar() {
     //console.log("User:", user); // Log user after dispatching the action
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    dispatch({
-      type: "SetSelectedFile",
-      payload: file,
-    });
-
-    // Do something with the file, like uploading or processing
-  };
   return (
     <div className="nav-bar">
       <ul className="nav-links">
@@ -81,18 +76,11 @@ function Navbar() {
         <li>
           {user ? (
             <div className="loggedIn">
-              <div className="menu-icon" onClick={toggleMenu}>
-               
+              <div className="Avatar" onClick={toggleMenu}>
                 <img
                   src={profileImage || defaultAvatar}
                   alt="Profile"
                   className="profile-avatar"
-                  
-                />
-                 <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
                 />
               </div>
               {user && (
@@ -112,7 +100,7 @@ function Navbar() {
                   {/* Options in the sliding pane */}
                   <ul>
                     <li>
-                      <Link to={`/users/${user.name}`}>
+                      <Link to={`/users/${user._id}`}>
                         <FontAwesomeIcon
                           className="slideIcon"
                           icon={faUser}

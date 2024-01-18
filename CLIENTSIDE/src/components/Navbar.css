@@ -55,7 +55,8 @@
 .logo,
 .profile-avatar {
   height: 5rem;
-  width: auto;
+  width: 5rem;
+  border-radius: 50%;
 }
 
 .user-actions li {
