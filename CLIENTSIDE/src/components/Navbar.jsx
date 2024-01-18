@@ -24,11 +24,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const profileImage = user ? user.profileImageUrl: null;
-
-
-
-
-   //console.log(user);
+  const isAdmin = user && user.role === 'admin';
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -44,6 +40,15 @@ function Navbar() {
     });
 
     //console.log("User:", user); // Log user after dispatching the action
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    dispatch({
+      type: "SetSelectedFile",
+      payload: file,
+    });
+    // Do something with the file, like uploading or processing
   };
 
   return (
@@ -193,7 +198,11 @@ function Navbar() {
                   </div>
                 </SlidingPane>
               )}
-
+              {isAdmin && (
+                <Link to="/adminpanel" className="admin-panel-button">
+                  <button>Admin Panel</button>
+                </Link>
+              )}
               <Link to="/shoppingcart" className="shopping-cart">
                 <Button
                   buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
