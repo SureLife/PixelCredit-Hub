@@ -1,262 +1,101 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import { Link } from "react-router-dom";
+import "./Register.css"; 
+// import toast,{ Toaster } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
+function Register() {
+  const navigate = useNavigate()
 
-const Register = () => {
-  const navigate = useNavigate();
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    birthMonth: "",
-    birthYear: "",
-    gender: "",
-    pixelAddress: "",
-    password: "",
-    confirmPassword: "",
-    recoveryEmail: "",
-    mobileNumber: "",
-    termsAccepted: false,
-  });
+  const registerUser=(e)=>{
+      e.preventDefault()
+      const user = {
+          name: e.target.name.value ,
+          email: e.target.email.value,
+          password:e.target.password.value 
+      }
+      console.log(user);
+      //making POST request 
+      fetch("http://localhost:5500/users/register",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body: JSON.stringify(user)
+      })
+      .then(res=>res.json())
+      .then(result=>{
+          if(result.errors){
+              console.log(result.errors)
+              // toast.error(JSON.stringify(result.errors))
+          }else{
+              e.target.reset()
+              console.log("hi");
+              // toast.success("you successfully registered!")
+              setTimeout(()=>{
+                   navigate("/users/login")
+              },1500)
+             
+          }
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleNext = () => {
-    // Validation logic for each step
-    if (step === 1) {
-      if (formData.firstName.trim() === "" || formData.lastName.trim() === "") {
-        alert("Please fill in all fields in the first step.");
-        return;
-      }
-      setStep(2);
-    } else if (step === 2) {
-      if (
-        formData.birthDate.trim() === "" ||
-        formData.birthMonth.trim() === "" ||
-        formData.birthYear.trim() === "" ||
-        formData.gender.trim() === ""
-      ) {
-        alert("Please fill in all fields in the second step.");
-        return;
-      }
-      setStep(3);
-    } else if (step === 3) {
-      if (formData.pixelAddress.trim() === "") {
-        alert("Please fill in the pixel address.");
-        return;
-      }
-      setStep(4);
-    } else if (step === 4) {
-      if (
-        formData.password.trim() === "" ||
-        formData.confirmPassword.trim() === ""
-      ) {
-        alert("Please fill in both password fields.");
-        return;
-      }
-      if (formData.password !== formData.confirmPassword) {
-        alert("Passwords do not match.");
-        return;
-      }
-      setStep(5);
-    } else if (step === 5) {
-      // Validation logic for the fifth step (recovery email)
-      setStep(6);
-    } else if (step === 6) {
-      // Validation logic for the sixth step (mobile number)
-      setStep(7);
-    } else if (step === 7) {
-      // Validation logic for the seventh step (review and accept terms)
-      if (!formData.termsAccepted) {
-        alert("Please accept the terms and conditions.");
-        return;
-      }
-      // Proceed to the next step or submit the form
-      navigate("/final-step"); // Example: navigate to the final step or submit endpoint
-    }
-  };
-
+      })
+      .catch(err=>console.log(err))
+  }
   return (
-    <div className="w-100 p-2 d-flex align-items-center justify-content-center h-100">
-  <div className="container-fluid p-5">
-    <div className="row justify-content-center">
-      <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-        <div className="card">
-          <div className="card-body p-5"> {/* Changed to w-75 for a broader card body */}
-                <h2 className="w-100  text-center mb-5">PixelCreditHub</h2>
-                <form>
-                  {step === 1 && (
-                    <div  className="form-outline mb-4">
-                      <h3 className="mb-4">Create a Pixel Account</h3>
-                      <div className="mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="First Name"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div className="mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Last Name"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {step === 2 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Basic Information</h3>
-                      {/* Add Bootstrap form controls for birth date, month, year, and gender */}
-                    </div>
-                  )}
-                  {step === 3 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Choose Your Pixel Address</h3>
-                      <div className="mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Pixel Address"
-                          name="pixelAddress"
-                          value={formData.pixelAddress}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {step === 4 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Create a Strong Password</h3>
-                      <div className="mb-3">
-                        <input
-                          type="password"
-                          className="form-control"
-                          placeholder="Password"
-                          name="password"
-                          value={formData.password}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div className="mb-3">
-                        <input
-                          type="password"
-                          className="form-control"
-                          placeholder="Confirm Password"
-                          name="confirmPassword"
-                          value={formData.confirmPassword}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {step === 5 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Add Recovery Email</h3>
-                      <div className="mb-3">
-                        <input
-                          type="email"
-                          className="form-control"
-                          placeholder="Recovery Email"
-                          name="recoveryEmail"
-                          value={formData.recoveryEmail}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <p className="mb-4">
-                        You can skip this step if you want.
-                      </p>
-                    </div>
-                  )}
-                  {step === 6 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Add Mobile Number</h3>
-                      <div className="mb-3">
-                        <input
-                          type="tel"
-                          className="form-control"
-                          placeholder="Mobile Number"
-                          name="mobileNumber"
-                          value={formData.mobileNumber}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <p className="mb-4">
-                        You can skip this step if you want.
-                      </p>
-                    </div>
-                  )}
-                  {step === 7 && (
-                    <div className="form-outline mb-4">
-                      <h3 className="mb-4">Review Your Account Info</h3>
-                      <p>Email: {formData.recoveryEmail}</p>
-                      <p>Mobile Number: {formData.mobileNumber}</p>
-                      <div className="mb-3 form-check">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="termsCheckbox"
-                          name="termsAccepted"
-                          checked={formData.termsAccepted}
-                          onChange={handleChange}
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="termsCheckbox"
-                        >
-                          I accept the terms and conditions.
-                        </label>
-                      </div>
-                    </div>
-                  )}
- 
+    <div>
 
-               </form>
-               <div className="text-center">
-                  {step < 7 && (
-                    <button
-                      className="btn btn-primary"
-                      style={{ width: "100px", height: "40px" }}
-                      onClick={handleNext}
-                    >
-                      Next
-                    </button>
-                  )}
-                  {step === 7 && (
-                    <button
-                      className="btn btn-success"
-                      style={{ width: "100px", height: "40px" }}
-                      onClick={handleNext}
-                    >
-                      Submit
-                    </button>
-                  )}
-                </div>
-                <p className="mt-3 text-center">
-                  Already have an account? <Link to="/login">Log In</Link>
-                </p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
+<div className="container">
+      <div className="left-side">
+        <h1>Unlock special features with a free account</h1>
+        <br />
+        <br />
+        
+        <img src="http://www.prothetik.med.uni-goettingen.de/wp-content/uploads/sites/2/2020/11/blank-profile-picture-973460_640-1-300x300.png" alt="PixelCredit Hub" />
       </div>
-    
-  );
-};
 
-export default Register;
+
+      <div className="right-side">
+        <h1>Create your account</h1>
+        <p>It's free and easy</p>
+        {/* <Toaster position="top-center"/> */}
+        <br /><br /><br /><br />
+        <form onSubmit={registerUser}>
+          <label htmlFor="text">Full name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name*" required  autoComplete="username"/>
+
+          <label htmlFor="email">Email or Phone Number:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required autoComplete="username"/>
+
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder='Type your Password*'  required autoComplete="current-password"/>
+         <p className="additional-options" >Must be 8 characters at least</p>
+          <button type="submit">Register</button>
+        </form>
+        <div className="additional-options">
+          <p> By creating an account means you agree to the 
+            <Link to="#">Terms and Conditions</Link> , and our <Link to="#">Privacy Policy</Link>
+          </p>
+          <br />
+          
+        </div> 
+        <p className='paragraph'>or do it via other accounts</p>
+        <div className="social-icons">
+          <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google Icon" className="rounded-icon" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" className="rounded-icon" />
+          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter Icon" className="rounded-icon" />
+        </div>
+
+        <div className="additional-options">
+          
+          <p>
+          Already have an account? <Link to="/login">Log In</Link>
+          </p>
+        </div> 
+
+       
+      </div>
+    </div>
+
+    </div>
+  )
+}
+
+export default Register
