@@ -122,10 +122,27 @@ export const updateUser = async (req, res, next) => {
     next(error);
   }
 };
+// export const deleteUser = async (req, res, next) => {
+//   try {
+//     const userId = req.params.id;
+//     const deleteUser = await User.findByIdAndDelete(userId);
+//     res.send(deleteUser);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
+
 export const deleteUser = async (req, res, next) => {
   try {
-    const userId = req.params.id;
-    const deleteUser = await User.findByIdAndDelete(userId);
+    const userEmail = req.params.email; // Assuming email is in the request parameters
+    const user = await User.findOne({ email: userEmail });
+
+    if (!user) {
+      // If user with the provided email is not found
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const deleteUser = await User.findByIdAndDelete(user._id);
     res.send(deleteUser);
   } catch (err) {
     next(err);

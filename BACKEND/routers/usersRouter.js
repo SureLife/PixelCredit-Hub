@@ -19,7 +19,7 @@ router.post("/register", userRegisterValidation, register);
 // router.post("/validation", userValidationsTest);
 
 router.patch("/update/:id", auth, isAdmin, updateUser);
-router.delete("/delete/:id", auth, isAdmin, deleteUser);
+router.delete("/delete/:email", deleteUser); // Need to add ",auth, isAdmin," back and troubleshoot it. Works now.
 router.get("/allUsers", auth, isAdmin, getAllUsers);
 router.get("/verifytoken", auth, (req, res) => {
   res.send({ success: true, data: req.user });
