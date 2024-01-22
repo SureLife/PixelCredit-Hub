@@ -31,7 +31,7 @@ function Register() {
               console.log("hi");
               // toast.success("you successfully registered!")
               setTimeout(()=>{
-                   navigate("/users/login")
+                   navigate("/login")
               },1500)
              
           }
