@@ -83,6 +83,24 @@ export const login = async (req, res, next) => {
 };
 
 export const register = async (req, res, next) => {
+  console.log(req.body);
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    console.log(hashedPassword);
+
+    const newUser = await User.create({
+      ...req.body,
+      password: hashedPassword,
+    });
+
+    res.status(200).send(newUser);
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};
+
+/* export const register = async (req, res, next) => {
   //console.log(req.body);
   try {
     const { password, confirmPassword } = req.body;
@@ -109,7 +127,7 @@ export const register = async (req, res, next) => {
       next(err);
     }
   }
-};
+}; */
 
 export const updateUser = async (req, res, next) => {
   try {
@@ -122,15 +140,6 @@ export const updateUser = async (req, res, next) => {
     next(error);
   }
 };
-// export const deleteUser = async (req, res, next) => {
-//   try {
-//     const userId = req.params.id;
-//     const deleteUser = await User.findByIdAndDelete(userId);
-//     res.send(deleteUser);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 
 export const deleteUser = async (req, res, next) => {
   try {
