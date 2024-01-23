@@ -90,9 +90,11 @@ body {
   }
   
   .social-icons {
+    
     margin-top: 20px;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    
   }
   
   .rounded-icon {

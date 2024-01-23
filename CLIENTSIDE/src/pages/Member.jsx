@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
   faLinkedin,
-  faTwitter,
+  faXTwitter,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import "./Member.css";
@@ -88,7 +88,7 @@ function Member() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faTwitter} /> Twitter
+                <FontAwesomeIcon icon={faXTwitter} /> Twitter
               </Link>
             </li>
             <li className="list-inline-item">
