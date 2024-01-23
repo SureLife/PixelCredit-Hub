@@ -8,7 +8,7 @@ const backendURL = `http://localhost:5500`;
 
 const UserProfile = () => {
   const { userid } = useParams();
-  console.log("UserId:", userid);
+  //console.log("UserId:", userid);
 
   const { state, dispatch } = useContext(MyContext);
   const { user, selectedFile } = state;
@@ -25,16 +25,15 @@ const UserProfile = () => {
 
     try {
       const formData = new FormData();
-      formData.append("profileImage", file); // Use the correct field name
+      formData.append("profileImage", file);
       console.log(file);
-      // Use Axios to send the file to the server
+
       const response = await axios.post(
         `${backendURL}/profile/update-image/${userid}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            // Add any other headers if necessary
           },
         }
       );
@@ -53,8 +52,6 @@ const UserProfile = () => {
           <div className="user-info">
             <h2>{`Welcome, ${user.name}!`}</h2>
             <p>Email: {user.email}</p>
-
-           
 
             <div>
               <input

@@ -23,7 +23,16 @@ export const reducer = (state, action) => {
         ...state,
         selectedFile: action.payload,
       };
-
+      case "SetUploadedImages":
+      return {
+        ...state,
+        uploadedImages: action.payload,
+      };
+      case "SetTags":
+        return {
+          ...state,
+          tags: action.payload,
+        };
     default:
       return state;
   }
@@ -40,4 +49,6 @@ export const initialState = {
   slideMenuOpen: false,
   token: null,
   selectedFile: [],
+  tags:"",
+  uploadedImages:[],
 };

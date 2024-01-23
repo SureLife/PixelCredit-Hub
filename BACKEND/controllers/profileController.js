@@ -36,7 +36,7 @@ import { Readable } from "stream";
 
 
   export const updateProfileImage = async (req, res, next) => {
- // console.log(req.files);
+  console.log(req.files);
 
   try {
     const userId = req.params.userid;

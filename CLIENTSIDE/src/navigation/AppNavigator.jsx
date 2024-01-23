@@ -12,6 +12,7 @@ import Member from "../pages/Member";
 import ForgotPassword from "../pages/ForgotPassword"
 import Verification from "../components/Verification";
 import AdminPanel from "../pages/AdminPanel";
+import UploadImage from "../pages/UploadImage";
 
 function AppNavigator() {
   return (
@@ -26,6 +27,7 @@ function AppNavigator() {
         <Route path="/verify/:token" element={<Verification />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/results" element={<SearchResult />} />
+        <Route path="/images/upload" element={<UploadImage />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/members/:memberName" element={<Member />} />
         <Route path="/users/:userid" element={<UserProfile/>} />
