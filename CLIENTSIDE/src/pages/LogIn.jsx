@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 function LogIn() {
   const { state, dispatch } = useContext(MyContext);
 
+
   const [profileImage, setprofileImage] = useState(null);
-  
+
 
   const navigate = useNavigate();
 
@@ -83,7 +84,9 @@ function LogIn() {
           </form>
           <div className="additional-options">
             <p>
-              <Link to="/forgotPassword">Forgot password?</Link>
+
+            <Link to="#">Forgot password?</Link>
+
             </p>
           </div>
           <p className="paragraph">or do it via other accounts</p>
@@ -93,13 +96,13 @@ function LogIn() {
               alt="Google Icon"
               className="rounded-icon"
             />
-            <img
+            <img style={{marginLeft:"15px"}}
               src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
               alt="Facebook Icon"
               className="rounded-icon"
             />
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png"
+            <img style={{width:"70px", height:"70px", marginTop:"-15px", paddingLeft:"0px"}}
+              src="https://cdn.iconscout.com/icon/free/png-256/free-twitter-x-9581782-7740647.png"
               alt="Twitter Icon"
               className="rounded-icon"
             />
