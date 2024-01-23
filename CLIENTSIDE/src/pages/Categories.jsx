@@ -1,17 +1,61 @@
 import React from 'react'
 import "./categoryStyle.css"
 
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+
 function Categories() {
+  
   return (
     <div>
       {/* Spotlight Section */}
-      <div className="Spotlight">
+      <Splide options={ { rewind: true, height: "1080px" } } aria-label="Hero Section">
+      <SplideSlide>
+      <div className="Spotlight s1">
         <div className="leftSpot">
           <h1>"Embracing life's beauty, one snapshot at a time."</h1>
           <p className="mainP">It urges us to view life as a series of moments to be savored, much like taking snapshots to capture the essence of beauty around us. Each "snapshot" metaphorically represents a conscious effort to pause, observe, and appreciate the wonders that often escape our notice in the rush of daily life.</p>
           <p className="finalP"><strong>Explore Picture Wonderland</strong></p>
         </div>
       </div>
+      </SplideSlide>
+      <SplideSlide>
+      <div className="Spotlight s2">
+        <div className="leftSpot">
+          <h1>"Navigating the Symphony of Silence in a Noisy World."</h1>
+          <p className="mainP">In the cacophony of modern existence, there exists a symphony of silence waiting to be heard. Much like an adept conductor, we must learn to navigate through the noise, discovering the harmonious pauses that compose the music of life. Embracing these silent interludes allows us to appreciate the beauty that thrives in the quiet corners of our existence.</p>
+          <p className="finalP"><strong>Explore Picture Wonderland</strong></p>
+        </div>
+      </div>
+      </SplideSlide>
+      <SplideSlide>
+      <div className="Spotlight s3">
+        <div className="leftSpot">
+          <h1>"Weaving Dreams into the Fabric of Reality."</h1>
+          <p className="mainP">Life is a loom, and with every action, we weave dreams into the fabric of reality. Just as a skilled artisan creates intricate patterns, we have the power to craft our own narrative by embracing creativity and imagination. Each choice, each endeavor, is a thread contributing to the tapestry of our existence, forming a masterpiece that reflects the beauty within our aspirations.</p>
+          <p className="finalP"><strong>Explore Picture Wonderland</strong></p>
+        </div>
+      </div>
+      </SplideSlide>
+      <SplideSlide>
+      <div className="Spotlight s4">
+        <div className="leftSpot">
+          <h1>"Chasing Shadows, Embracing Light: A Dance with Life's Contrasts."</h1>
+          <p className="mainP">Life is a dance between shadows and light, where contrasting elements intertwine to create a captivating rhythm. Just as a dancer embraces both the shadows and the spotlight, we too must navigate the complexities of existence. By acknowledging and appreciating the interplay of dark and light, we find the beauty in the delicate balance that shapes the contours of our journey.</p>
+          <p className="finalP"><strong>Explore Picture Wonderland</strong></p>
+        </div>
+      </div>
+      </SplideSlide>
+      <SplideSlide>
+      <div className="Spotlight s5">
+        <div className="leftSpot">
+          <h1>"Echoes of Eternity: Capturing Timeless Moments."</h1>
+          <p className="mainP">Time is a fleeting companion, yet within its grasp lie timeless moments waiting to be captured. Much like an artist immortalizes a scene on canvas, we can freeze these ephemeral instants through conscious presence and appreciation. By recognizing the echoes of eternity within the everyday, we unlock the door to a treasure trove of memories that transcend the constraints of time.</p>
+          <p className="finalP"><strong>Explore Picture Wonderland</strong></p>
+        </div>
+      </div>
+      </SplideSlide>
+    </Splide>
       {/* Categories */}
       <h2 className="cats">Categories</h2>
       <div className="Categories">

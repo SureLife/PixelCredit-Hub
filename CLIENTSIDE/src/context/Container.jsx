@@ -15,7 +15,7 @@ export default function Container({ children }) {
       })
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
+          //console.log(result);
           if (result.success) {
             dispatch({ type: "SET_USER", payload: result.data });
           } else {

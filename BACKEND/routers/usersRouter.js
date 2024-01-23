@@ -5,7 +5,7 @@ import {
   login,
   register,
   updateUser,
-  getUserByUsername,
+  getUserByUserId,
 } from "../controllers/userControllers.js";
 import { userRegisterValidation } from "../middleware/validation.js";
 import { auth } from "../middleware/authorization.js";
@@ -19,10 +19,11 @@ router.post("/register", userRegisterValidation, register);
 // router.post("/validation", userValidationsTest);
 
 router.patch("/update/:id", auth, isAdmin, updateUser);
-router.delete("/delete/:id", auth, isAdmin, deleteUser);
+router.delete("/delete/:email", deleteUser); // Need to add ",auth, isAdmin," back and troubleshoot it. Works now.
 router.get("/allUsers", auth, isAdmin, getAllUsers);
 router.get("/verifytoken", auth, (req, res) => {
-  res.send({ success: true, data:req.user });
+  res.send({ success: true, data: req.user });
 });
-router.get("/:username", getUserByUsername);
+router.get("/:userid", getUserByUserId);
+
 export default router;

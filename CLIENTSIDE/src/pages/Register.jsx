@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import "./Register.css"; 
@@ -33,7 +31,7 @@ function Register() {
               console.log("hi");
               // toast.success("you successfully registered!")
               setTimeout(()=>{
-                   navigate("/users/login")
+                   navigate("/login")
               },1500)
              
           }
@@ -88,7 +86,7 @@ function Register() {
         <div className="additional-options">
           
           <p>
-          Already have an account? <Link to="/users/login">Log In</Link>
+          Already have an account? <Link to="/login">Log In</Link>
           </p>
         </div> 
 

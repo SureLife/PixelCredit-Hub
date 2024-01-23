@@ -21,6 +21,10 @@
 }
 .nav-links {
   width: 60%;
+  margin-bottom: 0;
+}
+.user-actions {
+  margin-bottom: 0;
 }
 
 .nav-links li {
@@ -55,7 +59,8 @@
 .logo,
 .profile-avatar {
   height: 5rem;
-  width: auto;
+  width: 5rem;
+  border-radius: 50%;
 }
 
 .user-actions li {

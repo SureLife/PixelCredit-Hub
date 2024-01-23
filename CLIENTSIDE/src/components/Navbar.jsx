@@ -23,8 +23,8 @@ function Navbar() {
   const { user, slideMenuOpen } = state;
   const navigate = useNavigate();
 
-  const profileImage = user ? user.profileImage : null;
-  console.log(user);
+  const profileImage = user ? user.profileImageUrl: null;
+  const isAdmin = user && user.role === 'admin';
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -38,9 +38,21 @@ function Navbar() {
       type: "setSlideMenuOpen",
       payload: { isPaneOpen: !slideMenuOpen.isPaneOpen },
     });
-  
-    console.log("User:", user); // Log user after dispatching the action
+
+    //console.log("User:", user); // Log user after dispatching the action
   };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    dispatch({
+      type: "SetSelectedFile",
+      payload: file,
+    });
+    // Do something with the file, like uploading or processing
+  };
+  const adminWarning = () => {
+    alert("CAUTION\nYou can change the DB irreversibly");
+  }
   return (
     <div className="nav-bar">
       <ul className="nav-links">
@@ -71,7 +83,7 @@ function Navbar() {
         <li>
           {user ? (
             <div className="loggedIn">
-              <div className="menu-icon" onClick={toggleMenu}>
+              <div className="Avatar" onClick={toggleMenu}>
                 <img
                   src={profileImage || defaultAvatar}
                   alt="Profile"
@@ -95,7 +107,7 @@ function Navbar() {
                   {/* Options in the sliding pane */}
                   <ul>
                     <li>
-                      <Link to="/userprofile">
+                      <Link to={`/users/${user._id}`}>
                         <FontAwesomeIcon
                           className="slideIcon"
                           icon={faUser}
@@ -104,7 +116,7 @@ function Navbar() {
                         <p>PROFILE</p>
                       </Link>
                     </li>
-                    <br />
+
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon
@@ -115,7 +127,6 @@ function Navbar() {
                         <p>UPLOAD IMAGES</p>
                       </Link>
                     </li>
-                    <br />
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon
@@ -126,7 +137,6 @@ function Navbar() {
                         <p>LIBRARY</p>
                       </Link>
                     </li>
-                    <br />
                     <li>
                       <Link to="/userprofile">
                         <FontAwesomeIcon
@@ -169,26 +179,28 @@ function Navbar() {
                           href="https://github.com/Masouma-Rasouli"
                           target="_blank"
                         >
-                          Masouma,
+                          M
+                        </a>
+                        <a href="https://github.com/SureLife" target="_blank">
+                          D
                         </a>
                         <a
                           href="https://github.com/NehaMehta2005"
                           target="_blank"
                         >
-                          Neha,
+                          N (
                         </a>
-                        <a href="https://github.com/SureLife" target="_blank">
-                          Daniel,
-                        </a>
-                        <a href="https://github.com/Julz1997" target="_blank">
-                          Julian
-                        </a>
+                         Masouma, Daniel, Neha)
                       </p>
                     </div>
                   </div>
                 </SlidingPane>
               )}
-
+              {isAdmin && (
+                <Link to="/adminpanel" className="admin-panel-button">
+                  <button onClick={adminWarning}>Admin Panel</button>
+                </Link>
+              )}
               <Link to="/shoppingcart" className="shopping-cart">
                 <Button
                   buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
@@ -199,10 +211,10 @@ function Navbar() {
             </div>
           ) : (
             <div>
-              <Link to="/login" className="nav-link">
-                Log-in
+              <Link to="/login" >
+                LOGIN
               </Link>
-              <Link to="/register">Register</Link>
+              <Link to="/register" >REGISTER</Link>
             </div>
           )}
         </li>

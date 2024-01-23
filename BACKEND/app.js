@@ -10,6 +10,11 @@ import usersRouter from "./routers/usersRouter.js";
 import adminRouter from "./routers/adminRouter.js";
 import contactUsRouter from "./routers/contactUsRouter.js"
 import memberRouter from "./routers/memberRouter.js";
+import profileRouter from './routers/profileRouter.js';
+import {Readable} from "stream";
+
+
+
 
 
 // creating express server
@@ -23,7 +28,7 @@ app.use(fileUpload());
 // connect to MongoDB through mongoose
 mongoose
   .connect("mongodb://127.0.0.1:27017/PixelCreditHub")
-  //.connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
+  // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 
@@ -40,6 +45,7 @@ app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)
 app.use("/members", memberRouter);
+app.use('/profile', profileRouter);
 
 
 //create more routes as required
