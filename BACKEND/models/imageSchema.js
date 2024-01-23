@@ -1,11 +1,13 @@
-import { Schema, model } from "mongoose";
+  import { Schema, model } from "mongoose";
 
 const imageSchema = new Schema({
-  user_id: {
+  filename: String,
+  data: Buffer,
+  /* user_id: {
     type: Schema.Types.ObjectId,
     ref: "User", // Reference to the User model
     required: true,
-  },
+  }, */
   image_url: {
     type: String,
     required: true,
@@ -15,11 +17,11 @@ const imageSchema = new Schema({
     enum: ["pending", "approved", "rejected"],
     default: "pending",
   },
-  admin_id: {
+ /*  admin_id: {
     type: Schema.Types.ObjectId,
     ref: "Admin", // Reference to the Admin model
     default: null,
-  },
+  }, */
   tags: [
     {
       type: String,
@@ -29,7 +31,7 @@ const imageSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  approved_at: {
+/*   approved_at: {
     type: Date,
     default: null,
   },
@@ -37,7 +39,7 @@ const imageSchema = new Schema({
     type: Date,
     default: null,
   },
-   
+    */
 });
 
 const Image = model("Image", imageSchema);

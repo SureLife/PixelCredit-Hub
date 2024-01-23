@@ -11,7 +11,8 @@ import adminRouter from "./routers/adminRouter.js";
 import contactUsRouter from "./routers/contactUsRouter.js"
 import memberRouter from "./routers/memberRouter.js";
 import profileRouter from './routers/profileRouter.js';
-import {Readable} from "stream";
+import imageRouter from "./routers/imageRouter.js";
+
 
 
 
@@ -46,7 +47,7 @@ app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter)
 app.use("/members", memberRouter);
 app.use('/profile', profileRouter);
-
+app.use("/images", imageRouter);
 
 //create more routes as required
 

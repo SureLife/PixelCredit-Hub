@@ -23,8 +23,8 @@ function Navbar() {
   const { user, slideMenuOpen } = state;
   const navigate = useNavigate();
 
-  const profileImage = user ? user.profileImageUrl: null;
-  const isAdmin = user && user.role === 'admin';
+  const profileImage = user ? user.profileImageUrl : null;
+  const isAdmin = user && user.role === "admin";
 
   // Handle the removal of the token on logout
   const handleLogout = () => {
@@ -42,7 +42,7 @@ function Navbar() {
     //console.log("User:", user); // Log user after dispatching the action
   };
 
-  const handleFileChange = (e) => {
+  /*  const handleFileChange = (e) => {
     const file = e.target.files[0];
     dispatch({
       type: "SetSelectedFile",
@@ -52,7 +52,7 @@ function Navbar() {
   };
   const adminWarning = () => {
     alert("CAUTION\nYou can change the DB irreversibly");
-  }
+  } */
   return (
     <div className="nav-bar">
       <ul className="nav-links">
@@ -83,6 +83,15 @@ function Navbar() {
         <li>
           {user ? (
             <div className="loggedIn">
+              <Link to="/images/upload">
+                <FontAwesomeIcon
+                  className="slideIcon"
+                  icon={faCloudArrowUp}
+                  style={{ color: "#000000" }}
+                />
+                <p>UPLOAD IMAGES</p>
+              </Link>
+
               <div className="Avatar" onClick={toggleMenu}>
                 <img
                   src={profileImage || defaultAvatar}
@@ -118,7 +127,7 @@ function Navbar() {
                     </li>
 
                     <li>
-                      <Link to="/userprofile">
+                      <Link to="/images/upload">
                         <FontAwesomeIcon
                           className="slideIcon"
                           icon={faCloudArrowUp}
@@ -190,7 +199,7 @@ function Navbar() {
                         >
                           N (
                         </a>
-                         Masouma, Daniel, Neha)
+                        Masouma, Daniel, Neha)
                       </p>
                     </div>
                   </div>
@@ -211,10 +220,8 @@ function Navbar() {
             </div>
           ) : (
             <div>
-              <Link to="/login" >
-                LOGIN
-              </Link>
-              <Link to="/register" >REGISTER</Link>
+              <Link to="/login">LOGIN</Link>
+              <Link to="/register">REGISTER</Link>
             </div>
           )}
         </li>
