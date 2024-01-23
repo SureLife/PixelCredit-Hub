@@ -9,7 +9,7 @@ const backendURL = `http://localhost:5500`;
 function AboutUs() {
   const { state, dispatch } = useContext(MyContext);
   const { members } = state;
-
+console.log(members);
   useEffect(() => {
     // Fetch member data from your backend API
     async function fetchMembers() {
@@ -66,6 +66,7 @@ function AboutUs() {
           <h3 className="aboutUsSubTitel">Meet Our Team</h3>
           <ul className="aboutUsUl">
             {members.map((member, index) => (
+            
               <li key={index}>
 
                 <div className="memberImgDiv">
@@ -76,11 +77,11 @@ function AboutUs() {
                   <img
                     src={member.image}
                     alt={`${member.name} ${member.lastname}`}
-                    /* style={{
+                     style={{
                       height: '150px',
                       width: '150px', // Set your desired width
                       borderRadius: '50%', // Set your desired border radius
-                    }} */
+                    }} 
                   />
                 </Link>
                 </div>

@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./Member.css";
 import profileLogo from "../assets/images/profileLogo.png";
-import logo from "../assets/images/Logo.png";
+// import logo from "../assets/images/Logo.png";
 
 const backendURL = `http://localhost:5500`;
 
@@ -106,7 +106,7 @@ function Member() {
         <div className="col-lg-6 text-center order-lg-2 order-1">
           <img
             className="d-block me-lg-n5 flex-shrink-0"
-            src={logo}
+            src={singleMember.image}
             alt={`${singleMember.name} ${singleMember.lastname}`}
             style={{ maxWidth: "80%", height: "auto" }}
           />
