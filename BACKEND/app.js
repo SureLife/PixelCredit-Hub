@@ -17,11 +17,13 @@ import {Readable} from "stream";
 
 
 
+
 // creating express server
 const app = express();
 
 // middleware
 // middleware to parse any incoming json data
+app.use(express.static("public")); // don't touch it plz! best regards, Masouma
 app.use(express.json());
 app.use(fileUpload());
 
