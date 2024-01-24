@@ -15,7 +15,7 @@ export const uploadImages = async (req, res, next) => {
     }
 
     // Assuming "foo" is the field name in your form
-    const uploadedFile = req.files.foo;
+    const uploadedFile = req.files.foo;//try to make it array and console to check if it can allows to upload multiple files
 
     // Accessing file properties
     console.log("File Name:", uploadedFile.name);
@@ -25,6 +25,7 @@ export const uploadImages = async (req, res, next) => {
     const image = new Upload({
       fileName: uploadedFile.name,
       fileSize: uploadedFile.size,
+      data:uploadedFile.data,
     });
 
     await image.save();
