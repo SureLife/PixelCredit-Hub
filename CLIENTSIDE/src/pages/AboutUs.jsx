@@ -23,6 +23,12 @@ console.log(members);
 
     fetchMembers();
   }, []);
+  const handleImgRightClick = (e) => {
+    if (e.button === 2) {
+      e.preventDefault();
+      // this function do not allow user to right click!
+    }
+  };
 
   return (
     <div className="aboutUsMainContainer">
@@ -77,12 +83,16 @@ console.log(members);
                   <img
                     src={member.image}
                     alt={`${member.name} ${member.lastname}`}
+                    
                      style={{
                       height: '150px',
                       width: '150px', // Set your desired width
                       borderRadius: '50%', // Set your desired border radius
                     }} 
+                    onContextMenu={handleImgRightClick}
+                   
                   />
+                  
                 </Link>
                 </div>
 

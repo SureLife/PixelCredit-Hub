@@ -35,6 +35,17 @@ function Member() {
     fetchMemberDetails();
   }, []);
 
+  const handleImgRightClick = (e) => {
+    if (e.button === 2) {
+      e.preventDefault();
+      // this function do not allow user to right click!
+    }
+  };
+
+
+
+
+
   return (
     <div className="px-lg-5 container-fluid d-flex align-items-center justify-content-center" style={{ backgroundColor: 'rgb(244,245,246)', minHeight: '100vh' }} id="tns2-item2">
       <div className="row gx-5">
@@ -109,6 +120,7 @@ function Member() {
             src={singleMember.image}
             alt={`${singleMember.name} ${singleMember.lastname}`}
             style={{ maxWidth: "80%", height: "auto" }}
+            onContextMenu={handleImgRightClick}
           />
         </div>
       </div>

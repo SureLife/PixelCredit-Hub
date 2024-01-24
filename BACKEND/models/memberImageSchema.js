@@ -1,7 +1,14 @@
-import {Schema, model} from "mongoose";
-const memberImages = new Schema({
+import { Schema, model } from "mongoose";
+
+const memberImagesSchema = new Schema({
   filename: String,
-  data:Buffer
+  data: {
+    type: Buffer,
+    required: true,
+  },
+  // Add any other fields as needed
 });
-const memberImage = model('Image', memberImages);
-export default memberImage;
+
+const MemberImage = model('MemberImage', memberImagesSchema);
+
+export default MemberImage;

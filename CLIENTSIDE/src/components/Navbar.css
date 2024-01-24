@@ -56,7 +56,11 @@
 .user-actions a {
   margin: 2rem;
 }
-.logo,
+.logo {
+  height: 5rem;
+  width: 5rem;
+   
+}
 .profile-avatar {
   height: 5rem;
   width: 5rem;
