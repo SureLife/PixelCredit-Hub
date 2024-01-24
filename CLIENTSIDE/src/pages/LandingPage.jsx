@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import "./LandingPage.css";
@@ -7,6 +7,16 @@ import { faPlayCircle, faHeart, faShareFromSquare } from "@fortawesome/free-regu
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 function LandingPage() {
+  const [iconColors, setIconColors] = useState(['black', 'black', 'black']);
+  const handleChange = (index) => {
+      // Toggle the color of the specific heart icon at the given index
+      const newIconColors = [...iconColors];
+      newIconColors[index] = iconColors[index] === 'black' ? 'red' : 'black';
+      setIconColors(newIconColors);
+  };
+
+
+
   return (
     <div className="Home-Container">
       <div className="Home-cardContainer withBG">
@@ -64,9 +74,9 @@ function LandingPage() {
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<FontAwesomeIcon icon={faHeart} />}
+                buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[0] }} />}
                 className="BTN"
-                /* onClick={handleSearch} */
+                onClick={() => handleChange(0)}
               />
               <Button
                 buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
@@ -89,9 +99,9 @@ function LandingPage() {
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<FontAwesomeIcon icon={faHeart} />}
+                buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[1] }}/>}
                 className="BTN"
-                /* onClick={handleSearch} */
+                onClick={() => handleChange(1)}
               />
               <Button
                 buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
@@ -114,9 +124,9 @@ function LandingPage() {
             </div>
             <div className="btnDiv">
               <Button
-               buttonText={<FontAwesomeIcon icon={faHeart} />}
+               buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[2] }}/>}
                 className="BTN"
-                /* onClick={handleSearch} */
+                onClick={() => handleChange(2)} 
               />
               <Button
                 buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
