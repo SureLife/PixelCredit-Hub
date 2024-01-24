@@ -1,7 +1,7 @@
-//import Image from "../models/imageSchema.js";
+import MemberImage from "../models/memberImageSchema.js";
 import { Readable } from "stream";
-//import Upload from "../models/uploadSchema.js";
-import fileUpload from "express-fileupload";
+
+//import fileUpload from "express-fileupload";
 import Upload from "../models/uploadSchema.js"
 
 
@@ -42,9 +42,9 @@ export const uploadImages = async (req, res, next) => {
  
 
 //this code is serving images back to client
-export const getImage = async (req, res, next) => {
+export const getMemberImage = async (req, res, next) => {
   try {
-    const image = await Image.findOne({ filename: req.params.filename });
+    const image = await MemberImage.findOne({ filename: req.params.filename });
     if (image) {
       const readStream = Readable.from(image.data);
       readStream.pipe(res);
