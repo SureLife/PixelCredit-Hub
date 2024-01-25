@@ -30,7 +30,22 @@ function ReviewUploadedImages() {
 
 
   return (
-    <div>ReviewUploadedImages</div>
+    <div>
+      <div>
+        {allUploads.map(upload => (
+          <div key={upload._id}>
+            <img
+              src={`${upload.data}`}
+              alt={upload.fileName}
+              style={{ width: '200px', height: 'auto' }}
+            />
+            <p>Status: {upload.status}</p>
+            <hr />
+          </div>
+        ))}
+      </div>
+    </div>
+
   )
 }
 

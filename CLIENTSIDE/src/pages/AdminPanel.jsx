@@ -33,6 +33,11 @@ function AdminPanel() {
       <h2>ADMIN PANEL</h2>
       <div className="adminBg">
         <div className="adminOptions">
+
+          <Link to="/reviewuploadedimages">
+          <button>Review uploaded images by Users</button>
+          </Link>
+
           <label>
             <h4>DELETE USER</h4>
             Enter User Email:
@@ -41,13 +46,6 @@ function AdminPanel() {
           <button id="delete" onClick={deleteUserByEmail}>Delete User</button>
         </div>
       </div>
-      <ul className="nav-links">
-        <li>
-          <Link to="/reviewuploadedimages">
-          Review uploaded images by Users
-          </Link>
-        </li>
-        </ul>
     </div>
   );
 }
