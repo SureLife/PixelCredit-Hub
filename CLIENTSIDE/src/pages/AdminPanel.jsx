@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "./AdminPanel.css";
-
+import { Link } from "react-router-dom";
 function AdminPanel() {
   const [email, setEmail] = useState("");
 
@@ -41,6 +41,13 @@ function AdminPanel() {
           <button id="delete" onClick={deleteUserByEmail}>Delete User</button>
         </div>
       </div>
+      <ul className="nav-links">
+        <li>
+          <Link to="/reviewuploadedimages">
+          Review uploaded images by Users
+          </Link>
+        </li>
+        </ul>
     </div>
   );
 }
