@@ -42,7 +42,7 @@ function Navbar() {
     //console.log("User:", user); // Log user after dispatching the action
   };
 
-  /*  const handleFileChange = (e) => {
+   const handleFileChange = (e) => {
     const file = e.target.files[0];
     dispatch({
       type: "SetSelectedFile",
@@ -52,7 +52,7 @@ function Navbar() {
   };
   const adminWarning = () => {
     alert("CAUTION\nYou can change the DB irreversibly");
-  } */
+  }  
   return (
     <div className="nav-bar">
       <ul className="nav-links">

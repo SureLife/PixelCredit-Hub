@@ -3,6 +3,7 @@ import { Readable } from "stream";
 
 //import fileUpload from "express-fileupload";
 import Upload from "../models/uploadSchema.js"
+ 
 
 
 export const uploadImages = async (req, res, next) => {
@@ -56,7 +57,13 @@ export const getMemberImage = async (req, res, next) => {
 };
 
 
-
+export const getAllUploadedImages = async (req, res, next) => {
+  try {
+    res.send("hello i m from backend");
+  } catch (error) {
+    console.log("not working")
+  }
+}
 
 
 
