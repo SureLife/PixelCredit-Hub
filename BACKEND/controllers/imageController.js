@@ -1,4 +1,4 @@
-import { create } from "domain";
+import { v4 as uuidv4 } from 'uuid';
 import MemberImage from "../models/memberImageSchema.js";
 import Upload from "../models/uploadSchema.js";
 import { Readable } from "stream";
@@ -21,16 +21,16 @@ export const uploadImages = async (req, res, next) => {
 
     // Accessing file properties
     let timestamp = Date.now();
-    console.log("File Name:", Date.now());
-    console.log("File Size:", uploadedFile.size);
+    const uniqueFilename = `${timestamp}-${uuidv4()}`; 
+    
 
     // Save the file details to the database (replace this with your actual database logic)
     const image = new Upload({
-      //fileName: timestamp,
-      fileName: uploadedFile.name,
+      fileName: uniqueFilename,
+      //fileName:uploadedFile.name,
       fileSize: uploadedFile.size,
       data:uploadedFile.data,
-      imageURL: `http://localhost:5500/images/allimages/${uploadedFile.name}`
+      imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`
     });
 
     await image.save();
@@ -41,13 +41,20 @@ export const uploadImages = async (req, res, next) => {
     next(error);
   }
 };
+
+
+
 //this code is serving images back to client
 export const getAllImages = async (req, res, next) => {
+  console.log(req.params)
+  console.log(req.params.filename)
   try {
-    const image = await Upload.findOne({ fileName: req.params.fileName });
+    const image = await Upload.findOne({ fileName: req.params.filename });
     if (image) {
       const readStream = Readable.from(image.data);
       readStream.pipe(res);
+    }else {
+      res.status(404).send("Image not found");
     }
   } catch (error) {
     res.status(500).send("Error fetching image");
@@ -75,8 +82,9 @@ export const getMemberImage = async (req, res, next) => {
 
 
 export const getAllUploadedImages = async (req, res, next) => {
+  const status = req.params.status || "pending"
   try {
-    const pendingUploads = await Upload.find({ status: 'pending' });
+    const pendingUploads = await Upload.find({ status });
     if (pendingUploads) {
     res.json(pendingUploads);
     // console.log(pendingUploads);

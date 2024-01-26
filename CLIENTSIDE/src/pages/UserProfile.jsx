@@ -8,28 +8,10 @@ const backendURL = `http://localhost:5500`;
 
 const UserProfile = () => {
   const { userid } = useParams();
-  //console.log("UserId:", userid);
+  console.log("UserId:", userid);
 
   const { state, dispatch } = useContext(MyContext);
   const { user, selectedFile } = state;
-  const [uploadHistory, setUploadHistory] = useState([]);//now
-
-
-  useEffect(() => {
-    // Fetch upload history data when the component mounts
-    const fetchUploadHistory = async () => {
-      try {
-        const response = await axios.get(`${backendURL}/images/upload`);
-        setUploadHistory(response.data);
-      } catch (error) {
-        console.error("Error fetching upload history:", error);
-      }
-    };
-
-    fetchUploadHistory();
-  }, [userid]); //now
-
-
 
   const handleFileChange = async (e) => {
     e.preventDefault();
@@ -43,15 +25,16 @@ const UserProfile = () => {
 
     try {
       const formData = new FormData();
-      formData.append("profileImage", file);
+      formData.append("profileImage", file); // Use the correct field name
       console.log(file);
-
+      // Use Axios to send the file to the server
       const response = await axios.post(
         `${backendURL}/profile/update-image/${userid}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            // Add any other headers if necessary
           },
         }
       );
@@ -63,8 +46,6 @@ const UserProfile = () => {
     }
   };
 
-
-
   return (
     <div className="profile-container">
       <div className="profile">
@@ -72,6 +53,8 @@ const UserProfile = () => {
           <div className="user-info">
             <h2>{`Welcome, ${user.name}!`}</h2>
             <p>Email: {user.email}</p>
+
+           
 
             <div>
               <input
@@ -92,7 +75,7 @@ const UserProfile = () => {
           </div>
         )}
 
-         <div className="upload-history">
+        {/*  <div className="upload-history">
           <h2>Upload History</h2>
           <div className="image-grid">
             {uploadHistory.map((upload) => (
@@ -105,7 +88,7 @@ const UserProfile = () => {
               </div>
             ))}
           </div>
-        </div> 
+        </div> */}
 
         {/* <div className="download-history">
           <h2>Download History</h2>

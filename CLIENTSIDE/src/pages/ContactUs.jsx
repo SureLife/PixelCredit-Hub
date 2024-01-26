@@ -1,5 +1,4 @@
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faMapMarker } from "@fortawesome/free-solid-svg-icons";

@@ -3,9 +3,9 @@ import { uploadImages, getMemberImage,  getAllUploadedImages, getAllImages } fro
 
 const router = express.Router();
 
-router.get("/alluploadedimages", getAllUploadedImages); 
+router.get("/alluploadedimages/:status", getAllUploadedImages); 
 router.post("/upload", uploadImages); 
-router.post("/allimages/:filename", getAllImages);
+router.get("/allimages/:filename", getAllImages);
 router.get("/members/:filename", getMemberImage); 
 
 export default router;
