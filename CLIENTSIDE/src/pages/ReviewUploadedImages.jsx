@@ -16,9 +16,10 @@ function ReviewUploadedImages() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        const response = await axios.get(`${backendURL}/images/alluploadedimages`);
+        const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
+        //const response = await axios.get(`${backendURL}/images/alluploadedimages/here comes STATUS`);
         dispatch({ type: "setAllUploads", payload: response.data });
-        console.log("it is sending get req to server")
+        console.log(response.data )
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
          
@@ -35,7 +36,7 @@ function ReviewUploadedImages() {
         {allUploads.map(upload => (
           <div key={upload._id}>
             <img
-              src={`${upload.data}`}
+              src={`${upload.imageURL}`}
               alt={upload.fileName}
               style={{ width: '200px', height: 'auto' }}
             />
