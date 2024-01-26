@@ -30,6 +30,49 @@ function ReviewUploadedImages() {
   }, []);
 
 
+  // Clicking on approveImage, sets it's status to "approved" in the database.
+  const approveImage = async (upload) => {
+
+    try {
+      const res = await fetch(`http://localhost:5500/images/approve/${upload._id}`, {
+        method: `PATCH`,
+        headers: {
+          "Content-Type": `application/json`,
+        },
+      });
+      if (res.ok) {
+        alert("Image approved successfully");
+      } else {
+        const errorData = await res.json(); 
+        alert(`Error: ${errorData.message}`);
+      }
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // Clicking on Deny an image, delete's it from the database.
+  const denyImage = async (upload) => {
+
+    try {
+      const res = await fetch(`http://localhost:5500/images/deny/${upload._id}`, {
+        method: `DELETE`,
+        headers: {
+          "Content-Type": `application/json`,
+        },
+      });
+      if (res.ok) {
+        alert("Image denied and removed successfully");
+      } else {
+        const errorData = await res.json(); 
+        alert(`Error: ${errorData.message}`);
+      }
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  }
   return (
     <div>
       <div>
@@ -41,6 +84,8 @@ function ReviewUploadedImages() {
               style={{ width: '200px', height: 'auto' }}
             />
             <p>Status: {upload.status}</p>
+            <button onClick={() => approveImage(upload)}>Approve</button>
+            <button onClick={() => denyImage(upload)}>Deny</button>
             <hr />
           </div>
         ))}

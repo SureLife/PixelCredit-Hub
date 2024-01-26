@@ -94,7 +94,40 @@ export const getAllUploadedImages = async (req, res, next) => {
   }
 }
 
+// approveUpload in the database | Status: "approved";
+export const approveUpload = async (req, res, next) =>{
+  const uploadId = req.params.id;
+  console.log(req.params);
+  try {
+    const upload = await Upload.findById(uploadId)
 
+    if (!upload) {
+      return res.status(404).json({ error: "Upload not found" });
+    }
+
+    upload.status = "approved";
+    await upload.save();
+    res.json(upload);
+  } catch (err) {
+    console.log("approv eUpload failed", err);
+  }
+}
+
+export const denyUpload = async (req, res, next) => {
+  const uploadId = req.params.id;
+
+  try {
+    const upload = await Upload.findById(uploadId)
+
+    if (!upload) {
+      return res.status(404).json({ error: "Upload not found" });
+    }
+    const deleteUser = await Upload.findByIdAndDelete(upload._id);
+    res.json(upload);
+  } catch (err) {
+    console.log("deny upload failed", err);
+  }
+}
 
 
 //this code to upload images from client to server and storing it to database
