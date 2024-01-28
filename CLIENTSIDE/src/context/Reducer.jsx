@@ -33,6 +33,11 @@ export const reducer = (state, action) => {
           ...state,
           tags: action.payload,
         };
+        case "setAllUploads":
+          return {
+            ...state,
+            allUploads: action.payload,
+          };
     default:
       return state;
   }
@@ -51,4 +56,5 @@ export const initialState = {
   selectedFile: [],
   tags:"",
   uploadedImages:[],
+  allUploads:[],
 };

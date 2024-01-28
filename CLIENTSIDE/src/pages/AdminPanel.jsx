@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "./AdminPanel.css";
-
+import { Link } from "react-router-dom";
 function AdminPanel() {
   const [email, setEmail] = useState("");
 
@@ -33,6 +33,11 @@ function AdminPanel() {
       <h2>ADMIN PANEL</h2>
       <div className="adminBg">
         <div className="adminOptions">
+
+          <Link to="/reviewuploadedimages">
+          <button>Review uploaded images by Users</button>
+          </Link>
+
           <label>
             <h4>DELETE USER</h4>
             Enter User Email:

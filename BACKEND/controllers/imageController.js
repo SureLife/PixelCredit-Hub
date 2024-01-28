@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 import MemberImage from "../models/memberImageSchema.js";
+import Upload from "../models/uploadSchema.js";
 import { Readable } from "stream";
 
 //import fileUpload from "express-fileupload";
-import Upload from "../models/uploadSchema.js"
+ 
 
 
 export const uploadImages = async (req, res, next) => {
@@ -18,14 +20,17 @@ export const uploadImages = async (req, res, next) => {
     const uploadedFile = req.files.foo;//try to make it array and console to check if it can allows to upload multiple files
 
     // Accessing file properties
-    console.log("File Name:", uploadedFile.name);
-    console.log("File Size:", uploadedFile.size);
+    let timestamp = Date.now();
+    const uniqueFilename = `${timestamp}-${uuidv4()}`; 
+    
 
     // Save the file details to the database (replace this with your actual database logic)
     const image = new Upload({
-      fileName: uploadedFile.name,
+      fileName: uniqueFilename,
+      //fileName:uploadedFile.name,
       fileSize: uploadedFile.size,
       data:uploadedFile.data,
+      imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`
     });
 
     await image.save();
@@ -33,6 +38,26 @@ export const uploadImages = async (req, res, next) => {
     res.send("File uploaded successfully");
   } catch (error) {
     console.error("Error in uploadImages controller:", error);
+    next(error);
+  }
+};
+
+
+
+//this code is serving images back to client
+export const getAllImages = async (req, res, next) => {
+  console.log(req.params)
+  console.log(req.params.filename)
+  try {
+    const image = await Upload.findOne({ fileName: req.params.filename });
+    if (image) {
+      const readStream = Readable.from(image.data);
+      readStream.pipe(res);
+    }else {
+      res.status(404).send("Image not found");
+    }
+  } catch (error) {
+    res.status(500).send("Error fetching image");
     next(error);
   }
 };
@@ -56,9 +81,53 @@ export const getMemberImage = async (req, res, next) => {
 };
 
 
+export const getAllUploadedImages = async (req, res, next) => {
+  const status = req.params.status || "pending"
+  try {
+    const pendingUploads = await Upload.find({ status });
+    if (pendingUploads) {
+    res.json(pendingUploads);
+    // console.log(pendingUploads);
+    }
+  } catch (error) {
+    console.log("not working")
+  }
+}
 
+// approveUpload in the database | Status: "approved";
+export const approveUpload = async (req, res, next) =>{
+  const uploadId = req.params.id;
+  console.log(req.params);
+  try {
+    const upload = await Upload.findById(uploadId)
 
+    if (!upload) {
+      return res.status(404).json({ error: "Upload not found" });
+    }
 
+    upload.status = "approved";
+    await upload.save();
+    res.json(upload);
+  } catch (err) {
+    console.log("approv eUpload failed", err);
+  }
+}
+
+export const denyUpload = async (req, res, next) => {
+  const uploadId = req.params.id;
+
+  try {
+    const upload = await Upload.findById(uploadId)
+
+    if (!upload) {
+      return res.status(404).json({ error: "Upload not found" });
+    }
+    const deleteUser = await Upload.findByIdAndDelete(upload._id);
+    res.json(upload);
+  } catch (err) {
+    console.log("deny upload failed", err);
+  }
+}
 
 
 //this code to upload images from client to server and storing it to database

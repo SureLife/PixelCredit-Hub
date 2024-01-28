@@ -14,6 +14,8 @@ import Verification from "../components/Verification";
 import AdminPanel from "../pages/AdminPanel";
 import UploadImage from "../pages/UploadImage";
 import AddPayment from '../pages/AddPayment';
+import ReviewUploadedImages from "../pages/ReviewUploadedImages";
+
 function AppNavigator() {
   return (
     <>
@@ -34,6 +36,8 @@ function AppNavigator() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="adminpanel" element={<AdminPanel/>}/>
         <Route path="payment/:price" element={<AddPayment/>} />
+        <Route path="reviewuploadedimages" element={<ReviewUploadedImages/>}/>
+
       </Routes>
     </>
   );

@@ -5,6 +5,12 @@ const uploadSchema = new Schema({
   data: { type: Buffer, required: true },
   timestamp: { type: Date, default: Date.now },
   fileSize: { type: Number, required: true },
+  status: {
+    type: String,
+    enum: ["pending", "approved", "rejected"],
+    default: "pending",
+  },
+  imageURL: {type: String },
 });
 
 const Upload = model("Upload", uploadSchema);

@@ -1,9 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -42,12 +41,12 @@ function Member() {
     }
   };
 
-
-
-
-
   return (
-    <div className="px-lg-5 container-fluid d-flex align-items-center justify-content-center" style={{ backgroundColor: 'rgb(244,245,246)', minHeight: '100vh' }} id="tns2-item2">
+    <div
+      className="px-lg-5 container-fluid d-flex align-items-center justify-content-center"
+      style={{ backgroundColor: "rgb(244,245,246)", minHeight: "100vh" }}
+      id="tns2-item2"
+    >
       <div className="row gx-5">
         <div className="col-lg-6 text-center order-lg-1 order-2">
           <img
@@ -60,14 +59,20 @@ function Member() {
             <span className="text-black">{singleMember.lastname}</span>
           </h1>
           <div className="subheading mb-5">
-            The next big idea is waiting for its next big changer with <Link to="/">PixelCreditHub</Link>
-           
+            The next big idea is waiting for its next big changer with{" "}
+            <Link to="/">PixelCreditHub</Link>
           </div>
-          <p className="mb-5 text-justify" style={{ maxWidth: "500px", margin: "auto" }}>
+          <p
+            className="mb-5 text-justify"
+            style={{ maxWidth: "500px", margin: "auto" }}
+          >
             Role: {singleMember.role}
           </p>
 
-          <p className="mb-5 text-justify" style={{ maxWidth: "500px", margin: "auto" }}>
+          <p
+            className="mb-5 text-justify"
+            style={{ maxWidth: "500px", margin: "auto" }}
+          >
             {singleMember.like}
           </p>
 
