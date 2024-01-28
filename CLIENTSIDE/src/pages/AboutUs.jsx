@@ -89,7 +89,7 @@ console.log(members);
                       width: '150px', // Set your desired width
                       borderRadius: '50%', // Set your desired border radius
                     }} 
-                    onContextMenu={handleImgRightClick}
+                     onContextMenu={handleImgRightClick}
                    
                   />
                   
