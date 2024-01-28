@@ -3,4 +3,4 @@ Final MERN stack project.
 
 Stock Photo website.
 
-By: Neha, Masouma, Daniel, Julian.
+By: Neha, Masouma, Daniel.
