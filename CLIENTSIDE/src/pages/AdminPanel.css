@@ -15,6 +15,13 @@
 /* .adminOptions {
 }
  */
+#review {
+  background-color: #2a2a33;
+  margin-bottom: 1rem;
+}
+#review:hover {
+  background-color: #58586c;
+}
 #delete {
   background-color: #fc3441;
 }
