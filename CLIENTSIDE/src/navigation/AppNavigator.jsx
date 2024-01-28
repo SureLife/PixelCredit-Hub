@@ -13,7 +13,7 @@ import ForgotPassword from "../pages/ForgotPassword"
 import Verification from "../components/Verification";
 import AdminPanel from "../pages/AdminPanel";
 import UploadImage from "../pages/UploadImage";
-
+import AddPayment from '../pages/AddPayment';
 function AppNavigator() {
   return (
     <>
@@ -33,7 +33,7 @@ function AppNavigator() {
         <Route path="/users/:userid" element={<UserProfile/>} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="adminpanel" element={<AdminPanel/>}/>
-
+        <Route path="payment/:price" element={<AddPayment/>} />
       </Routes>
     </>
   );

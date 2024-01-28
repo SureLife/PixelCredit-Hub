@@ -12,7 +12,7 @@ import contactUsRouter from "./routers/contactUsRouter.js"
 import memberRouter from "./routers/memberRouter.js";
 import profileRouter from './routers/profileRouter.js';
 import imageRouter from "./routers/imageRouter.js";
-
+import paymentRouter from "./routers/addPaymentRouter.js";
 
 
 
@@ -50,6 +50,8 @@ app.use("/submitContactForm", contactUsRouter)
 app.use("/members", memberRouter);
 app.use('/profile', profileRouter);
 app.use("/images", imageRouter);
+app.use("/savePayment", paymentRouter);
+
 
 //create more routes as required
 
