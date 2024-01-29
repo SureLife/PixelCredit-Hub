@@ -15,6 +15,7 @@ import AdminPanel from "../pages/AdminPanel";
 import UploadImage from "../pages/UploadImage";
 import AddPayment from '../pages/AddPayment';
 import ReviewUploadedImages from "../pages/ReviewUploadedImages";
+import CategoryResults from "../pages/CategoryResults";
 
 function AppNavigator() {
   return (
@@ -37,6 +38,7 @@ function AppNavigator() {
         <Route path="adminpanel" element={<AdminPanel/>}/>
         <Route path="payment/:price" element={<AddPayment/>} />
         <Route path="reviewuploadedimages" element={<ReviewUploadedImages/>}/>
+        <Route path="categories/:category" element={<CategoryResults/>}/>
 
       </Routes>
     </>

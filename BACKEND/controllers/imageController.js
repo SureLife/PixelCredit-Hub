@@ -33,8 +33,8 @@ export const uploadImages = async (req, res, next) => {
       fileSize: uploadedFile.size,
       data:uploadedFile.data,
       imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`,
-      tags:tags.split(" "),
-      categories:categories
+      tags:tags.split(" ", 5),
+      categories:categories.split(" ", 3),
 
 
     });
@@ -135,6 +135,20 @@ export const denyUpload = async (req, res, next) => {
   }
 }
 
+
+// export const getAllCategoryImages = async (req, res, next) => {
+//   const categories = req.params.categories || "";
+
+//   try {
+//     const selectedCategory = await Upload.find({ categories });
+//     if (selectedCategory) {
+//     res.json(selectedCategory);
+
+//     }
+//   } catch (error) {
+//     console.log("not working")
+//   }
+// }
 
 //this code to upload images from client to server and storing it to database
 /* export const uploadImages = async (req, res, next) => {
