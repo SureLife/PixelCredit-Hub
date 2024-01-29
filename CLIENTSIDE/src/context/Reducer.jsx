@@ -23,21 +23,27 @@ export const reducer = (state, action) => {
         ...state,
         selectedFile: action.payload,
       };
-      case "SetUploadedImages":
+    /*   case "SetUploadedImages":
       return {
         ...state,
         uploadedImages: action.payload,
+      }; */
+    case "SetTags":
+      return {
+        ...state,
+        tags: action.payload,
       };
-      case "SetTags":
-        return {
-          ...state,
-          tags: action.payload,
-        };
-        case "setAllUploads":
-          return {
-            ...state,
-            allUploads: action.payload,
-          };
+    case "setAllUploads":
+      return {
+        ...state,
+        allUploads: action.payload,
+      };
+    case "SetCategories":
+      return {
+        ...state,
+        categories: action.payload,
+      };
+
     default:
       return state;
   }
@@ -54,7 +60,8 @@ export const initialState = {
   slideMenuOpen: false,
   token: null,
   selectedFile: [],
-  tags:"",
-  uploadedImages:[],
-  allUploads:[],
+  tags: [],
+  categories: [],
+  // uploadedImages:[], // it was before in uploadimage.jsx now not any more, but not sure if we are using it somewhere else or not!!
+  allUploads: [],
 };

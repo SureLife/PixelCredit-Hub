@@ -9,7 +9,8 @@ import { Readable } from "stream";
 
 export const uploadImages = async (req, res, next) => {
   try {
-    console.log("hello");
+    console.log("Tags and Categories:", req.body.tags, req.body.categories);
+
 
     // Check if files were uploaded
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -18,7 +19,8 @@ export const uploadImages = async (req, res, next) => {
 
     // Assuming "foo" is the field name in your form
     const uploadedFile = req.files.foo;//try to make it array and console to check if it can allows to upload multiple files
-
+    const tags  = req.body.tags;
+    const categories = req.body.categories;
     // Accessing file properties
     let timestamp = Date.now();
     const uniqueFilename = `${timestamp}-${uuidv4()}`; 
@@ -30,7 +32,11 @@ export const uploadImages = async (req, res, next) => {
       //fileName:uploadedFile.name,
       fileSize: uploadedFile.size,
       data:uploadedFile.data,
-      imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`
+      imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`,
+      tags:tags,
+      categories:categories
+
+
     });
 
     await image.save();

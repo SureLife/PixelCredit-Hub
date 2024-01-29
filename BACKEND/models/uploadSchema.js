@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import User from "./userSchema.js";
 
 const uploadSchema = new Schema({
   fileName: { type: String, required: true },
@@ -11,11 +12,42 @@ const uploadSchema = new Schema({
     default: "pending",
   },
   imageURL: {type: String },
+  tags: [{ type: String }],
+  categories: [{ type: String }], //add validator so atleast one categgories is there.
+  
 });
 
 const Upload = model("Upload", uploadSchema);
 
 export default Upload;
+
+
+
+
+/* categories: {
+  type: [String],
+  validate: {
+    validator: function (v) {
+      return v && v.length > 0;
+    },
+    message: "At least one category is required."
+  },
+  required: true
+}, */
+
+
+
+/* likes: [
+    {
+      user: { type: Schema.Types.ObjectId, ref: 'User' }, // Reference to User model
+      // Add any additional fields related to like such as date/time if needed
+    }
+  ],
+  publisher: { type: Schema.Types.ObjectId, ref: 'User' } // Reference to User model for publisher */
+
+
+
+
 
 /* import { Schema, model } from "mongoose";
 
