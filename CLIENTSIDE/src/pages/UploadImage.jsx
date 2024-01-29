@@ -19,7 +19,7 @@ const UploadImage = () => {
 
   const handleTagsChange = (e) => {
     const tagsValue = e.target.value
-    console.log(tagsValue, "tagsss"); // Replace multiple spaces with single space and trim spaces
+    //console.log(tagsValue, "tagsss"); // Replace multiple spaces with single space and trim spaces
     dispatch({
       type: "SetTags",
       payload: tagsValue,

@@ -28,7 +28,7 @@ function AppNavigator() {
         <Route path="/register" element={<Register />} />
         <Route path="/verify/:token" element={<Verification />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
-        <Route path="/results" element={<SearchResult />} />
+        <Route path="/images/searchresults" element={<SearchResult />} />
         <Route path="/images/upload" element={<UploadImage />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/members/:memberName" element={<Member />} />
