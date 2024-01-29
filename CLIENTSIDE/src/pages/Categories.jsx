@@ -42,7 +42,7 @@ function Categories() {
   return (
     <div>
       {/* Spotlight Section */}
-      <Splide options={ { rewind: true, height: "1080px" } } aria-label="Hero Section">
+      <Splide options={ { rewind: true, height: "540px" } } aria-label="Hero Section">
       <SplideSlide>
       <div className="Spotlight s1" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
         <div className="leftSpot">

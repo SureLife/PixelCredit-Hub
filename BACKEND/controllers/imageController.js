@@ -33,7 +33,7 @@ export const uploadImages = async (req, res, next) => {
       fileSize: uploadedFile.size,
       data:uploadedFile.data,
       imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`,
-      tags:tags,
+      tags:tags.split(" "),
       categories:categories
 
 
