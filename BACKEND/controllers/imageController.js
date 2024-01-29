@@ -144,6 +144,23 @@ export const getSearchedImages = async (req, res, next) => {
   }
 };
 
+// export const getAllCategoryImages = async (req, res, next) => {
+//   const categories = req.params.categories || "";
+
+//   try {
+//     const selectedCategory = await Upload.find({ categories });
+//     if (selectedCategory) {
+//     res.json(selectedCategory);
+
+//     }
+//   } catch (error) {
+//     console.log("not working")
+//   }
+// }
+
+//this code to upload images from client to server and storing it to database
+/* export const uploadImages = async (req, res, next) => {
+
 /* export const getSearchedImages = async (req, res, next) => {
   
   try {
