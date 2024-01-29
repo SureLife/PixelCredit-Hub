@@ -33,9 +33,9 @@ function AdminPanel() {
       <h2>ADMIN PANEL</h2>
       <div className="adminBg">
         <div className="adminOptions">
-
+         <h4>REVIEW SUBMITTED</h4>
           <Link to="/reviewuploadedimages">
-          <button>Review uploaded images by Users</button>
+          <button id="review">Review uploaded images by Users</button>
           </Link>
 
           <label>

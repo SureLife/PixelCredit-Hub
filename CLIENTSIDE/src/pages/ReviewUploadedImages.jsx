@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 //import { Link } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 import axios from "axios";
+import "./ReviewUploadedImages.css";
 
 const backendURL = `http://localhost:5500`;
 
@@ -74,10 +75,10 @@ function ReviewUploadedImages() {
     }
   }
   return (
-    <div>
-      <div>
+    <div className="pendingContainer">
+      <div className="uploads-container">
         {allUploads.map(upload => (
-          <div key={upload._id}>
+          <div className="upload-item" key={upload._id}>
             <img
               src={`${upload.imageURL}`}
               alt={upload.fileName}
@@ -85,7 +86,7 @@ function ReviewUploadedImages() {
             />
             <p>Status: {upload.status}</p>
             <button onClick={() => approveImage(upload)}>Approve</button>
-            <button onClick={() => denyImage(upload)}>Deny</button>
+            <button className="deny" onClick={() => denyImage(upload)}>Deny</button>
             <hr />
           </div>
         ))}
