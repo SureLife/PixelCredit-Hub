@@ -34,7 +34,7 @@
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 -50px 40px rgba(0, 0, 0, 0.716);
-  height: 1080px;
+  height: 540px;
 }
 /* 
 .s1 {
@@ -54,9 +54,9 @@
 } */
 
 .leftSpot h1 {
-  width: 45%;
+  width: 30%;
   color: white;
-  font-size: 5rem;
+  font-size: 3rem;
   padding: 7rem 4rem 0rem 4rem;
 }
 
@@ -64,7 +64,7 @@
   color: white;
   margin: 0 0 1rem 4rem;
   width: 50%;
-  font-size: 2rem;
+  font-size: 1rem;
   background-color: rgba(0, 0, 0, 0.409);
 }
 
@@ -74,5 +74,5 @@
   text-decoration: underline;
   margin: 0 0 1rem 4rem;
   width: 50%;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }

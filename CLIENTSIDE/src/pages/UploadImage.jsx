@@ -18,7 +18,8 @@ const UploadImage = () => {
   };
 
   const handleTagsChange = (e) => {
-    const tagsValue = e.target.value.split(" ") // Replace multiple spaces with single space and trim spaces
+    const tagsValue = e.target.value
+    console.log(tagsValue, "tagsss"); // Replace multiple spaces with single space and trim spaces
     dispatch({
       type: "SetTags",
       payload: tagsValue,
@@ -64,7 +65,7 @@ const UploadImage = () => {
       );
 
       console.log("Server Response:", response.data);
-      
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading file:", error);
     }
