@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
 import Container from "./context/Container";
 import Footer from "./components/Footer";
 import AppNavigator from "./navigation/AppNavigator";
@@ -14,7 +14,7 @@ function App() {
         <Header />
         <AppNavigator />
         <Footer />
-        <AnimatedCursor 
+        {/* <AnimatedCursor 
           innerSize={8}
           outerSize={35}
           innerScale={1}
@@ -24,7 +24,7 @@ function App() {
           trailingSpeed={1}
           innerStyle={{ backgroundColor: 'black'}}
           outerStyle={{ border: '3px solid gray'}}
-        />
+        /> */}
       </Container>
     </BrowserRouter>
   );

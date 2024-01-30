@@ -25,6 +25,7 @@ function Search() {
     
     dispatch({ type: "SET_SEARCH_QUERY", payload: inputQuery });
     navigate(`/images/searchresults?query=${encodeURIComponent(inputQuery)}`);
+    dispatch({ type: "SET_SEARCH_QUERY", payload: "" });
   };
 
   return (

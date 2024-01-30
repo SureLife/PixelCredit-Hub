@@ -157,7 +157,21 @@ export const singleImage = async (req, res, next) => {
 /*   const singleMember = await Member.findOne({name:req.params.singlemember});*/
   console.log(req.params ) 
 
-  try {console.log("hello")
+  try {
+
+    const imageId = req.params.filename;
+    const result = await Upload.findOne({ fileName: imageId });
+
+    if (!result || !result.data) {
+      res.status(404).send('Image not found');
+      return;
+    }
+
+    const imageBuffer = Buffer.from(result.data, 'base64');
+
+    res.contentType('image/png');
+    res.setHeader('Content-Disposition', `attachment; filename=${imageId}.png`);
+    res.send(imageBuffer);
     /* const singleMember = await Member.findOne({
       name: capitalize(req.params.singlemember)
     });
