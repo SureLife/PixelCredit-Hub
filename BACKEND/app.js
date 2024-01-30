@@ -8,16 +8,11 @@ import morgan from "morgan";
 import fileUpload from "express-fileupload";
 import usersRouter from "./routers/usersRouter.js";
 import adminRouter from "./routers/adminRouter.js";
-import contactUsRouter from "./routers/contactUsRouter.js"
+import contactUsRouter from "./routers/contactUsRouter.js";
 import memberRouter from "./routers/memberRouter.js";
-import profileRouter from './routers/profileRouter.js';
+import profileRouter from "./routers/profileRouter.js";
 import imageRouter from "./routers/imageRouter.js";
 import paymentRouter from "./routers/addPaymentRouter.js";
-
-
-
-
-
 
 // creating express server
 const app = express();
@@ -31,9 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // connect to MongoDB through mongoose
 mongoose
-.connect("mongodb://localhost:27017/PixelCreditHub")
-  //.connect("mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub")
-  // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
+  //.connect("mongodb://localhost:27017/PixelCreditHub")
+  .connect("mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub")
+  //.connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 
@@ -48,12 +43,11 @@ app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
 
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
-app.use("/submitContactForm", contactUsRouter)
+app.use("/submitContactForm", contactUsRouter);
 app.use("/members", memberRouter);
-app.use('/profile', profileRouter);
+app.use("/profile", profileRouter);
 app.use("/images", imageRouter);
 app.use("/savePayment", paymentRouter);
-
 
 //create more routes as required
 
