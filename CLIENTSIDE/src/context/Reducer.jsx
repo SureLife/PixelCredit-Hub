@@ -44,7 +44,6 @@ export const reducer = (state, action) => {
         ...state,
         categories: action.payload,
       };
-
     default:
       return state;
   }

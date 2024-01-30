@@ -151,6 +151,7 @@ export const getSearchedImages = async (req, res, next) => {
   }
 };
 
+
 export const singleImage = async (req, res, next) => {
    
 /*   const singleMember = await Member.findOne({name:req.params.singlemember});*/
@@ -160,6 +161,7 @@ export const singleImage = async (req, res, next) => {
     /* const singleMember = await Member.findOne({
       name: capitalize(req.params.singlemember)
     });
+
   
     if (singleMember) {
       res.status(200).json(singleMember);

@@ -1,6 +1,7 @@
 import React , {useContext, useEffect} from 'react'
 import { MyContext } from '../context/MyContext';
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./categoryStyle.css"
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -11,8 +12,7 @@ const backendURL = `http://localhost:5500`;
 
 function Categories() {
   const { state, dispatch } = useContext(MyContext);
-  const { allUploads } = state;
-
+  const { allUploads, categories } = state;
 // function for getting all approved uploads
   useEffect(() => {
     async function fetchUploadedImages() {
@@ -20,16 +20,19 @@ function Categories() {
         //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
         const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
-        //console.log(response.data )
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
          
       }
     }
-
-    fetchUploadedImages();
+     fetchUploadedImages();
   }, []);
-
+  const getImageByCategory = () => {
+    if (allUploads.length === 0) {
+      // When it mounts and has checked 0 images so far
+      return "alt.jpg";
+    }
+  }
   const getRandomImageURL = () => {
     if (allUploads.length === 0) {
       // When it mounts and has checked 0 images so far
@@ -39,6 +42,9 @@ function Categories() {
     return allUploads[randomIndex].imageURL;
   };
 
+  const selectCategory = (selection) => {
+
+  }
   return (
     <div>
       {/* Spotlight Section */}
@@ -91,34 +97,27 @@ function Categories() {
     </Splide>
       {/* Categories */}
       <h2 className="cats">Categories</h2>
-      <div className="Categories">
-        <div className="singleCat">
-          <h3>3D Images</h3>
+      <div className="Categories"> 
+        <Link to={`/categories/animals`}>
+          <div  className="singleCat" onClick={selectCategory("animals")} style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522769107-9c05cb93-43bc-4625-8b3f-1de3a1a5164d')` }}>
+            <h3>Animals | Wildlife</h3>
+          </div>
+        </Link>
+        <Link to={`/categories/nature`}>
+        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522853811-fb329109-bbe1-427a-af1c-3d423ac2267f` }}>
+          <h3>Nature</h3>
         </div>
-        <div className="singleCat">
-          <h3>Animals | Wildlife</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Beauty | Fashion</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Celebrities</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Education</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Food and drink</h3>
-        </div>
-        <div className="singleCat">
+        </Link>
+        <Link to={`/categories/interiors`}>
+        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706523168988-ccfc18df-f510-482e-8508-b092166008db')` }}>
           <h3>Interiors</h3>
         </div>
-        <div className="singleCat">
-          <h3>Seasons</h3>
+        </Link>
+        <Link to={`/categories/abstract`}>
+        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+          <h3>Abstract</h3>
         </div>
-        <div className="singleCat">
-          <h3>Technology</h3>
-        </div>
+        </Link>
       </div>
     </div>
   )
