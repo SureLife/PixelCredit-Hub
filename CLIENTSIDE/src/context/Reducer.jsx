@@ -33,6 +33,12 @@ export const reducer = (state, action) => {
         ...state,
         allUploads: action.payload,
       };
+      case "setSingleimage":
+        return {
+          ...state,
+          singleimage: action.payload,
+        };
+      
     case "SetCategories":
       return {
         ...state,
@@ -57,4 +63,5 @@ export const initialState = {
   tags: [],
   categories: [],
   allUploads: [],
+  singleimage: [],
 };

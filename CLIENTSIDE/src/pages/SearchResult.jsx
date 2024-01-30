@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import DownloadButton from "../components/DownloadButton";
 
 function SearchResult() {
   const { state, dispatch } = useContext(MyContext);
   const { allUploads, searchQuery } = state;
-
+  const [selectedImage, setSelectedImage] = useState(null);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
@@ -17,13 +17,13 @@ function SearchResult() {
   useEffect(() => {
     async function fetchSearchedImages() {
       try {
-        console.log(query);
+       // console.log(query);
         const response = await axios.get(
           `${backendURL}/images/alluploadedimages/approved/${query}`
         );
         dispatch({ type: "setAllUploads", payload: response.data });
 
-        console.log(response.data);
+        //console.log(response.data);
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
       }
@@ -37,9 +37,11 @@ function SearchResult() {
       e.preventDefault();
     }
   };
+
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-lg-5">
-      <h2 className="text-center">Selected Category / Search Results</h2>
+      <h2 className="text-center"> Images which you are looking for</h2>
       {allUploads ? (
         <div className="row justify-content-center">
           {allUploads.map((upload) => (
@@ -53,11 +55,9 @@ function SearchResult() {
                   onContextMenu={handleImgRightClick}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{upload.fileName}</h5>
+                  <h5 className="card-title">{upload.tags.join(' ')}</h5>
                  {/*  <p className="card-text">Author: {upload.author}</p> */}
-                  <a href={upload.sourceURL} className="btn btn-primary">
-                    View Source
-                  </a>
+                 <DownloadButton fileName={upload.fileName} />
                 </div>
               </div>
             </div>

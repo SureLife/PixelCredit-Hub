@@ -20,7 +20,6 @@ function Categories() {
         //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
         const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
-        // console.log(response.data )
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
          

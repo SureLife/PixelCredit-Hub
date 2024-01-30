@@ -16,15 +16,14 @@ export const uploadImages = async (req, res, next) => {
     }
 
     // Assuming "foo" is the field name in your form
-   
+
     const uploadedFile = req.files.foo; //try to make it array and console to check if it can allows to upload multiple files
-    
-    
-     const resizedImageBuffer = await sharp(uploadedFile.data)
+
+    const resizedImageBuffer = await sharp(uploadedFile.data)
       .resize({ width: 1200 }) // Resize image to 800 pixels width (adjust as needed)
       .jpeg({ quality: 70 }) // Compress image to 70% quality JPEG (adjust as needed)
-      .toBuffer();  
- 
+      .toBuffer();
+
     const tags = req.body.tags;
     const categories = req.body.categories;
     // Accessing file properties
@@ -34,7 +33,7 @@ export const uploadImages = async (req, res, next) => {
     // Save the file details to the database (replace this with your actual database logic)
     const image = new Upload({
       fileName: uniqueFilename,
-      fileSize:  resizedImageBuffer.length, //uploadedFile.size,
+      fileSize: resizedImageBuffer.length, //uploadedFile.size,
       data: resizedImageBuffer, //uploadedFile.data,
       imageURL: `http://localhost:5500/images/allimages/${uniqueFilename}`,
       tags: tags.split(" "),
@@ -52,8 +51,7 @@ export const uploadImages = async (req, res, next) => {
 
 //this code is serving images back to client
 export const getAllImages = async (req, res, next) => {
-  console.log(req.params);
-  console.log(req.params.filename);
+  //console.log(req.params.filename);
   try {
     const image = await Upload.findOne({ fileName: req.params.filename });
     if (image) {
@@ -132,11 +130,20 @@ export const denyUpload = async (req, res, next) => {
 
 export const getSearchedImages = async (req, res, next) => {
   const status = "approved";
-  const tags = req.params.tag;
+  const tagsOrCategories = req.params.tag;
   try {
-    const searchResult = await Upload.find({ tags: { $in: [tags] }, status });
+    const searchResult = await Upload.find({
+      $or: [
+        { tags: { $in: [tagsOrCategories] } },
+        { categories: { $in: [tagsOrCategories] } },
+      ],
+      status,
+    });
+
     if (searchResult) {
       res.json(searchResult);
+    } else {
+      res.status(400).json({ error: "Invalid tag or category" });
     }
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -144,32 +151,25 @@ export const getSearchedImages = async (req, res, next) => {
   }
 };
 
-// export const getAllCategoryImages = async (req, res, next) => {
-//   const categories = req.params.categories || "";
 
-//   try {
-//     const selectedCategory = await Upload.find({ categories });
-//     if (selectedCategory) {
-//     res.json(selectedCategory);
+export const singleImage = async (req, res, next) => {
+   
+/*   const singleMember = await Member.findOne({name:req.params.singlemember});*/
+  console.log(req.params ) 
 
-//     }
-//   } catch (error) {
-//     console.log("not working")
-//   }
-// }
+  try {console.log("hello")
+    /* const singleMember = await Member.findOne({
+      name: capitalize(req.params.singlemember)
+    });
 
-//this code to upload images from client to server and storing it to database
-/* export const uploadImages = async (req, res, next) => {
-
-/* export const getSearchedImages = async (req, res, next) => {
   
-  try {
-    console.log("serachresuts")
-    const searchQuery = req.params.tag;
-    console.log("Search query:", searchQuery);
-  
+    if (singleMember) {
+      res.status(200).json(singleMember);
+ 
+    } else {
+      res.status(404).json({ error: "Member not found" });
+    } */
   } catch (error) {
-    console.log("not working")
+    next(error);
   }
-}
- */
+};
