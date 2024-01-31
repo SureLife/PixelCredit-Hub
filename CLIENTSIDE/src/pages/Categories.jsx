@@ -27,12 +27,12 @@ function Categories() {
     }
      fetchUploadedImages();
   }, []);
-  const getImageByCategory = () => {
+/*   const getImageByCategory = () => {
     if (allUploads.length === 0) {
       // When it mounts and has checked 0 images so far
       return "alt.jpg";
     }
-  }
+  } */
   const getRandomImageURL = () => {
     if (allUploads.length === 0) {
       // When it mounts and has checked 0 images so far
@@ -41,6 +41,20 @@ function Categories() {
     const randomIndex = Math.floor(Math.random() * allUploads.length);
     return allUploads[randomIndex].imageURL;
   };
+
+  const getRandomImageByCategoryURL = (category) => {
+    const categoryUploads = allUploads.filter(
+      (upload) => upload.categories.includes(category)
+    );
+    if (categoryUploads.length > 0) {
+      const randomIndex = Math.floor(Math.random() * categoryUploads.length);
+      return categoryUploads[randomIndex].imageURL;
+    } else {
+      return "alt.jpg"; // Default image if no uploads found for the category
+    }
+  };
+  
+
 
   const selectCategory = (selection) => {
 
@@ -99,34 +113,46 @@ function Categories() {
       <h2 className="cats">Categories</h2>
       <div className="Categories"> 
         <Link to={`/categories/animals`}>
-          <div  className="singleCat" onClick={selectCategory("animals")} style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522769107-9c05cb93-43bc-4625-8b3f-1de3a1a5164d')` }}>
+          <div  className="singleCat" onClick={selectCategory("animals")} style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("animals")}')`,
+            }}>
             <h3>Animals | Wildlife</h3>
           </div>
         </Link>
         <Link to={`/categories/nature`}>
-        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522853811-fb329109-bbe1-427a-af1c-3d423ac2267f` }}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("nature")}')`,
+            }}>
           <h3>Nature</h3>
         </div>
         </Link>
         <Link to={`/categories/interiors`}>
-        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706523168988-ccfc18df-f510-482e-8508-b092166008db')` }}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("interiors")}')`,
+            }}>
           <h3>Interiors</h3>
         </div>
         </Link>
         <Link to={`/categories/abstract`}>
-        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("abstract")}')`,
+            }}>
           <h3>Abstract</h3>
         </div>
         </Link>
 
         <Link to={`/categories/illustrations`}>
-        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("illustrations")}')`,
+            }}>
           <h3>Illustrations</h3>
         </div>
         </Link>
 
         <Link to={`/categories/food`}>
-        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("food")}')`,
+            }}>
           <h3>Food & Drink</h3>
         </div>
         </Link>
