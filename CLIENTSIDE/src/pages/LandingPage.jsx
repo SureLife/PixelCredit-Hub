@@ -9,6 +9,7 @@ import { faPlayCircle, faHeart, faShareFromSquare } from "@fortawesome/free-regu
 import { faCartArrowDown, faDownload } from '@fortawesome/free-solid-svg-icons';
 const backendURL = `http://localhost:5500`;
 function LandingPage() {
+
   const { state, dispatch } = useContext(MyContext);
   const { allUploads, categories } = state;
   const [iconColors, setIconColors] = useState(['black', 'black', 'black']);
@@ -36,15 +37,13 @@ function LandingPage() {
     return allUploads[randomIndex].imageURL;
   };
   
+
   const handleChange = (index) => {
       // Toggle the color of the specific heart icon at the given index
       const newIconColors = [...iconColors];
-      newIconColors[index] = iconColors[index] === 'black' ? 'red' : 'black';
+      newIconColors[index] = iconColors[index] === 'white' ? 'red' : 'white';
       setIconColors(newIconColors);
   };
-
-
-
 
   return (
     <div className="Home-Container">
@@ -108,12 +107,12 @@ function LandingPage() {
                 onClick={() => handleChange(0)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faDownload} />}
+                buttonText={<FontAwesomeIcon icon={faDownload} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -133,12 +132,12 @@ function LandingPage() {
                 onClick={() => handleChange(1)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -158,12 +157,12 @@ function LandingPage() {
                 onClick={() => handleChange(2)} 
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} />}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -180,7 +179,7 @@ function LandingPage() {
             <Link className="video">
                 <Button
                 className="videoBTN"
-                buttonText={<FontAwesomeIcon icon={faPlayCircle} />}
+                buttonText={<FontAwesomeIcon icon={faPlayCircle} style={{ color: "white" }}/>}
                 /* onClick={handleSearch} */
               />
             </Link>

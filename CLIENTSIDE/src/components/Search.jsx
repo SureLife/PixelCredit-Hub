@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import React, { useContext, useRef } from "react";
 import { MyContext } from "../context/MyContext";
 import Button from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./Search.css";
 
 function Search() {
@@ -39,7 +41,7 @@ function Search() {
           onKeyDown={handleKeyPress}
         />
         <Button
-          buttonText={<span>&#128269;</span>}
+          buttonText={<FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#ffffff",}} />}
           className="searchBTN"
           onClick={handleInputChange}
         />
