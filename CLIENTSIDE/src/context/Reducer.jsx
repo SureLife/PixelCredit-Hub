@@ -43,6 +43,8 @@ export const reducer = (state, action) => {
         ...state,
         categories: action.payload,
       };
+      // case "SetEmailForgot":
+      //   return{...state , emailForgot :action.payload}
 
     default:
       return state;
@@ -64,4 +66,5 @@ export const initialState = {
   categories: [],
   // uploadedImages:[], // it was before in uploadimage.jsx now not any more, but not sure if we are using it somewhere else or not!!
   allUploads: [],
+  // emailForgotPassword:""
 };

@@ -9,12 +9,13 @@ import ShoppingCart from "../pages/ShoppingCart";
 import SearchResult from "../pages/SearchResult";
 import UserProfile from "../pages/UserProfile";
 import Member from "../pages/Member";
-import ForgotPassword from "../pages/ForgotPassword"
+// import ForgotPassword from "../pages/ForgotPassword"
 import Verification from "../components/Verification";
 import AdminPanel from "../pages/AdminPanel";
 import UploadImage from "../pages/UploadImage";
 import AddPayment from '../pages/AddPayment';
 import ReviewUploadedImages from "../pages/ReviewUploadedImages";
+import ResetPassword from "../pages/ResetPassword";
 
 function AppNavigator() {
   return (
@@ -33,11 +34,11 @@ function AppNavigator() {
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/members/:memberName" element={<Member />} />
         <Route path="/users/:userid" element={<UserProfile/>} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        {/* <Route path="/forgotpassword" element={<ForgotPassword />} /> */}
         <Route path="adminpanel" element={<AdminPanel/>}/>
         <Route path="payment/:price" element={<AddPayment/>} />
         <Route path="reviewuploadedimages" element={<ReviewUploadedImages/>}/>
-
+        <Route path="/forgotPassword/resetPassword/:userId" element={<ResetPassword/>} />
       </Routes>
     </>
   );

@@ -13,7 +13,7 @@ import memberRouter from "./routers/memberRouter.js";
 import profileRouter from './routers/profileRouter.js';
 import imageRouter from "./routers/imageRouter.js";
 import paymentRouter from "./routers/addPaymentRouter.js";
-
+import forgotPasswordRouter from "./routers/forgotPasswordRouter.js";
 
 
 
@@ -51,7 +51,7 @@ app.use("/members", memberRouter);
 app.use('/profile', profileRouter);
 app.use("/images", imageRouter);
 app.use("/savePayment", paymentRouter);
-
+app.use("/forgotPassword", forgotPasswordRouter);
 
 //create more routes as required
 

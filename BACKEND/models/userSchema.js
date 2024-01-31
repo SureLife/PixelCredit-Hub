@@ -35,6 +35,9 @@ const userSchema = new Schema({
   images: [{ type: Schema.Types.ObjectId, ref: "Image" }],
   recoveryEmail: { type: String }, 
   mobileNumber: { type: String },
+  securityQuestion:{ type: String },
+  securityAnswer: {type: String},
+
 });
 const ProfileImage = model("ProfileImage", profileImageSchema);
 const User = model("User", userSchema);
