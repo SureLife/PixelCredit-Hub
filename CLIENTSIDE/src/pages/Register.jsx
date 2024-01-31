@@ -1,101 +1,220 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import "./Register.css"; 
-// import toast,{ Toaster } from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+// import React from 'react';
+// import { Link } from "react-router-dom";
+// import "./Register.css"; 
+// // import toast,{ Toaster } from 'react-hot-toast'
+// import { useNavigate } from 'react-router-dom'
 
-function Register() {
-  const navigate = useNavigate()
+// function Register() {
+//   const navigate = useNavigate()
 
-  const registerUser=(e)=>{
-      e.preventDefault()
-      const user = {
-          name: e.target.name.value ,
-          email: e.target.email.value,
-          password:e.target.password.value 
-      }
-      console.log(user);
-      //making POST request 
-      fetch("http://localhost:5500/users/register",{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body: JSON.stringify(user)
-      })
-      .then(res=>res.json())
-      .then(result=>{
-          if(result.errors){
-              console.log(result.errors)
-              // toast.error(JSON.stringify(result.errors))
-          }else{
-              e.target.reset()
-              console.log("hi");
-              // toast.success("you successfully registered!")
-              setTimeout(()=>{
-                   navigate("/login")
-              },1500)
+//   const registerUser=(e)=>{
+//       e.preventDefault()
+//       const user = {
+//           name: e.target.name.value ,
+//           email: e.target.email.value,
+//           password:e.target.password.value 
+//       }
+//       console.log(user);
+//       //making POST request 
+//       fetch("http://localhost:5500/users/register",{
+//           method:"POST",
+//           headers:{"Content-Type":"application/json"},
+//           body: JSON.stringify(user)
+//       })
+//       .then(res=>res.json())
+//       .then(result=>{
+//           if(result.errors){
+//               console.log(result.errors)
+//               // toast.error(JSON.stringify(result.errors))
+//           }else{
+//               e.target.reset()
+//               console.log("hi");
+//               // toast.success("you successfully registered!")
+//               setTimeout(()=>{
+//                    navigate("/login")
+//               },1500)
              
-          }
+//           }
 
-      })
-      .catch(err=>console.log(err))
-  }
-  return (
-    <div>
+//       })
+//       .catch(err=>console.log(err))
+//   }
+//   return (
+//     <div>
 
-<div className="container">
-      <div className="left-side">
-        <h1>Unlock special features with a free account</h1>
-        <br />
-        <br />
+// <div className="container">
+//       <div className="left-side">
+//         <h1>Unlock special features with a free account</h1>
+//         <br />
+//         <br />
         
-        <img src="http://www.prothetik.med.uni-goettingen.de/wp-content/uploads/sites/2/2020/11/blank-profile-picture-973460_640-1-300x300.png" alt="PixelCredit Hub" />
-      </div>
+//         <img src="http://www.prothetik.med.uni-goettingen.de/wp-content/uploads/sites/2/2020/11/blank-profile-picture-973460_640-1-300x300.png" alt="PixelCredit Hub" />
+//       </div>
 
 
-      <div className="right-side">
-        <h1>Create your account</h1>
-        <p>It's free and easy</p>
-        {/* <Toaster position="top-center"/> */}
-        <br /><br /><br /><br />
-        <form onSubmit={registerUser}>
-          <label htmlFor="text">Full name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name*" required  autoComplete="username"/>
+//       <div className="right-side">
+//         <h1>Create your account</h1>
+//         <p>It's free and easy</p>
+//         {/* <Toaster position="top-center"/> */}
+//         <br /><br /><br /><br />
+//         <form onSubmit={registerUser}>
+//           <label htmlFor="text">Full name:</label>
+//           <input type="text" id="name" name="name" placeholder="Enter your full name*" required  autoComplete="username"/>
 
-          <label htmlFor="email">Email or Phone Number:</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required autoComplete="username"/>
+//           <label htmlFor="email">Email or Phone Number:</label>
+//           <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required autoComplete="username"/>
 
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder='Type your Password*'  required autoComplete="current-password"/>
-         <p className="additional-options" >Must be 8 characters at least</p>
-          <button type="submit">Register</button>
-        </form>
-        <div className="additional-options">
-          <p> By creating an account means you agree to the 
-            <Link to="#">Terms and Conditions</Link> , and our <Link to="#">Privacy Policy</Link>
-          </p>
-          <br />
+//           <label htmlFor="password">Password:</label>
+//           <input type="password" id="password" name="password" placeholder='Type your Password*'  required autoComplete="current-password"/>
+//          <p className="additional-options" >Must be 8 characters at least</p>
+//           <button type="submit">Register</button>
+//         </form>
+//         <div className="additional-options">
+//           <p> By creating an account means you agree to the 
+//             <Link to="#">Terms and Conditions</Link> , and our <Link to="#">Privacy Policy</Link>
+//           </p>
+//           <br />
           
-        </div> 
-        <p className='paragraph'>or do it via other accounts</p>
-        <div className="social-icons">
-          <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google Icon" className="rounded-icon" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" className="rounded-icon" />
-          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter Icon" className="rounded-icon" />
-        </div>
+//         </div> 
+//         <p className='paragraph'>or do it via other accounts</p>
+//         <div className="social-icons">
+//           <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google Icon" className="rounded-icon" />
+//           <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" className="rounded-icon" />
+//           <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter Icon" className="rounded-icon" />
+//         </div>
 
-        <div className="additional-options">
+//         <div className="additional-options">
           
-          <p>
-          Already have an account? <Link to="/login">Log In</Link>
-          </p>
-        </div> 
+//           <p>
+//           Already have an account? <Link to="/login">Log In</Link>
+//           </p>
+//         </div> 
 
        
+//       </div>
+//     </div>
+
+//     </div>
+//   )
+// }
+
+// export default Register
+
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Register.css';
+import { useNavigate } from 'react-router-dom';
+
+function Register() {
+  const navigate = useNavigate();
+  const [securityQuestion, setSecurityQuestion] = useState('');
+  const [securityAnswer, setSecurityAnswer] = useState('');
+
+  const handleSecurityQuestionChange = (e) => {
+    setSecurityQuestion(e.target.value);
+  };
+
+  const registerUser = (e) => {
+    e.preventDefault();
+    const user = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+      securityQuestion,
+      securityAnswer,
+    };
+
+    console.log(user);
+
+    // Making POST request
+    fetch('http://localhost:5500/users/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.errors) {
+          console.log(result.errors);
+        } else {
+          e.target.reset();
+          console.log('hi');
+          setTimeout(() => {
+            navigate('/login');
+          }, 1500);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div>
+      <div className="container">
+        <div className="left-side">
+          <h1>Unlock special features with a free account</h1>
+          <br />
+          <br />
+          <img src="http://www.prothetik.med.uni-goettingen.de/wp-content/uploads/sites/2/2020/11/blank-profile-picture-973460_640-1-300x300.png" alt="PixelCredit Hub" />
+        </div>
+
+        <div className="right-side">
+          <h1>Create your account</h1>
+          <p>It's free and easy</p>
+          <br />
+          <br />
+          <br />
+          <br />
+          <form onSubmit={registerUser}>
+            <label htmlFor="name">Full name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name*" required autoComplete="username" />
+
+            <label htmlFor="email">Email or Phone Number:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email or phone number*" required autoComplete="username" />
+
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Type your Password*" required autoComplete="current-password" />
+            <p className="additional-options">Must be 8 characters at least</p>
+
+            <label htmlFor="securityQuestion">Security Question:</label>
+            <select name="securityQuestion" onChange={handleSecurityQuestionChange} required>
+              <option value="" disabled>
+                Select a security question
+              </option>
+              <option value="What was the name of your first teacher at school?">What was the name of your first teacher at school?</option>
+              <option value="What is your best friend's name?">What is your best friend's name?</option>
+              <option value="What is your favourite food?">What is your favourite food?</option>
+              <option value="What was your first toy?">What was your first toy?</option>
+            </select>
+
+            <label htmlFor="securityAnswer">Security Answer:</label>
+            <input type="text" id="securityAnswer" name="securityAnswer" value={securityAnswer} onChange={(e) => setSecurityAnswer(e.target.value)} required />
+
+            <button type="submit">Register</button>
+          </form>
+          <div className="additional-options">
+            <p>
+              By creating an account means you agree to the
+              <Link to="#">Terms and Conditions</Link> , and our <Link to="#">Privacy Policy</Link>
+            </p>
+            <br />
+          </div>
+          <p className="paragraph">or do it via other accounts</p>
+          <div className="social-icons">
+            <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google Icon" className="rounded-icon" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" className="rounded-icon" />
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter Icon" className="rounded-icon" />
+          </div>
+
+          <div className="additional-options">
+            <p>
+              Already have an account? <Link to="/login">Log In</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-
-    </div>
-  )
+  );
 }
 
-export default Register
+export default Register;

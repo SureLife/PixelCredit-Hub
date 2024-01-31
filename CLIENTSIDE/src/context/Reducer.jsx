@@ -44,6 +44,10 @@ export const reducer = (state, action) => {
         ...state,
         categories: action.payload,
       };
+
+      // case "SetEmailForgot":
+      //   return{...state , emailForgot :action.payload}
+
     default:
       return state;
   }
@@ -63,5 +67,8 @@ export const initialState = {
   tags: [],
   categories: [],
   allUploads: [],
+  // emailForgotPassword:""
+
   singleimage: [],
+
 };
