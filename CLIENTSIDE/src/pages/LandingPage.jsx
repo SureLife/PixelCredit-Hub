@@ -1,5 +1,6 @@
-import React , {useState} from "react";
+import React , {useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { MyContext } from "../context/MyContext";
 import Button from "../components/Button";
 import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +15,7 @@ function LandingPage() {
       newIconColors[index] = iconColors[index] === 'black' ? 'red' : 'black';
       setIconColors(newIconColors);
   };
+
 
 
 
@@ -34,7 +36,7 @@ function LandingPage() {
           </Link>
         </div>
 
-        <div className="imageDiv">
+        <div className="imageDiv" style={{ backgroundImage: `url('')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -47,7 +49,7 @@ function LandingPage() {
       </div>
 
       <div className="Home-cardContainer">
-        <div className="imageDiv smallImageDiv">
+        <div className="imageDiv smallImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -67,7 +69,7 @@ function LandingPage() {
 
         <div className="imageContainer">
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN">
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
               <Link className="imageLink">
                 <img src="" alt=""/>
               </Link>
@@ -92,7 +94,7 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN">
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
@@ -117,7 +119,7 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN">
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
@@ -160,22 +162,22 @@ function LandingPage() {
       </div>
 
       <div className="Home-cardContainer">
-        <div className="imageDiv bottomImageDiv">
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv">
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv">
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv">
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
