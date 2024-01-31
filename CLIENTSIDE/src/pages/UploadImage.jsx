@@ -96,15 +96,21 @@ const UploadImage = () => {
               />
             </div>
             <div className="mb-3">
-              <input
-              name='categories' 
-                type="text"
-                placeholder="Enter category"
-                value={categories}
-                onChange={handleCategoryChange}
-                
-              />
-            </div>
+  <select
+    name='categories' 
+    value={categories}
+    onChange={handleCategoryChange}
+  >
+    <option value="" disabled>Select category</option>
+    <option value="animals">Animals | Wildlife</option>
+    <option value="nature">Nature</option>
+    <option value="interiors">Interiors</option>
+    <option value="abstract">Abstract</option>
+    <option value="illustrations">Illustrations</option>
+    <option value="food">Food & Drink</option>
+    {/* Add more options as needed */}
+  </select>
+</div>
             <button type="submit" className="btn btn-primary">
               Submit
             </button>

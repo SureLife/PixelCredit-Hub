@@ -118,6 +118,18 @@ function Categories() {
           <h3>Abstract</h3>
         </div>
         </Link>
+
+        <Link to={`/categories/illustrations`}>
+        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+          <h3>Illustrations</h3>
+        </div>
+        </Link>
+
+        <Link to={`/categories/food`}>
+        <div className="singleCat" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/1706522375188-468ddb24-d2aa-4066-9cc6-6cadd0d59869')` }}>
+          <h3>Food & Drink</h3>
+        </div>
+        </Link>
       </div>
     </div>
   )
