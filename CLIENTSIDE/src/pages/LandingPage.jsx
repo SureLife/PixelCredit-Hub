@@ -81,12 +81,12 @@ function LandingPage() {
                 onClick={() => handleChange(0)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: iconColors[1] }} />}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faDownload} style={{ color: iconColors[1] }} />}
+                buttonText={<FontAwesomeIcon icon={faDownload} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -106,12 +106,12 @@ function LandingPage() {
                 onClick={() => handleChange(1)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: iconColors[1] }}/>}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: iconColors[1] }} />}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }} />}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -131,12 +131,12 @@ function LandingPage() {
                 onClick={() => handleChange(2)} 
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: iconColors[1] }}/>}
+                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: iconColors[1] }}/>}
+                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }}/>}
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -153,7 +153,7 @@ function LandingPage() {
             <Link className="video">
                 <Button
                 className="videoBTN"
-                buttonText={<FontAwesomeIcon icon={faPlayCircle} style={{ color: iconColors[1] }}/>}
+                buttonText={<FontAwesomeIcon icon={faPlayCircle} style={{ color: "white" }}/>}
                 /* onClick={handleSearch} */
               />
             </Link>
