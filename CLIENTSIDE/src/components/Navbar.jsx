@@ -5,6 +5,7 @@ import defaultAvatar from "../assets/images/defaultAvatar.png";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { Link, useNavigate } from "react-router-dom";
 import logoImage from "../assets/images/Logo.png";
+import buyCredit from "../assets/images/buy-credits.jpg";
 import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -83,7 +84,7 @@ function Navbar() {
         <li>
           {user ? (
             <div className="loggedIn">
-              <Link to="/images/upload">
+              <Link className="upload" to="/images/upload">
                 <FontAwesomeIcon
                   className="slideIcon"
                   icon={faCloudArrowUp}
@@ -210,12 +211,15 @@ function Navbar() {
                   <button onClick={adminWarning}>Admin Panel</button>
                 </Link>
               )}
-              <Link to="/shoppingcart" className="shopping-cart">
-                <Button
-                  buttonText={<FontAwesomeIcon icon={faCartArrowDown} />}
-                  className="BTN"
-                  /* onClick={handleSearch} */
-                />
+              <Link to="/shoppingcart" className="buyCreditLink">
+              
+                    <img
+                      src={buyCredit}
+                      className="buyCredit"
+                      alt="buyCredit"
+                    />
+                    <p>BUY CREDITS</p>
+                  
               </Link>
             </div>
           ) : (
