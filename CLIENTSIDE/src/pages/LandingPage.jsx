@@ -1,23 +1,49 @@
 import React , {useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { MyContext } from "../context/MyContext";
 import Button from "../components/Button";
 import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faHeart, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
 import { faCartArrowDown, faDownload } from '@fortawesome/free-solid-svg-icons';
-
+const backendURL = `http://localhost:5500`;
 function LandingPage() {
-  const [iconColors, setIconColors] = useState(['white', 'white', 'white']);
+
+  const { state, dispatch } = useContext(MyContext);
+  const { allUploads, categories } = state;
+  const [iconColors, setIconColors] = useState(['black', 'black', 'black']);
+
+  useEffect(() => {
+    async function fetchUploadedImages() {
+      try {
+        //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
+        const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
+        dispatch({ type: "setAllUploads", payload: response.data });
+      } catch (error) {
+        console.error("Error fetching allUploads details:", error);
+         
+      }
+    }
+     fetchUploadedImages();
+  }, []);
+
+  const getRandomImageURL = () => {
+    if (allUploads.length === 0) {
+      // When it mounts and has checked 0 images so far
+      return "alt.jpg";
+    }
+    const randomIndex = Math.floor(Math.random() * allUploads.length);
+    return allUploads[randomIndex].imageURL;
+  };
+  
+
   const handleChange = (index) => {
       // Toggle the color of the specific heart icon at the given index
       const newIconColors = [...iconColors];
       newIconColors[index] = iconColors[index] === 'white' ? 'red' : 'white';
       setIconColors(newIconColors);
   };
-
-
-
 
   return (
     <div className="Home-Container">
@@ -36,7 +62,7 @@ function LandingPage() {
           </Link>
         </div>
 
-        <div className="imageDiv" style={{ backgroundImage: `url('')`}}>
+        <div className="imageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -49,7 +75,7 @@ function LandingPage() {
       </div>
 
       <div className="Home-cardContainer">
-        <div className="imageDiv smallImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+        <div className="imageDiv smallImageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -69,7 +95,7 @@ function LandingPage() {
 
         <div className="imageContainer">
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
               <Link className="imageLink">
                 <img src="" alt=""/>
               </Link>
@@ -94,7 +120,7 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
@@ -119,7 +145,7 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
@@ -161,23 +187,23 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="Home-cardContainer">
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+      <div className="Home-cardContainer imageContainer">
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('http://localhost:5500/images/allimages/')`}}>
+        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>

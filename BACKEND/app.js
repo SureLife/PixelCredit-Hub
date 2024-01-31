@@ -27,8 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 // connect to MongoDB through mongoose
 mongoose
   //.connect("mongodb://localhost:27017/PixelCreditHub")
-  // .connect("mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub")
-  .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
+   .connect("mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub")
+  //.connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 

@@ -111,7 +111,9 @@ h4 {
 }
 
 /* Media query for smaller screens */
-@media screen and (max-width: 768px) {
+
+ 
+@media screen and (max-width: 992px) {
   .Home-cardContainer {
     padding: 1rem;
   }
@@ -134,4 +136,11 @@ h4 {
   .imageOuterDiv {
     width: 100%;
   }
+  .bottomImageDiv {
+    width: 80%;
+    height: 200px;
+    margin: 1rem;
+  }
+  
 }
+ 
