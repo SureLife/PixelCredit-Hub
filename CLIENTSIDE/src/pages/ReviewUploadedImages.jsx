@@ -41,12 +41,12 @@ function ReviewUploadedImages() {
           "Content-Type": `application/json`,
         },
       });
-      if (res.ok) {
+      /* if (res.ok) {
         alert("Image approved successfully");
       } else {
         const errorData = await res.json(); 
         alert(`Error: ${errorData.message}`);
-      }
+      } */
       window.location.reload();
     } catch (err) {
       console.error(err);

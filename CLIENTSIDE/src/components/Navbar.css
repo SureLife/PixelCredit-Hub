@@ -6,7 +6,6 @@
 }
 .nav-bar {
   background-color: #3333333b;
-  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,10 +18,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.nav-links {
-  width: 60%;
-  margin-bottom: 0;
-}
+
 .user-actions {
   margin-bottom: 0;
 }
@@ -54,12 +50,11 @@
   color: white;
 }
 .user-actions a {
-  margin: 2rem;
+  margin: 0 2rem;
 }
 .logo {
   height: 5rem;
   width: 5rem;
-   
 }
 .profile-avatar {
   height: 5rem;
@@ -146,7 +141,29 @@
   align-items: center;
 }
 /* Media query for responsiveness */
-@media (max-width: 768px) {
+.buyCreditLink {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.buyCredit {
+  height: 3.5rem;
+  border-radius: 50%;
+}
+.buyCreditLink p {
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 576px) {
+  .buyCreditLink p {
+    margin-top: 0.3rem;
+    font-size: 0.5rem;
+  }
+
+  .contact,
+  .about,
+  .upload {
+    display: none;
+  }
   .nav-bar {
     flex-direction: column;
     padding: 10px;
@@ -154,11 +171,8 @@
   .nav-links {
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 10px;
   }
-  .nav-links li {
-    margin: 5px 0;
-  }
+
   .nav-links a,
   .user-actions a {
     font-size: 1.2rem;
@@ -168,6 +182,13 @@
     justify-content: center;
   }
 }
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  .nav-bar {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
 @media (min-width: 1024px) {
   .nav-links {
     width: 45%; /* Adjust width for larger screens */

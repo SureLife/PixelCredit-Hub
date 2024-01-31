@@ -1,6 +1,7 @@
 import React , {useContext, useEffect} from 'react'
 import { MyContext } from '../context/MyContext';
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./categoryStyle.css"
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -11,8 +12,7 @@ const backendURL = `http://localhost:5500`;
 
 function Categories() {
   const { state, dispatch } = useContext(MyContext);
-  const { allUploads } = state;
-
+  const { allUploads, categories } = state;
 // function for getting all approved uploads
   useEffect(() => {
     async function fetchUploadedImages() {
@@ -20,16 +20,19 @@ function Categories() {
         //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
         const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
-        console.log(response.data )
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
          
       }
     }
-
-    fetchUploadedImages();
+     fetchUploadedImages();
   }, []);
-
+/*   const getImageByCategory = () => {
+    if (allUploads.length === 0) {
+      // When it mounts and has checked 0 images so far
+      return "alt.jpg";
+    }
+  } */
   const getRandomImageURL = () => {
     if (allUploads.length === 0) {
       // When it mounts and has checked 0 images so far
@@ -39,10 +42,27 @@ function Categories() {
     return allUploads[randomIndex].imageURL;
   };
 
+  const getRandomImageByCategoryURL = (category) => {
+    const categoryUploads = allUploads.filter(
+      (upload) => upload.categories.includes(category)
+    );
+    if (categoryUploads.length > 0) {
+      const randomIndex = Math.floor(Math.random() * categoryUploads.length);
+      return categoryUploads[randomIndex].imageURL;
+    } else {
+      return "alt.jpg"; // Default image if no uploads found for the category
+    }
+  };
+  
+
+
+  const selectCategory = (selection) => {
+
+  }
   return (
     <div>
       {/* Spotlight Section */}
-      <Splide options={ { rewind: true, height: "1080px" } } aria-label="Hero Section">
+      <Splide options={ { rewind: true, height: "540px" } } aria-label="Hero Section">
       <SplideSlide>
       <div className="Spotlight s1" style={{ backgroundImage: `url('${getRandomImageURL()}')` }}>
         <div className="leftSpot">
@@ -91,34 +111,51 @@ function Categories() {
     </Splide>
       {/* Categories */}
       <h2 className="cats">Categories</h2>
-      <div className="Categories">
-        <div className="singleCat">
-          <h3>3D Images</h3>
+      <div className="Categories"> 
+        <Link to={`/categories/animals`}>
+          <div  className="singleCat" onClick={selectCategory("animals")} style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("animals")}')`,
+            }}>
+            <h3>Animals | Wildlife</h3>
+          </div>
+        </Link>
+        <Link to={`/categories/nature`}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("nature")}')`,
+            }}>
+          <h3>Nature</h3>
         </div>
-        <div className="singleCat">
-          <h3>Animals | Wildlife</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Beauty | Fashion</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Celebrities</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Education</h3>
-        </div>
-        <div className="singleCat">
-          <h3>Food and drink</h3>
-        </div>
-        <div className="singleCat">
+        </Link>
+        <Link to={`/categories/interiors`}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("interiors")}')`,
+            }}>
           <h3>Interiors</h3>
         </div>
-        <div className="singleCat">
-          <h3>Seasons</h3>
+        </Link>
+        <Link to={`/categories/abstract`}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("abstract")}')`,
+            }}>
+          <h3>Abstract</h3>
         </div>
-        <div className="singleCat">
-          <h3>Technology</h3>
+        </Link>
+
+        <Link to={`/categories/illustrations`}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("illustrations")}')`,
+            }}>
+          <h3>Illustrations</h3>
         </div>
+        </Link>
+
+        <Link to={`/categories/food`}>
+        <div className="singleCat" style={{
+              backgroundImage: `url('${getRandomImageByCategoryURL("food")}')`,
+            }}>
+          <h3>Food & Drink</h3>
+        </div>
+        </Link>
       </div>
     </div>
   )

@@ -11,10 +11,14 @@ const uploadSchema = new Schema({
     enum: ["pending", "approved", "rejected"],
     default: "pending",
   },
-  imageURL: {type: String },
+  imageURL: { type: String },
   tags: [{ type: String }],
   categories: [{ type: String }], //add validator so atleast one categgories is there.
-  
+  /*  uploadedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  }, */
 });
 
 const Upload = model("Upload", uploadSchema);
@@ -24,18 +28,8 @@ export default Upload;
 
 
 
-/* categories: {
-  type: [String],
-  validate: {
-    validator: function (v) {
-      return v && v.length > 0;
-    },
-    message: "At least one category is required."
-  },
-  required: true
-}, */
 
-
+ 
 
 /* likes: [
     {
@@ -45,23 +39,4 @@ export default Upload;
   ],
   publisher: { type: Schema.Types.ObjectId, ref: 'User' } // Reference to User model for publisher */
 
-
-
-
-
-/* import { Schema, model } from "mongoose";
-
-const uploadImageSchema = new Schema({
-  fileName: { type: String, required: true },
-  timestamp: { type: Date, default: Date.now },
-  fileSize: { type: Number, required: true },
-});
-
-const uploadSchema = new Schema({
-  images: [uploadImageSchema], // Array of image objects
-});
-
-const Upload = model("Upload", uploadSchema);
-
-export default Upload;
- */
+ 

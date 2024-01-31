@@ -16,6 +16,8 @@ import UploadImage from "../pages/UploadImage";
 import AddPayment from '../pages/AddPayment';
 import ReviewUploadedImages from "../pages/ReviewUploadedImages";
 import ResetPassword from "../pages/ResetPassword";
+import CategoryResults from "../pages/CategoryResults";
+
 
 function AppNavigator() {
   return (
@@ -29,7 +31,7 @@ function AppNavigator() {
         <Route path="/register" element={<Register />} />
         <Route path="/verify/:token" element={<Verification />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
-        <Route path="/results" element={<SearchResult />} />
+        <Route path="/images/searchresults" element={<SearchResult />} />
         <Route path="/images/upload" element={<UploadImage />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/members/:memberName" element={<Member />} />
@@ -39,6 +41,8 @@ function AppNavigator() {
         <Route path="payment/:price" element={<AddPayment/>} />
         <Route path="reviewuploadedimages" element={<ReviewUploadedImages/>}/>
         <Route path="/forgotPassword/resetPassword/:userId" element={<ResetPassword/>} />
+        <Route path="categories/:category" element={<CategoryResults/>}/>
+
       </Routes>
     </>
   );

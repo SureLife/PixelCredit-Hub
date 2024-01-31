@@ -23,12 +23,7 @@ export const reducer = (state, action) => {
         ...state,
         selectedFile: action.payload,
       };
-    /*   case "SetUploadedImages":
-      return {
-        ...state,
-        uploadedImages: action.payload,
-      }; */
-    case "SetTags":
+       case "SetTags":
       return {
         ...state,
         tags: action.payload,
@@ -38,11 +33,18 @@ export const reducer = (state, action) => {
         ...state,
         allUploads: action.payload,
       };
+      case "setSingleimage":
+        return {
+          ...state,
+          singleimage: action.payload,
+        };
+      
     case "SetCategories":
       return {
         ...state,
         categories: action.payload,
       };
+
       // case "SetEmailForgot":
       //   return{...state , emailForgot :action.payload}
 
@@ -64,7 +66,9 @@ export const initialState = {
   selectedFile: [],
   tags: [],
   categories: [],
-  // uploadedImages:[], // it was before in uploadimage.jsx now not any more, but not sure if we are using it somewhere else or not!!
   allUploads: [],
   // emailForgotPassword:""
+
+  singleimage: [],
+
 };
