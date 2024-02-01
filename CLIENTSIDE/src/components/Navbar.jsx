@@ -213,11 +213,11 @@ function Navbar() {
               )}
               <Link to="/shoppingcart" className="buyCreditLink">
               
-                    <img
-                      src={buyCredit}
+                     <img
+                       src={buyCredit}
                       className="buyCredit"
                       alt="buyCredit"
-                    />
+                    /> 
                     <p>BUY CREDITS</p>
                   
               </Link>
