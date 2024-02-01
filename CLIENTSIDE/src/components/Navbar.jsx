@@ -90,7 +90,7 @@ function Navbar() {
                   icon={faCloudArrowUp}
                   style={{ color: "#000000" }}
                 />
-                <p>UPLOAD IMAGES</p>
+                <p>UPLOAD</p>
               </Link>
 
               <div className="Avatar" onClick={toggleMenu}>

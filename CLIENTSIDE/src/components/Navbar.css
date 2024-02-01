@@ -17,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
 }
 
 .user-actions {
@@ -139,6 +140,14 @@
 .loggedIn {
   display: flex;
   align-items: center;
+}
+
+.upload {
+  display: flex;
+}
+
+.upload p {
+  margin: 0 0.5rem;
 }
 /* Media query for responsiveness */
 .buyCreditLink {
