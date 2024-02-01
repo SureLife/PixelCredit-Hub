@@ -56,13 +56,13 @@ function Register() {
         </div>
 
         <div className="right-side">
+          {/* <h1>Create your account</h1>
+          <p>It's free and easy</p> */}
+       
+          
+          <form onSubmit={registerUser}>
           <h1>Create your account</h1>
           <p>It's free and easy</p>
-          <br />
-          <br />
-          <br />
-          <br />
-          <form onSubmit={registerUser}>
             <label htmlFor="name">Full name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name*" required autoComplete="username" />
 
