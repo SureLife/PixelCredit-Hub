@@ -95,7 +95,7 @@ function Navbar() {
 
               <div className="Avatar" onClick={toggleMenu}>
                 <img
-                  src={profileImage || defaultAvatar}
+                 src={profileImage ? profileImage : defaultAvatar}
                   alt="Profile"
                   className="profile-avatar"
                 />

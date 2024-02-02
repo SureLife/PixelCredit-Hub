@@ -8,7 +8,7 @@ const backendURL = `http://localhost:5500`;
 
 const UserProfile = () => {
   const { userid } = useParams();
-  console.log("UserId:", userid);
+ // console.log("UserId:", userid);
 
   const { state, dispatch } = useContext(MyContext);
   const { user, selectedFile } = state;
@@ -23,6 +23,7 @@ const UserProfile = () => {
       payload: file,
     });
 
+ 
     try {
       const formData = new FormData();
       formData.append("profileImage", file); // Use the correct field name
@@ -43,6 +44,19 @@ const UserProfile = () => {
       console.log("Server Response:", response.data);
     } catch (error) {
       console.error("Error uploading file:", error);
+    }
+  };
+  const handleDeleteProfileImage = async (e) => {
+    console.log("geting in")
+    try {
+      console.log("got in")
+      const response = await axios.post(
+        `${backendURL}/profile/delete-image/${userid}`
+      );
+      window.location.reload();
+      console.log("Profile image deleted successfully");
+    } catch (error) {
+      console.error("Error deleting profile image:", error);
     }
   };
 
@@ -72,7 +86,17 @@ const UserProfile = () => {
                 Choose Image
               </label>
             </div>
+            {user.profileImage && (
+              <div>
+                
+                <img src={user.profileImageUrl} alt="Profile" className="profileImage" />
+                <button onClick={handleDeleteProfileImage}>Delete Current Profile Image</button>
+              </div>
+            )}
+
           </div>
+
+
         )}
 
         {/*  <div className="upload-history">
