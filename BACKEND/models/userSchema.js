@@ -33,6 +33,7 @@ const userSchema = new Schema({
   uploads: [{ type: Schema.Types.ObjectId, ref: "Upload" }],
   downloads: [{ type: Schema.Types.ObjectId, ref: "Download" }],
   images: [{ type: Schema.Types.ObjectId, ref: "Image" }],
+  likedImages: [{ type: Schema.Types.ObjectId, ref: "Upload" }],
   recoveryEmail: { type: String }, 
   mobileNumber: { type: String },
   securityQuestion:{ type: String },
