@@ -230,6 +230,9 @@
     padding: 0.3rem;
     margin: 0 1rem;
   }
+  .nav-bar .login-links .nav-hover {
+    display: inline;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -239,6 +242,9 @@
   .profile-avatar {
     padding: 0.3rem;
     margin: 0 1rem;
+  }
+  .login-links {
+    display: inline;
   }
   .buyCreditLink,
   .upload,
