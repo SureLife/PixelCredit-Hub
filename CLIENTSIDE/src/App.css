@@ -4,6 +4,10 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+body {
+  /* nothing is really smaller than this */
+  min-width: 525px;
+}
 @font-face {
   font-family: PPNeueMontreal-Medium;
   src: url("./assets/fonts/PPNeueMontreal-Medium.otf");

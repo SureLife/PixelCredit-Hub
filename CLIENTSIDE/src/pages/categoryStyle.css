@@ -9,6 +9,7 @@
 
 .singleCat {
   border: 1px solid #ddd;
+  border-radius: 5px;
   padding: 10px;
   text-align: center;
   /* background-image: url("https://images.ctfassets.net/hrltx12pl8hq/5GaLeZJlLyOiQC4gOA0qUM/a0398c237e9744ade8b072f99349e07a/shutterstock_152461202_thumb.jpg"); */
