@@ -37,11 +37,11 @@ function AppNavigator() {
         <Route path="/members/:memberName" element={<Member />} />
         <Route path="/users/:userid" element={<UserProfile/>} />
         {/* <Route path="/forgotpassword" element={<ForgotPassword />} /> */}
-        <Route path="adminpanel" element={<AdminPanel/>}/>
-        <Route path="payment/:price" element={<AddPayment/>} />
-        <Route path="reviewuploadedimages" element={<ReviewUploadedImages/>}/>
+        <Route path="/adminpanel" element={<AdminPanel/>}/>
+        <Route path="/payment/:price" element={<AddPayment/>} />
+        <Route path="/reviewuploadedimages" element={<ReviewUploadedImages/>}/>
         <Route path="/forgotPassword/resetPassword/:userId" element={<ResetPassword/>} />
-        <Route path="categories/:category" element={<CategoryResults/>}/>
+        <Route path="/categories/:category" element={<CategoryResults/>}/>
 
       </Routes>
     </>

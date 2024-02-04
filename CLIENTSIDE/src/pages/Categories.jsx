@@ -39,13 +39,7 @@ function Categories() {
       return ["alt.png"];
     }
     const shuffledUploads = shuffle(allUploads.slice());
-    return [
-      shuffledUploads[0].imageURL,
-      shuffledUploads[1].imageURL,
-      shuffledUploads[2].imageURL,
-      shuffledUploads[3].imageURL,
-      shuffledUploads[4].imageURL,
-    ];
+    return shuffledUploads.slice(0, 10).map((upload) => upload ? upload.imageURL : "alt.png");
   }, [allUploads]);
 
   const getRandomImageByCategoryURL = (category) => {
@@ -62,9 +56,7 @@ function Categories() {
   
 
 
-  const selectCategory = (selection) => {
-
-  }
+ 
   return (
     <div>
       {/* Spotlight Section */}
@@ -119,7 +111,7 @@ function Categories() {
       <h2 className="cats">Categories</h2>
       <div className="Categories"> 
         <Link to={`/categories/animals`}>
-          <div  className="singleCat" onClick={selectCategory("animals")} style={{
+          <div  className="singleCat"  style={{
               backgroundImage: `url('${getRandomImageByCategoryURL("animals")}')`,
             }}>
             <h3>Animals | Wildlife</h3>

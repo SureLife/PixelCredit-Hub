@@ -34,18 +34,7 @@ function LandingPage() {
       return ["alt.png"];
     }
     const shuffledUploads = shuffle(allUploads.slice());
-    return [
-      shuffledUploads[0].imageURL,
-      shuffledUploads[1].imageURL,
-      shuffledUploads[2].imageURL,
-      shuffledUploads[3].imageURL,
-      shuffledUploads[4].imageURL,
-      shuffledUploads[5].imageURL,
-      shuffledUploads[6].imageURL,
-      shuffledUploads[7].imageURL,
-      shuffledUploads[8].imageURL,
-      shuffledUploads[9].imageURL,
-    ];
+    return shuffledUploads.slice(0, 10).map((upload) => upload ? upload.imageURL : "alt.png");
   }, [allUploads]);
   
 
@@ -182,7 +171,7 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="Home-cardContainer">
+      {/* <div className="Home-cardContainer">
         <div className="videoContainer">
           <p>The reasons</p>
           <h4>Why choose Us?</h4>
@@ -191,12 +180,12 @@ function LandingPage() {
                 <Button
                 className="videoBTN"
                 buttonText={<FontAwesomeIcon icon={faPlayCircle} style={{ color: "white" }}/>}
-                /* onClick={handleSearch} */
+                 onClick={handleSearch} 
               />
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="Home-cardContainer imageContainer">
         <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[5]}')` }}>

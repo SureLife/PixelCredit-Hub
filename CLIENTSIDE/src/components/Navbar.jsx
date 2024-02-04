@@ -84,7 +84,7 @@ function Navbar() {
         <li>
           {user ? (
             <div className="loggedIn">
-              <Link className="upload" to="/images/upload">
+              <Link className="nav-hover upload" to="/images/upload">
                 <FontAwesomeIcon
                   className="slideIcon"
                   icon={faCloudArrowUp}
@@ -92,7 +92,20 @@ function Navbar() {
                 />
                 <p>UPLOAD</p>
               </Link>
-
+              <Link to="/shoppingcart" className="nav-hover buyCreditLink">
+              <FontAwesomeIcon
+                          className="slideIcon"
+                          icon={faCaretUp}
+                          style={{ color: "#000000" }}
+                        />
+                    <p>BUY CREDITS</p>
+                  
+              </Link>
+              {isAdmin && (
+                <Link to="/adminpanel" className="admin-panel-button">
+                  <button onClick={adminWarning}>Admin Panel</button>
+                </Link>
+              )}
               <div className="Avatar" onClick={toggleMenu}>
                 <img
                  src={profileImage ? profileImage : defaultAvatar}
@@ -148,7 +161,7 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/userprofile">
+                      <Link to="/payment/:price">
                         <FontAwesomeIcon
                           className="slideIcon"
                           icon={faCaretUp}
@@ -223,9 +236,9 @@ function Navbar() {
               </Link>
             </div>
           ) : (
-            <div>
-              <Link to="/login">LOGIN</Link>
-              <Link to="/register">REGISTER</Link>
+            <div className="login-links">
+              <Link className="nav-hover"to="/login">LOGIN</Link>
+              <Link className="nav-hover" to="/register">REGISTER</Link>
             </div>
           )}
         </li>
