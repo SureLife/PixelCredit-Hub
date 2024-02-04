@@ -40,13 +40,15 @@
   margin-bottom: 0.5rem;
 }
 
-.upload-history, .download-history {
+.upload-history,
+.download-history {
   margin-bottom: 2rem;
   padding: 2rem;
   background-color: #f4f5f6;
 }
 
-.upload-history h2,.download-history h2 {
+.upload-history h2,
+.download-history h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -76,9 +78,15 @@
   border-color: #777; /* Change to a darker color on hover */
 }
 
-.profileImage{
+.profileImage {
   width: 10rem;
   margin: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1px;
+  box-shadow: inset 0 0 10px black;
+  background-size: cover;
+  background-position: center;
 }
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {

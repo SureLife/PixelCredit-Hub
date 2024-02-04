@@ -117,7 +117,7 @@ const UploadImage = () => {
                   {/* Add more options as needed */}
                 </select>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Submit
               </button>
             </form>

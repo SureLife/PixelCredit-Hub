@@ -39,6 +39,7 @@ function Search() {
           placeholder="Find an image..."
           ref={searchInput}
           onKeyDown={handleKeyPress}
+          
         />
         <Button
           buttonText={<FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#ffffff",}} />}
