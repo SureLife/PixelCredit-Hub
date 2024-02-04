@@ -6,8 +6,8 @@ import Button from "../components/Button";
 import { shuffle } from "lodash";
 import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faHeart, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCartArrowDown, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
+import { faCartArrowDown, faHeart, faDownload } from '@fortawesome/free-solid-svg-icons';
 const backendURL = `http://localhost:5500`;
 function LandingPage() {
 

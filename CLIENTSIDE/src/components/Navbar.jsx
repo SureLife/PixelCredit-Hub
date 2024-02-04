@@ -108,7 +108,7 @@ function Navbar() {
               )}
               <div className="Avatar" onClick={toggleMenu}>
                 <img
-                  src={profileImage || defaultAvatar}
+                 src={profileImage ? profileImage : defaultAvatar}
                   alt="Profile"
                   className="profile-avatar"
                 />
@@ -219,6 +219,21 @@ function Navbar() {
                   </div>
                 </SlidingPane>
               )}
+              {isAdmin && (
+                <Link to="/adminpanel" className="admin-panel-button">
+                  <button onClick={adminWarning}>Admin Panel</button>
+                </Link>
+              )}
+              <Link to="/shoppingcart" className="buyCreditLink">
+              
+                     <img
+                       src={buyCredit}
+                      className="buyCredit"
+                      alt="buyCredit"
+                    /> 
+                    <p>BUY CREDITS</p>
+                  
+              </Link>
             </div>
           ) : (
             <div className="login-links">

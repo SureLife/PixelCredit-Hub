@@ -76,6 +76,10 @@
   border-color: #777; /* Change to a darker color on hover */
 }
 
+.profileImage{
+  width: 10rem;
+  margin: 1rem;
+}
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   .profile {

@@ -19,34 +19,20 @@ export const reducer = (state, action) => {
     case "SET_TOKEN":
       return { ...state, token: action.payload };
     case "SetSelectedFile":
-      return {
-        ...state,
-        selectedFile: action.payload,
-      };
-       case "SetTags":
-      return {
-        ...state,
-        tags: action.payload,
-      };
+      return { ...state, selectedFile: action.payload };
+    case "SetTags":
+      return { ...state, tags: action.payload };
     case "setAllUploads":
-      return {
-        ...state,
-        allUploads: action.payload,
-      };
-      case "setSingleimage":
-        return {
-          ...state,
-          singleimage: action.payload,
-        };
-      
-    case "SetCategories":
-      return {
-        ...state,
-        categories: action.payload,
-      };
+      return { ...state, allUploads: action.payload };
+    case "setSingleimage":
+      return { ...state, singleimage: action.payload };
 
-      // case "SetEmailForgot":
-      //   return{...state , emailForgot :action.payload}
+    case "SetCategories":
+      return { ...state, categories: action.payload };
+    case "SetLike":
+      return { ...state, like: action.payload };
+    // case "SetEmailForgot":
+    //   return{...state , emailForgot :action.payload}
 
     default:
       return state;
@@ -67,8 +53,8 @@ export const initialState = {
   tags: [],
   categories: [],
   allUploads: [],
+  like: 0,
   // emailForgotPassword:""
 
   singleimage: [],
-
 };

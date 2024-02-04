@@ -187,3 +187,13 @@ export const singleImage = async (req, res, next) => {
     next(error);
   }
 };
+
+
+export const updateLikes = async (req, res, next) => {
+  console.log(req.body)
+  try {
+    console.log("like it")
+  } catch (error) {
+    
+  }
+}
