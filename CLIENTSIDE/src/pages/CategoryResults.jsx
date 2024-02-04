@@ -37,7 +37,7 @@ function CategoryResults() {
         <div className="row justify-content-center">
           {categoryImages.map((upload) => (
             <div key={upload._id} className="col-md-4 mb-4">
-              <div className="card">
+              <div className="card" >
                 <img
                   src={`${upload.imageURL}`}
                   alt={upload.fileName}

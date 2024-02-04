@@ -73,7 +73,7 @@ console.log(members);
           <ul className="aboutUsUl">
             {members.map((member, index) => (
             
-              <li key={index}>
+              <li className="memberLink" key={index}>
 
                 <div className="memberImgDiv">
                 <Link
@@ -83,12 +83,8 @@ console.log(members);
                   <img
                     src={member.image}
                     alt={`${member.name} ${member.lastname}`}
+                    className="memberImage"
                     
-                     style={{
-                      height: '150px',
-                      width: '150px', // Set your desired width
-                      borderRadius: '50%', // Set your desired border radius
-                    }} 
                      onContextMenu={handleImgRightClick}
                    
                   />
@@ -100,7 +96,7 @@ console.log(members);
                 <div className="memberNameLink">
                 <Link
                   to={`/members/${member.name.toLowerCase()}`}
-                  className="memberLink"
+                  className="memberNameLink"
                 >
                   {member.name} {member.lastname}
                 </Link>

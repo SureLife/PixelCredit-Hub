@@ -219,11 +219,11 @@ function Navbar() {
                   </div>
                 </SlidingPane>
               )}
-              {isAdmin && (
+             {/*  {isAdmin && (
                 <Link to="/adminpanel" className="admin-panel-button">
                   <button onClick={adminWarning}>Admin Panel</button>
                 </Link>
-              )}
+              )} */}
               <Link to="/shoppingcart" className="buyCreditLink">
               
                      <img

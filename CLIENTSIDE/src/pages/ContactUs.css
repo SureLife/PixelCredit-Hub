@@ -1,11 +1,9 @@
- .body{
-margin-left:400px;
-margin-right:400px
+.body {
+  margin-left: 400px;
+  margin-right: 400px;
+}
 
- }
- 
- 
- .contactbackground {
+.contactbackground {
   background-color: #f8f8f8;
   padding: 20px;
   box-shadow: 0px 0px 10px#aab4aa;
@@ -13,21 +11,21 @@ margin-right:400px
 }
 
 .contact-form {
-  width: 800px; 
-   display: flex; 
- flex-direction: row;
-justify-content: space-between; 
-margin-left:100px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 100px;
 }
 
- form {
+form {
   display: grid;
   gap: 10px;
-  width: 700px
-} 
-.image img{
- width: 200px;
- height: 200px;
+  width: 700px;
+}
+.image img {
+  width: 200px;
+  height: 200px;
 }
 
 /* input{ 
@@ -35,11 +33,12 @@ margin-left:100px;
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;} */
-  
-  .inputsize{
-    width: 200%}
-  
-textarea{ 
+
+.inputsize {
+  width: 200%;
+}
+
+textarea {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
@@ -59,7 +58,6 @@ button {
   cursor: pointer;
   padding: 8px 12px;
   font-size: 14px;
-  
 }
 
 /* input:focus,
@@ -68,7 +66,6 @@ textarea:focus {
   border-color: #4caf50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 } */
-
 
 .success-message {
   background-color: #f0f0f0;
@@ -84,7 +81,6 @@ textarea:focus {
 .confirmation-options {
   margin-top: 20px;
   text-align: center;
-  
 }
 
 .confirmation-options p {
@@ -95,7 +91,6 @@ textarea:focus {
   padding: 10px;
   border-radius: 6px;
 }
-
 
 .confirmation-options button {
   /* background-color: #555; */
@@ -109,7 +104,7 @@ textarea:focus {
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 250px;
-  height: 45px
+  height: 45px;
 }
 
 .confirmation-options button:hover {
@@ -117,7 +112,6 @@ textarea:focus {
   transform: scale(1.05);
 }
 
-.sticker{
-  margin-left:110px;
+.sticker {
+  margin-left: 110px;
 }
-

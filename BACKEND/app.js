@@ -15,7 +15,6 @@ import imageRouter from "./routers/imageRouter.js";
 import paymentRouter from "./routers/addPaymentRouter.js";
 import forgotPasswordRouter from "./routers/forgotPasswordRouter.js";
 
-
 // creating express server
 const app = express();
 
@@ -29,8 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 // connect to MongoDB through mongoose
 mongoose
   //.connect("mongodb://localhost:27017/PixelCreditHub")
-    .connect("mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub")
- // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
+  .connect(
+    "mongodb+srv://nehasmehta2005:ICQzP08lGETIh1fT@cluster0.r4yt3p4.mongodb.net/PixelCreditHub"
+  )
+  // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
   .catch((err) => console.log(err));
 
@@ -38,7 +39,12 @@ mongoose
 app.use(morgan("tiny"));
 
 // cors middleware
-app.use(cors({ origin: "http://localhost:5173", exposedHeaders: ["token"] }));
+const origin =
+  process.env.NODE_ENV === "production"
+    ? "http://localhost:4173"
+    : "http://localhost:5173";
+app.use(cors({ origin, exposedHeaders: ["token"] }));
+
 // app.use(cors({ origin: "http://127.0.0.1:5173", exposedHeaders: ["token"] }));
 
 // localhost:5500/users
@@ -51,7 +57,6 @@ app.use("/profile", profileRouter);
 app.use("/images", imageRouter);
 app.use("/savePayment", paymentRouter);
 app.use("/forgotPassword", forgotPasswordRouter);
-
 
 //create more routes as required
 

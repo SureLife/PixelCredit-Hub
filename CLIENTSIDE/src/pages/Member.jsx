@@ -43,11 +43,11 @@ function Member() {
 
   return (
     <div
-      className="px-lg-5 container-fluid d-flex align-items-center justify-content-center"
-      style={{ backgroundColor: "rgb(244,245,246)", minHeight: "100vh" }}
+      className="px-lg-1  container d-flex align-items-center justify-content-center"
+      style={{  minHeight: "100vh" }}
       id="tns2-item2"
     >
-      <div className="row gx-5">
+      <div className="row gx-6 p-5 " >
         <div className="col-lg-6 text-center order-lg-1 order-2">
           <img
             src={profileLogo}
@@ -119,12 +119,12 @@ function Member() {
             </li>
           </ul>
         </div>
-        <div className="col-lg-6 text-center order-lg-2 order-1">
+        <div className="col-lg-6 text-center order-lg-2 order-1" >
           <img
-            className="d-block me-lg-n5 flex-shrink-0"
+            className="d-block me-lg-n5 mx-auto flex-shrink-0"
             src={singleMember.image}
             alt={`${singleMember.name} ${singleMember.lastname}`}
-            style={{ maxWidth: "80%", height: "auto" }}
+            style={{ maxWidth: "70%", height: "auto", borderRadius:"5px" }}
             onContextMenu={handleImgRightClick}
           />
         </div>
