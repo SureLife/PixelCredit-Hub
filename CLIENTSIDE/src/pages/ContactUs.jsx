@@ -64,12 +64,12 @@ function ContactUs() {
   }
 
   return (
-    <div className="body">
+    <div className="contactUsMainContainer">
       <h1>Reach Out and Connect</h1>
 <br /><br />
       <div className="contactbackground">
         <div className="contact-form">
-          <div>
+          <div className="sub-containerForm">
             <form onSubmit={handleSubmit} method="POST">
               <div className="name">
                 <input className="inputsize"
