@@ -224,16 +224,7 @@ function Navbar() {
                   <button onClick={adminWarning}>Admin Panel</button>
                 </Link>
               )} */}
-              <Link to="/shoppingcart" className="buyCreditLink">
               
-                     <img
-                       src={buyCredit}
-                      className="buyCredit"
-                      alt="buyCredit"
-                    /> 
-                    <p>BUY CREDITS</p>
-                  
-              </Link>
             </div>
           ) : (
             <div className="login-links">
