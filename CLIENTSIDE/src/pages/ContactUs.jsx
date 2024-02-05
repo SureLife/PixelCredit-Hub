@@ -70,6 +70,25 @@ function ContactUs() {
 
   return (
     <div className="container-sm">
+      {showConfirmation && (
+            <div className="confirmation-options">
+              <p>Do you have a new message?</p>
+              <button
+                onClick={handleConfirmationYes}
+                className="btn btn-primary m-3"
+                style={{ width: "100px" }} 
+              >
+                Yes
+              </button>
+              <button
+                onClick={handleConfirmationNo}
+                className="btn btn-secondary m-3"
+                style={{ width: "100px" }} 
+              >
+                No
+              </button>
+            </div>
+          )}
       <div className="col">
         <h2 className="mb-5">Reach Out and Connect</h2>
       </div>
@@ -136,23 +155,23 @@ function ContactUs() {
             Thanks for your message, {senderName}! It is always nice to hear
             from you. We will get back to you.
           </p>
-          {showConfirmation && (
+          {/* {showConfirmation && (
             <div className="confirmation-options">
               <p>Do you have a new message?</p>
               <button
                 onClick={handleConfirmationYes}
-                className="btn btn-primary"
+                className="btn btn-primary mt-3"
               >
                 Yes
               </button>
               <button
                 onClick={handleConfirmationNo}
-                className="btn btn-secondary"
+                className="btn btn-secondary mt-3"
               >
                 No
               </button>
             </div>
-          )}
+          )} */}
         </div>
       )}
     </div>
