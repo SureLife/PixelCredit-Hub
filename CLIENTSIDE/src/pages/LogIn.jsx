@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./LogIn.css";
 import { MyContext } from "../context/MyContext";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 function LogIn() {
   const { state, dispatch } = useContext(MyContext);
@@ -174,7 +176,7 @@ function LogIn() {
           <div className="social-icons">
             <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google Icon" className="rounded-icon" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" className="rounded-icon" />
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="Twitter Icon" className="rounded-icon" />
+            <FontAwesomeIcon icon={faXTwitter} style={{ fontSize: '2.5em' }} />
           </div>
 
           <div className="additional-options">

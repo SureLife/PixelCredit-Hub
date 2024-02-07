@@ -5,16 +5,7 @@ import axios from "axios";
 const DownloadButton = ({ fileName }) => {
   const backendURL = `http://localhost:5500`;
   const handleDownloadClick = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${backendURL}/images/singleimage/${fileName}`
-  //     );
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  try {
+    try {
     const response = await axios.get(
       `${backendURL}/images/singleimage/${fileName}`,
       { responseType: 'blob' }  // Set responseType to 'blob' for binary data
@@ -40,27 +31,12 @@ const DownloadButton = ({ fileName }) => {
   }
   }
 
-  /*   useEffect(() => {
-    async function fetchSingleImages() {
-      try {
-        console.log(fileName);
-        const response = await axios.get(
-          `${backendURL}/images/singleimage/${fileName}`
-        );
-        console.log(response);
-        //dispatch({ type: "setsingleMember", payload: response.data });
-      } catch (error) {
-        console.error("Error fetching singleImage details:", error);
-      }
-    }
 
-    fetchSingleImages();
-  }, []);  */
 
   return (
-    <div>
-      <button onClick={handleDownloadClick}>download image</button>
-    </div>
+  
+      <button className="btn btn-dark mt-2" onClick={handleDownloadClick}>download image</button>
+    
   );
 };
 
