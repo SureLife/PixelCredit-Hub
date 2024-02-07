@@ -104,6 +104,7 @@ const UploadImage = () => {
                   name="categories"
                   value={categories}
                   onChange={handleCategoryChange}
+                  required
                 >
                   <option value="" disabled>
                     Select category
