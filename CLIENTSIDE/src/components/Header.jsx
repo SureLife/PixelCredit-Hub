@@ -4,7 +4,7 @@ import Search from './Search.jsx'
 
 function Header() {
   return (
-    <div>
+    <div className='header'>
       <Navbar/>
       <Search/>
     </div>

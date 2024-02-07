@@ -8,10 +8,12 @@ function Home() {
   const { state, dispatch } = useContext(MyContext);
   const { searchImage, searchQuery } = state;
   return (
-    <div>
-      <div className="home">
-        {searchImage.length === 0 && searchQuery !== "" ? <SearchResult /> : <LandingPage />}
-      </div>
+    <div className="home">
+      {searchImage.length === 0 && searchQuery !== "" ? (
+        <SearchResult />
+      ) : (
+        <LandingPage />
+      )}
     </div>
   );
 }

@@ -2,7 +2,8 @@ import React, { useEffect, useContext } from "react";
 //import { Link } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 import axios from "axios";
-import "./ReviewUploadedImages.css";
+//import "./ReviewUploadedImages.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const backendURL = `http://localhost:5500`;
 
@@ -35,7 +36,7 @@ function ReviewUploadedImages() {
   const approveImage = async (upload) => {
 
     try {
-      const res = await fetch(`http://localhost:5500/images/approve/${upload._id}`, {
+      const res = await fetch(`${backendURL}/images/approve/${upload._id}`, {
         method: `PATCH`,
         headers: {
           "Content-Type": `application/json`,
@@ -57,7 +58,7 @@ function ReviewUploadedImages() {
   const denyImage = async (upload) => {
 
     try {
-      const res = await fetch(`http://localhost:5500/images/deny/${upload._id}`, {
+      const res = await fetch(`${backendURL}/images/deny/${upload._id}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": `application/json`,
@@ -75,25 +76,39 @@ function ReviewUploadedImages() {
     }
   }
   return (
-    <div className="pendingContainer">
-      <div className="uploads-container">
-        {allUploads.map(upload => (
-          <div className="upload-item" key={upload._id}>
-            <img
-              src={`${upload.imageURL}`}
-              alt={upload.fileName}
-              style={{ width: '200px', height: 'auto' }}
-            />
-            <p>Status: {upload.status}</p>
-            <button onClick={() => approveImage(upload)}>Approve</button>
-            <button className="deny" onClick={() => denyImage(upload)}>Deny</button>
-            <hr />
-          </div>
-        ))}
-      </div>
+    <div className="container-sm">
+        {allUploads.length === 0 ? (
+          <div style={{ minHeight:"13rem" }}> 
+         <p className="text-center p-5 m-5 bg-dark text-white  " style={{ fontSize: ' 2rem' }}>
+         You've reviewed all uploaded images. Check back later for more!
+     </p>
+     </div>
+     
+            ) : (
+                <div className="row">
+                    {allUploads.map(upload => (
+                        <div className="col-md-4 mb-3" key={upload._id}>
+                            <div className="card">
+                                <img
+                                    src={`${upload.imageURL}`}
+                                    alt={upload.fileName}
+                                    className="card-img-top"
+                                    style={{ height: '300px', objectFit: 'cover' }}
+                                />
+                                <div className="card-body">
+                                    <p className="card-text">Status: {upload.status}</p>
+                                    <p className="card-text">Tags: {upload.tags}</p>
+                                    <p className="card-text">Category: {upload.categories}</p>
+                                    <button className="btn btn-success m-2" onClick={() => approveImage(upload)}>Approve</button>
+                                    <button className="btn btn-danger m-2" onClick={() => denyImage(upload)}>Deny</button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
     </div>
-
-  )
+);
 }
 
-export default ReviewUploadedImages
+export default ReviewUploadedImages;
