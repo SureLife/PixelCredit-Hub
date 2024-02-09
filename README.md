@@ -66,12 +66,12 @@ We used Figma for designing the wireframe of our application.
 3. Configure environment variables:
  - Create a `.env` file in the `server` directory.
  - Add the following variables and replace placeholder values with actual values:
-  ```
-  PORT = 5500
-  SECRET_KEY=secureSecretKey 
-  EMAIL_USERNAME=your-email@gmail.com
-  EMAIL_PASSWORD=your-email-password
-  ```
+    ```
+    PORT = 5500
+    SECRET_KEY=secureSecretKey 
+    EMAIL_USERNAME=your-email@gmail.com
+    EMAIL_PASSWORD=your-email-password
+    ```
 
 4. Start the server and client:
 
