@@ -58,7 +58,7 @@ const resetPassword = () => {
             alt="lock"
           />
         </div>
-        <div className="riht-side1">
+        <div className="right-side1">
         <form onSubmit={handleChangePassword}>
           <label>
             New Password:
