@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import {useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
+import './ResetPassword.css';
 const resetPassword = () => {
     const { state, dispatch } = useContext(MyContext);
     const navigate = useNavigate();
@@ -46,8 +47,16 @@ const resetPassword = () => {
     };
   
     return (
+    <div>
+
+      <h1>Reset Your Password Here:</h1>
+      <div className="container">
+
+  <div className="left-side">
+    <img src="https://static.vecteezy.com/system/resources/previews/017/112/080/non_2x/password-icon-for-unlocking-security-lock-with-padlock-vector.jpg" alt="lock" />
+  </div>
       <form onSubmit={handleChangePassword}>
-        <p>Resetting password for {userEmail}</p>
+     
         <label>
           New Password:
           <input
@@ -68,6 +77,8 @@ const resetPassword = () => {
         <br />
         <button type="submit">Change Password</button>
       </form>
+      </div>
+      </div>
     );
   };
   
