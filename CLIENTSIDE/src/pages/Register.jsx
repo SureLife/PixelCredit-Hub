@@ -1,20 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
 function Register() {
   const navigate = useNavigate();
   const [securityQuestion, setSecurityQuestion] = useState("");
   const [securityAnswer, setSecurityAnswer] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true); // New state variable
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
 
   const handleSecurityQuestionChange = (e) => {
     setSecurityQuestion(e.target.value);
   };
 
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    setPasswordsMatch(
+      e.target.value === document.getElementById("password").value
+    );
+  };
+
   const registerUser = (e) => {
     e.preventDefault();
+
+    // Check if password and confirm password match
+    if (!passwordsMatch) {
+      console.log("Passwords do not match");
+      return;
+    }
+
     const user = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -46,6 +65,12 @@ function Register() {
       .catch((err) => console.log(err));
   };
 
+  const TogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const ToggleConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
   return (
     <div>
       <div className="container">
@@ -60,9 +85,6 @@ function Register() {
         </div>
 
         <div className="right-side">
-          {/* <h1>Create your account</h1>
-          <p>It's free and easy</p> */}
-
           <form onSubmit={registerUser}>
             <h1>Create your account</h1>
             <p>It's free and easy</p>
@@ -85,23 +107,64 @@ function Register() {
               required
               autoComplete="username"
             />
-
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Type your Password*"
-              required
-              autoComplete="current-password"
-            />
+          
+              <label htmlFor="password">Password:</label>
+              <div style={{ position: "relative", display: "inline-block" }}>
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                placeholder="Type your Password*"
+                required
+                autoComplete="new-password"
+              />
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                style={{
+                  position: "absolute",
+                  right: "8px",
+                  top: "40%",
+                  transform: "translateY(-60%)",
+                  cursor: "pointer",
+                }}
+                onClick={TogglePassword}
+              />
+            </div>
             <p className="additional-options">Must be 8 characters at least</p>
+
+             <div style={{ position: "relative", display: "inline-block" }}>
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your Password*"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                required
+                autoComplete="new-password"
+              />
+              <FontAwesomeIcon
+                icon={showConfirmPassword ? faEyeSlash : faEye}
+                style={{
+                  position: "absolute",
+                  right: "8px",
+                  top: "40%",
+                  transform: "translateY(-60%)",
+                  cursor: "pointer",
+                }}
+                onClick={ToggleConfirmPassword}
+              />
+            </div>
+            {!passwordsMatch && (
+              <p style={{ color: "red" }}>Passwords do not match</p>
+            )}
 
             <label htmlFor="securityQuestion">Security Question:</label>
             <select
               name="securityQuestion"
               onChange={handleSecurityQuestionChange}
               required
+              defaultValue=""
             >
               <option value="" disabled>
                 Select a security question
@@ -152,8 +215,7 @@ function Register() {
               alt="Facebook Icon"
               className="rounded-icon"
             />
-        <FontAwesomeIcon icon={faXTwitter} style={{ fontSize: '2.5em' }} />
-
+            <FontAwesomeIcon icon={faXTwitter} style={{ fontSize: "2.5em" }} />
           </div>
 
           <div className="additional-options">
