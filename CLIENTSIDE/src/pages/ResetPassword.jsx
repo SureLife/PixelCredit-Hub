@@ -59,10 +59,10 @@ const resetPassword = () => {
           />
         </div>
         <div className="right-side1">
-        <form onSubmit={handleChangePassword}>
+        <form className="resetform" onSubmit={handleChangePassword}>
           <label>
             New Password:
-            <input
+            <input className="PassInput"
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
@@ -72,13 +72,15 @@ const resetPassword = () => {
           <label>
             Confirm New Password:
             <input
+            className="PassInput"
               type="password"
               value={confirmNewPassword}
               onChange={(e) => setConfirmNewPassword(e.target.value)}
             />
           </label>
           <br />
-          <button type="submit">Change Password</button>
+          <button className="resetPassBtn"
+          type="submit">Change Password</button>
         </form>
         </div>
       </div>
