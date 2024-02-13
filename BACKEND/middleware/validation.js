@@ -20,7 +20,12 @@ export const userRegisterValidation = [
     .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i")
     .withMessage(" password should include number and alpha characters"),
 
-  body("name").exists().trim().escape().isAlpha(),
+    body("name")
+    .exists()
+    .trim()
+    .escape()
+    .matches(/^[A-Za-z\s\-']+$/, "i")
+    .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes"),
 
   (req, res, next) => {
     const errors = validationResult(req);
