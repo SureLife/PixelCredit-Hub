@@ -69,7 +69,7 @@ export const login = async (req, res, next) => {
       } else {
         res
           .status(401)
-          .send({ success: false, message: "password doesn't match!" });
+          .send({ success: false, message: "Incorrect email or password"});
       }
     } else {
       res.send({
