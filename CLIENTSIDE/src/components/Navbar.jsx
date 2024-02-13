@@ -103,7 +103,7 @@ function Navbar() {
               </Link>
               {isAdmin && (
                 <Link to="/adminpanel" className="admin-panel-button">
-                  <button onClick={adminWarning}>Admin Panel</button>
+                  <button className="adminBtn" onClick={adminWarning}>Admin Panel</button>
                 </Link>
               )}
               <div className="Avatar" onClick={toggleMenu}>

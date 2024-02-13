@@ -78,6 +78,9 @@
   height: 5rem;
   width: 5rem;
 }
+.adminBtn{
+  width: 9rem;
+}
 .profile-avatar {
   height: 5rem;
   width: 5rem;
@@ -241,7 +244,7 @@
   } */
   .profile-avatar {
     padding: 0.3rem;
-    margin: 0 1rem;
+    margin: 0 0.2rem;
   }
   .login-links {
     display: inline;
@@ -250,5 +253,8 @@
   .upload,
   .nav-hover {
     display: none;
+  }
+  .adminBtn{
+    margin-left: 0;
   }
 }

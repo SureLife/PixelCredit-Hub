@@ -22,7 +22,7 @@ const app = express();
 // middleware to parse any incoming json data
 app.use(express.static("public")); // don't touch it plz! best regards, Masouma
 app.use(express.json());
-//app.use(express.static("./views/dist"));
+app.use(express.static("./views/dist"));
 app.use(fileUpload());
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,12 +44,13 @@ const origin =
   process.env.NODE_ENV === "production"
     ? "http://localhost:4173"
     : "http://localhost:5173";
+
 app.use(cors({ origin, exposedHeaders: ["token"] }));
 
 // app.use(cors({ origin: "http://127.0.0.1:5173", exposedHeaders: ["token"] }));
 
 // localhost:5500/users
-//app.get("/", (req, res) => {res.sendFile("views/dist/index.html", { root: "." });});
+app.get("/", (req, res) => {res.sendFile("views/dist/index.html", { root: "." });});
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/submitContactForm", contactUsRouter);
