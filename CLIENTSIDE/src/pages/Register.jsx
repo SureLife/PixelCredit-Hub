@@ -85,8 +85,9 @@ function Register() {
         </div>
 
         <div className="right-side">
+        <h1>Create your account</h1>
           <form onSubmit={registerUser}>
-            <h1>Create your account</h1>
+           
             <p>It's free and easy</p>
             <label htmlFor="name">Full name:</label>
             <input
@@ -159,8 +160,8 @@ function Register() {
               <p style={{ color: "red" }}>Passwords do not match</p>
             )}
 
-            <label htmlFor="securityQuestion">Security Question:</label>
-            <select
+            <label className="quesLabel" htmlFor="securityQuestion">Security Question:</label>
+            <select className="selectQues"
               name="securityQuestion"
               onChange={handleSecurityQuestionChange}
               required

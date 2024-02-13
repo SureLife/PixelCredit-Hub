@@ -214,7 +214,7 @@ function LogIn() {
               {resetPassword ? (
                 <Link to="/login">Back to Log In</Link>
               ) : (
-                <button style={{ width: "55%" }} onClick={handleForgotPassword}>
+                <button className="forgotPassBtn" onClick={handleForgotPassword}>
                   Forgot password?
                 </button>
               )}
