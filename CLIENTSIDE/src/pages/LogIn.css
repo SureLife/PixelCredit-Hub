@@ -23,6 +23,7 @@
 }
 
 .right-side {
+  
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -36,35 +37,50 @@ form {
 }
 
 label {
+ 
+  padding: 10px;
   display: block;
-  margin-bottom: 8px;
+  
+}
+.quesLabel{
+  margin-top: 0;
 }
 
 input {
-  width: 100%;
+  width: 20rem;
   padding: 10px;
-  margin-bottom: 20px;
+
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
+.selectQues{
+  width: 20rem;
+}
+
 button {
+  margin: 1rem;
   background-color: #2a2a33;
   color: #fff;
   padding: 12px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  width: 100%;
+  width: 300px;
+}
+.forgotPassBtn{
+  margin: 0 auto;
+  background-color: #fff;
+  color: black;
 }
 
-button:hover {
-  background-color: #777;
+.forgotPassBtn:hover {
+  background-color:#fff;
 }
 
 .additional-options {
-  margin-top: 20px;
+  margin-top: 0.8rem;
   text-align: center;
 }
 
