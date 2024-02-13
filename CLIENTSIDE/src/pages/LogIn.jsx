@@ -65,7 +65,7 @@ function LogIn() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: e.target.email.value,
-
+            securityQuestion: e.target.securityQuestion.value,
             securityAnswer: e.target.securityAnswer.value,
           }),
         }

@@ -24,7 +24,7 @@ export const forgotPassword=(req, res) => {
 
     export const compareSEcurityAnswer = async (req, res) => {
       try {
-        const { email,  securityAnswer } = req.body;
+        const { email,  securityAnswer, securityQuestion } = req.body;
     
         console.log(req.body);
         const user = await User.findOne({ email });
@@ -34,13 +34,13 @@ export const forgotPassword=(req, res) => {
         }
     
         // Check if the provided security answer matches the stored answer
-        if (user.securityAnswer === securityAnswer) {
+        if (user.securityAnswer === securityAnswer && user.securityQuestion === securityQuestion) {
           
            
            return res.json({ success: true, message: 'Security answer matched.', userId: user._id, userEmail: user.email  });
     
         } else {
-          return res.json({ success: false, message: 'Security answer did not match.' });
+          return res.json({ success: false, message: 'Security answer or Question did not match.' });
         }
       } catch (error) {
         console.error('Error:', error);
