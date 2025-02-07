@@ -20,7 +20,7 @@ function LogIn() {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5500/users/logIn", {
+      const response = await fetch("https://pixelcredit-hub.onrender.com" /*"http://localhost:5500/users/logIn"*/, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -59,7 +59,7 @@ function LogIn() {
     });
     try {
       const response = await fetch(
-        "http://localhost:5500/forgotPassword/compareSecurityAnswer",
+        "https://pixelcredit-hub.onrender.com/forgotPassword/compareSecurityAnswer" /*"http://localhost:5500/forgotPassword/compareSecurityAnswer"*/,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
