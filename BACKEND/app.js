@@ -28,7 +28,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // connect to MongoDB through mongoose
 mongoose
-   .connect("mongodb://localhost:27017/PixelCreditHub")
+   .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub?retryWrites=true&w=majority")
+   //.connect("mongodb://localhost:27017/PixelCreditHub")
   
   // .connect("mongodb+srv://admin:r7j3Urtu25iXP9uf@cluster0.diwjxu8.mongodb.net/PixelCreditHub")
   .then(() => console.log("We connected to DB 😉"))
@@ -43,7 +44,7 @@ const origin =
     ? "http://localhost:4173"
     : "http://localhost:5173";
 
-app.use(cors({ origin, exposedHeaders: ["token"] }));
+app.use(cors({ origin: "*", exposedHeaders: ["token"] }));
 
 // app.use(cors({ origin: "http://127.0.0.1:5173", exposedHeaders: ["token"] }));
 
